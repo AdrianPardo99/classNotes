@@ -1,0 +1,188 @@
+\documentclass[10pt,executivepaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{imakeidx}
+\makeindex[columns=3, title=Alphabetical Index, intoc]
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{changepage}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{url}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=3
+}
+
+\lstset{style=mystyle}
+
+\title{Algorithm}
+
+\author{A cargo del profesor: Cristhian Avila Sanchez\\Escrito por: Adrian González Pardo}
+
+\date{\today}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+% Portada
+%encabezado
+\begin{minipage}{0.4\textwidth}
+	\begin{flushleft}
+		\includegraphics[scale = 0.05]{logoescom.png}
+	\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.51\textwidth}
+	\begin{flushright}
+		\includegraphics[scale = 0.055]{logoipn.png}
+	\end{flushright}
+\end{minipage}
+\begin{center}
+	\par\vspace{0.5cm}{
+		\huge\textbf{Instituto Politécnico Nacional \\*[0.20cm] Escuela Superior de Cómputo}
+	}
+	\par\vspace{1cm}{
+		\large\textbf{
+		{Analisís y Diseño de Algoritmos\\Profesor: Cristhian Avila Sanchez\\Grupo: 3CV3\\Adrian González Pardo\\Semestre: 20/01}}
+	}
+	\par\vspace{1cm}{
+		\includegraphics[scale=0.2]{AnalysisOfAlgorithm.jpg}
+	}
+	\par\vspace{2cm}{
+		Ultima fecha modificado: \today
+	}
+\end{center}
+
+% Indice
+\clearpage
+\tableofcontents
+\clearpage
+
+%Contenido
+\section{Primer parcial}
+\subsection{Presentación}
+El fin de comprender el Analisís y Diseño de Algoritmos en la ingeniería, es con la tarea de poder resolver problemas en los que se pueda automatizar procesos con el uso del poder computable aun cuando estos pueden tener una mayor complejidad en la Automatización de dicho, por lo cual se abordaran problemas acorde a su tipo de clase de complejidad y se llevara un analisís en el que se planea llegar a una aproximación de solución o a su solución total.
+\subsubsection{Prerequisitos de la materia (No estrictos)}
+\begin{center}
+	\begin{tabular}{|p{5.5cm}|p{5.5cm}|}
+		\hline
+		Lenguaje C (o de la familia de lenguajes C) &	 Teoría de la Computación \\
+		\hline
+		Probabilidad &  Variable Compleja \\
+		\hline
+		Matemáticas Discretas &  Analisís Vectorial \\
+		\hline
+		Algebra Lineal &  Calculo I,II \\
+		\hline
+		Ecuaciones Diferenciales & Física \\
+		\hline
+	\end{tabular}
+	\\\vspace{2.5mm}
+	\begin{tabular}{|p{13cm}|}
+		\hline
+		\textit{Nota: es necesario tener noción de estos topicos debido
+		a ciertos temás en los que se puede abordar acorde a temas anteriormente
+		vistos y por otro lado es necesario saber como trabaja a bajo nivel todo
+		el proceso de calculo de complejidad temporal y espacial con uso de bajo recurso.}\\
+		\hline
+	\end{tabular}
+\end{center}
+\subsubsection{Topicos de la materia}
+De acuerdo al plan estudios propuesto en la pagína de la ESCOM se abordaran los siguientes temas tomando de guía el temario y los temas propuestos por el profesor.
+\begin{center}
+	\begin{tabular}{|p{5.5cm}|p{5.5cm}|}
+		\hline
+		Problemas P & Heuristicas\\
+		\hline
+		Complejidad Computacional & Programación Dínamica \\
+		\hline
+		Algoritmos Aleatorios & NP-Completos \\
+		\hline
+		Divide y Venceras & NP-Dificiles\\
+		\hline
+		Espacios de Busquedad & No Computables \\
+		\hline
+	\end{tabular}
+\end{center}
+\subsubsection{Evaluación de la materia}
+La materia para este semestre sera evaluada de acuerdo a los siguientes rubros.
+ \renewcommand{\labelenumi}{\Roman{enumi}}
+\begin{enumerate}
+
+	\item Examen 70\%
+	\item Lista de problemas 10\%
+	\item Practicas 10\%
+	\item Evaluación Practica 10\%
+\end{enumerate}
+\subsubsection{Libros que pueden ser de ayuda}
+\begin{itemize}
+	\item Algorithm Design - Kleinberg, Tardos
+	\item The Nature of Computation - Christopher Moore
+	\item Cormen
+	\item Sipser
+	\item Hopcroft
+\end{itemize}
+\subsection{¿Qué es un Algoritmo?}
+Entre las ideas comunes de los que es un algoritmo estan:
+\begin{center}
+	\begin{tabular}{|p{11cm}|}
+		\hline
+		Es una solución a un problema computacional mediante una Maquina de Turing que siempre se detiene (Llega a un estado de aceptación)\\
+		\hline
+		Es parecido a una receta: Recibe una Entrada y pasa a una Salida\\
+		\hline
+		Serie de pasos ordenados y estructurados\\
+		\hline
+		Se puede reutilizar para distintos problemas / con variantes\\
+		\hline
+	\end{tabular}
+\end{center}
+De acuerdo a unas aproximaciones formales podemos tener que un algoritmo es:
+\begin{center}
+	\begin{tabular}{|p{11cm}|}
+		\hline
+		Solución a un problema computacional mediante una Maquina de Turing que siempre se detiene (Llega aun estado de aceptación) durante el procesamiento, parte de un estado inicial y va avanzando a través de los estados del automata\\
+		\hline
+		Algoritmo / Automata puede reutilizarse en diversas instancias del problema computacional (reutilización de la logíca o modulo computacional)\\
+		\hline
+	\end{tabular}
+\end{center}
+Entonces con esto podemos plantear algo muy importante que es:
+\subsubsection{Computación}
+Podemos definirla como un proceso natural en el que se busca una representación de un comportamiento físico, que a su vez es representado por un modelo matemático en el que se piensa puede representar un proceso, un comportamiento natural o incluso en el que se puede mostrar algo parecido a la vida.
+\\
+De este modo un algoritmo acorde a esta idea debe ser:
+\begin{itemize}
+	\item Eficas: Que debe tener una resolución correcta
+	\item Eficiente: Que debe ser capaz de realizarlo con recursos óptimos (Memoria / Procesamiento)
+\end{itemize}
+
+\printindex
+\end{document}
