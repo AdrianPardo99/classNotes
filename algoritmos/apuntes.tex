@@ -86,7 +86,7 @@
 \clearpage
 
 %Contenido
-\section{Primer parcial}
+\section{Incio}
 \subsection{Presentación}
 El fin de comprender el Análisis y Diseño de Algoritmos en la ingeniería, es con la tarea de poder resolver problemas en los que se pueda automatizar procesos con el uso del poder computable aun cuando estos pueden tener una mayor complejidad en la Automatización de dicho, por lo cual se abordaran problemas acorde a su tipo de clase de complejidad y se llevara un análisis en el que se planea llegar a una aproximación de solución o a su solución total.
 \subsubsection{Prerequisitos de la materia (No estrictos)}
@@ -149,6 +149,7 @@ La materia para este semestre sera evaluada de acuerdo a los siguientes rubros.
 	\item Sipser
 	\item Hopcroft
 \end{itemize}
+\section{Primer parcial}
 \subsection{¿Qué es un Algoritmo?}
 Entre las ideas comunes de los que es un algoritmo estan:
 \begin{center}
@@ -183,6 +184,28 @@ De este modo un algoritmo acorde a esta idea debe ser:
 	\item Eficas: Que debe tener una resolución correcta
 	\item Eficiente: Que debe ser capaz de realizarlo con recursos óptimos (Memoria / Procesamiento)
 \end{itemize}
-
+\subsection{Complejidad Computacional}
+La complejidad computacional puede ser interpretada como la integración del número de recursos que utiliza un algoritmo para resolver un problema computacional.\\
+Esta complejidad esta dividida en dos clases muy importantes:\\
+\begin{itemize}
+  \item Temporal: Con relación al procesamiento
+  \item Espacial: Con relación a la memoria
+\end{itemize}
+De este modo podemos pensar y añadir a las caracterizticas de la resolución de un algoritmo:
+\begin{itemize}
+  \item Eficacia: A una correctez en su ejecución
+  \item Eficiencia: A una buena administración de sus recursos (Memoria - Espacio) (Procesamiento - Tiempo)
+\end{itemize}
+\subsubsection{Enfoque temporal}
+Ahora como una primera aproximación: Asumiendo un espacio utilizado constante o manejable.\\
+\textbf{Definimos:}\\
+Función temporal: \\
+\tab $\mathbf{f(N)}$: Es el número de pasos / operaciones a ejecutar.\\
+\tab $\mathbf{N}$: Es el numero de datos de entrada.\\
+Acorde a esto podemos pensar en que existen complejidades:\\
+\tab Lineal: $\mathbf{f(N) = kN; \tab k \in \mathbb{R}}$\\
+\tab Cuadrática: $\mathbf{f(N)  \sim {N^2}}$\\
+\tab Polinomial: $\mathbf{f(N) \sim {N^a}}; \tab a \in \mathbb{N}$\\
+\tab\tab\hspace{0.85cm}\textbf{$\mathbf{f(N) \sim \alpha}${\tiny a}$\mathbf{N^a + \alpha}${\tiny a-1}$\mathbf{N^{a-1} + ... + \alpha}${\tiny 2}$\mathbf{N^2 + \alpha}${\tiny 1}$\mathbf{N + \alpha}${\tiny 0}}
 \printindex
 \end{document}
