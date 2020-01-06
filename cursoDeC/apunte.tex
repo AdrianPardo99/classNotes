@@ -16,6 +16,7 @@
 \usepackage{float}
 \usepackage{cite}
 \usepackage{url}
+\usepackage{hyperref}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -230,6 +231,28 @@ Ejecutando este programa a 5 niveles tenemos
 \begin{center}
 \includegraphics[scale=0.5]{screens/screen5.png}\\
 \textit{Output del código de ejemplo 11}
+\end{center}
+Otra forma de ver la idea del codigo anterior implementada de distinta forma es
+\lstinputlisting[language=C]{./sourceCodes/recursividad.c}
+\begin{center}
+\textit{Código fuente 12}\\
+\end{center}
+Ahora a continuación se presentara finalmente dos aplicaciones interesantes de la recursividad en dos problemas que computacionalmente se abordan en clases (en el mejor de los casos).
+\\
+\subsection{Torres de hanoi}
+Este es un problema que se puede resolver computacionalmente que puede ser presentado en tres torres la cual consta de mover N cantidad de aros hasta la ultima torre, para un efecto ilustrativo aquí esta un link con información: \href{https://www.youtube.com/watch?v=LM68IQvIo_E}{\underline{Vídeo}}
+\lstinputlisting[language=C]{./sourceCodes/hanoi.c}
+\begin{center}
+\textit{Código fuente 13}\\
+\end{center}
+\subsection{Problema de las 8 reinas}
+Es un problema que trata de acomodar 8 reinas o n reinas dependiendo el caso en un tablero de 8*8 o n*n segun el caso respectivamente de tal forma en la que cada reina no se toque, para más información esta \href{https://www.youtube.com/watch?v=WOZ4wDt-iYA}{\underline{Vídeo}}
+\lstinputlisting[language=C]{./sourceCodes/8reinas.c}
+\begin{center}
+\textit{Código fuente 13}\\
+\end{center}
+\begin{center}
+\textbf{Gracias}\\
 \end{center}
 \printindex
 \end{document}
