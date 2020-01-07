@@ -207,6 +207,26 @@ Acorde a esto podemos pensar en que existen complejidades:\\
 \tab Cuadrática: \\\tab\tab$\mathbf{f(N)  \sim {N^2}}$\\
 \tab Polinomial: \\\tab\tab$\mathbf{f(N) \sim {N^a}}; \tab a \in \mathbb{N}$\\
 \tab\tab\textbf{$\mathbf{f(N) \sim \alpha{\scriptscriptstyle a}N^a + \alpha{\scriptscriptstyle a-1}N^{a-1} + ... + \alpha{\scriptscriptstyle 2}N^2 + \alpha{\scriptscriptstyle 1}N + \alpha{\scriptscriptstyle 0};\tab \forall\alpha{\scriptscriptstyle i} \in \mathbb{R}}$  \&  $ i \in [0 , a]$}\\
-\tab Logaritmica: \\\tab\tab $\mathbf{f(N) \sim \log{N}}$
+\tab Logaritmica: \\\tab\tab $\mathbf{f(N) \sim \log{N}}$\\
+\begin{center}
+  La idea de algunos enfoques temporales a nivel Logatirmicos pueden ser los \textit{algoritmos de ordenamiento}, que graficamente su comportamiento se puede ver así:
+  \includegraphics[scale=0.8]{draws/enfoqueTemporal1.png}
+  \texttt{Figura 1}
+  \includegraphics[scale=0.8]{draws/enfoqueTemporal.png}
+  \texttt{Figura 2}
+\end{center}
+De este modo llevando un analisis de la Figura 1 y 2 que estan relacionadas podemos decir que si se suman los elementos que existen por nivel tomando un valor discreto $N$ siempre sumara $N$ no importando el nivel por lo tanto de acuerdo al número de nodos que existe $2^k$ tal que $k \notin Z^-$ podemos decir que $k= log_2{N}$ \\\tab$\therefore 2^k = N$
+\subsubsection{Ordenamiento}
+De este modo podemos dar una pequeña introducción a los algoritmos de ordenamiento.\\
+Sabemos que existen algoritmos que trabajan con una coleccion de datos de un solo tipo [llamese estruturas de datos, clases (caso de que se este usando el paradigma Orientado a Objetos) o variables] por lo que en algunas ocasiones es necesario realizar un ordenamiento a estos datos, por lo que se puede pensar en los algoritmos que sean sencillos de entender, por lo que más adelante algunos seran explicados a fondo de como trabajan y como se implementan a nivel pseudocodigo, por otro lado ya que se menciono acerca de complejidades temporales los algoritmos son:
+\begin{itemize}
+  \item Bubble sort: $N^2$
+  \item Selection sort: $N^2$
+  \item Merge sort: $N log N$
+  \item Heap sort: $N log N$
+  \item Quick sort: $N log N$
+  \item Aleatorio: $f(N)$ donde $f$ es una función que puede ser representada como ecuación lineal, diferencial o probabilistica.
+\end{itemize}
+
 \printindex
 \end{document}
