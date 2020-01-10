@@ -191,7 +191,7 @@ Esta complejidad esta dividida en dos clases muy importantes:\\
   \item Temporal: Con relación al procesamiento
   \item Espacial: Con relación a la memoria
 \end{itemize}
-De este modo podemos pensar y añadir a las caracterizticas de la resolución de un algoritmo:
+De este modo podemos pensar y añadir a las caracteristicas de la resolución de un algoritmo:
 \begin{itemize}
   \item Eficacia: A una correctez en su ejecución
   \item Eficiencia: A una buena administración de sus recursos (Memoria - Espacio) (Procesamiento - Tiempo)
@@ -210,9 +210,9 @@ Acorde a esto podemos pensar en que existen complejidades:\\
 \tab Logaritmica: \\\tab\tab $\mathbf{f(N) \sim \log{N}}$\\
 \begin{center}
   La idea de algunos enfoques temporales a nivel Logatirmicos pueden ser los \textit{algoritmos de ordenamiento}, que graficamente su comportamiento se puede ver así:
-  \includegraphics[scale=0.8]{draws/enfoqueTemporal1.png}
+  \includegraphics[scale=0.8]{draws/enfoqueTemporal1.png}\\
   \texttt{Figura 1}
-  \includegraphics[scale=0.8]{draws/enfoqueTemporal.png}
+  \includegraphics[scale=0.8]{draws/enfoqueTemporal.png}\\
   \texttt{Figura 2}
 \end{center}
 De este modo llevando un analisis de la Figura 1 y 2 que estan relacionadas podemos decir que si se suman los elementos que existen por nivel tomando un valor discreto $N$ siempre sumara $N$ no importando el nivel por lo tanto de acuerdo al número de nodos que existe $2^k$ tal que $k \notin Z^-$ podemos decir que $k= log_2{N}$ \\\tab$\therefore 2^k = N$
@@ -225,8 +225,29 @@ Sabemos que existen algoritmos que trabajan con una coleccion de datos de un sol
   \item Merge sort: $N log N$
   \item Heap sort: $N log N$
   \item Quick sort: $N log N$
-  \item Aleatorio: $f(N)$ donde $f$ es una función que puede ser representada como ecuación lineal, diferencial o probabilistica.
+  \item Aleatorio: $f(N)$ donde $f$ es una función que puede ser representada como ecuación lineal, diferencial o de densidad probabilistica.
 \end{itemize}
+\subsubsection{Algunos otros algoritmos e ideas de problemas de la Clase NP}
+Si bien sabemos que a nivel computacional podemos almacenar conjuntos de bits (0 vs 1) si lo vemos asociado a direcciones de memoria o variables con capacidad de $N$ bits podemos partir de que existe una complejidad de dar con la combinación de esos $N$ bits de $f(N)=2^N$ \\
+Tomando ciertas ideas de esta notación de complejidad de $f$ podemos pensar en Grafos \\$\therefore$ Sea un Grafo $G=(V,E)$ \\Donde:\\
+\tab $V=$ Es el conjunto de Vertices o nodos que existen
+\\\tab $E=$ Es el conjunto de Aristas que se relacionan con los vertices\\
+Si pensamos que $G$ es completo (Es decir que cumple un modelo combinatorio)\\
+\tab\tab$|E|=\begin{pmatrix}
+  N\\2
+\end{pmatrix} = \frac{N!}{2(N-2)!} = \frac{N(N-1)}{2} = M$\tab$(0)$\\
+\tab\ Donde:
+\\\tab $N=|V|$\tab$(1)$\\
+\\Sustituyendo 1 en 0 podemos tomar la idea y el formalismo matemático siguiente:\\
+\tab $|E|=\begin{pmatrix}
+  |V|\\2
+\end{pmatrix} = \frac{|V|!}{2(|V|-2)!} = \frac{|V| ( |V|-1 )}{2} = M $\tab$(3)$\\
+\begin{center}
+  \includegraphics[scale=0.5]{images/grafoCompleto.png}\\
+  \texttt{Figura de $G$ desde N=1 hasta N=12 vertices\\Cumpliendo 3}
+\end{center}
+Ahora imaginemos el que pasaria si buscamos explorar o asemejar un Grafo completo $G$ que va en crecimiento sucesivamente, es obvio que el hecho de ver el modelo combinatorio de $G$ y de sus caracteristicas el hacerlo es más difícil que hacerlo de forma Polinomial
+
 
 \printindex
 \end{document}
