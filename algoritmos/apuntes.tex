@@ -216,7 +216,7 @@ Acorde a esto podemos pensar en que existen complejidades:\\
   \texttt{Figura 2}
 \end{center}
 De este modo llevando un analisis de la Figura 1 y 2 que estan relacionadas podemos decir que si se suman los elementos que existen por nivel tomando un valor discreto $N$ siempre sumara $N$ no importando el nivel por lo tanto de acuerdo al número de nodos que existe $2^k$ tal que $k \notin Z^-$ podemos decir que $k= log_2{N}$ \\\tab$\therefore 2^k = N$
-\subsubsection{Ordenamiento}
+\subsubsection{Ordenamiento [Introducción a clase Polinomial (P)]}
 De este modo podemos dar una pequeña introducción a los algoritmos de ordenamiento.\\
 Sabemos que existen algoritmos que trabajan con una coleccion de datos de un solo tipo [llamese estruturas de datos, clases (caso de que se este usando el paradigma Orientado a Objetos) o variables] por lo que en algunas ocasiones es necesario realizar un ordenamiento a estos datos, por lo que se puede pensar en los algoritmos que sean sencillos de entender, por lo que más adelante algunos seran explicados a fondo de como trabajan y como se implementan a nivel pseudocodigo, por otro lado ya que se menciono acerca de complejidades temporales los algoritmos son:
 \begin{itemize}
@@ -244,10 +244,20 @@ Si pensamos que $G$ es completo (Es decir que cumple un modelo combinatorio)\\
 \end{pmatrix} = \frac{|V|!}{2(|V|-2)!} = \frac{|V| ( |V|-1 )}{2} = M $\tab$(3)$\\
 \begin{center}
   \includegraphics[scale=0.5]{images/grafoCompleto.png}\\
-  \texttt{Figura de $G$ desde N=1 hasta N=12 vertices\\Cumpliendo 3}
+  \texttt{Figura de $G$ desde $N=1$ hasta $N=12$ vertices\\Cumpliendo 3}
 \end{center}
-Ahora imaginemos el que pasaria si buscamos explorar o asemejar un Grafo completo $G$ que va en crecimiento sucesivamente, es obvio que el hecho de ver el modelo combinatorio de $G$ y de sus caracteristicas el hacerlo es más difícil que hacerlo de forma Polinomial
-
+Ahora imaginemos el que pasaria si buscamos explorar o asemejar un Grafo completo $G$ que va en crecimiento sucesivamente, es obvio que el hecho de ver el modelo combinatorio de $G$ y de sus caracteristicas el hacerlo es más difícil aproximarlo a un análisis Polinomial, lo cual podemos dar una pequeña introducción a la clase de problemas No Polinomiales (NP)
+\subsubsection{Complejidades en NP vs P}
+Si bien sabemos que esta complejidad representa un espacio combinatorio o exponencial algunos autores suelen expresar sus funciones de la siguiente forma.
+\begin{center}
+  \begin{tabular}{ p{5cm} p{4cm} }
+    Complejidad Combinatorial & $f(N,K)=\begin{pmatrix}N\\K\end{pmatrix}$\\
+    Complejidad Exponencial & $f(N,b)=b^N$\\
+  \end{tabular}
+\end{center}
+Una vez que tenemos idea de este tipo de clases de complejidad podemos pensar que pueda existir un Lema, Teorema o Transformación, en la que se pueda decir que los problemas de clase P estan contenidos o no en los problemas de clase NP $P \subseteq NP $ o $P \nsubseteq NP$ lo cual es uno de los tantos problemas que existe de \textbf{Clay Institute of Mathematics $P vs NP$}\\
+Si partimos de esta idea y de lo que se intenta hacer en las ciencias de la computación podemos pensar que generalmente o implicitamente la computación busca la automatización u otro fin en el que su participación ayude a desarrollar algo del día a día por lo cual podemos pensar que la clasificación NP, es la que engloba estos problemas y conjunto de soluciones, en los que si pensamos a traves de formalismos ya existentes podemos decir que estos problemas son mapeados a cuestiones de Computación, Matemáticas y Física, lo cual puede representar un isomorfismo o transformación de ir de un tipo de solución a otra.\\
+Esto pensando en la definición de lo qué es un algoritmo la cual representa una máquinaria en la que representa lenguajes y leyes de un universo, pensando en esto podemos hablar de un cientifico que logro llegar a una idea de Maquina Universal que Teorícamente abordo el matemático Alan Turing y Alonzo Church, que es la $maquina$ $Z$ de Konrad Zuse
 
 \printindex
 \end{document}
