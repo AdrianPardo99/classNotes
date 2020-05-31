@@ -5,3 +5,4 @@ Un repositorio donde esta almacenado parte de las notas que fui realizando a tra
 | --- |
 | [Análisis y Diseño de Algoritmos](algoritmos/apuntes.pdf) |
 | [Curso impartido de programación en lenguaje C Diciembre de 2019](cursoDeC/apunte.pdf) |
+| [Ecuaciones Diferenciales](ecuaciones/apuntes.pdf) |
