@@ -1,0 +1,152 @@
+\documentclass[10pt,executivepaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{imakeidx}
+\makeindex[columns=3, title=Alphabetical Index, intoc]
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{changepage}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{url}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=3
+}
+
+\lstset{style=mystyle}
+
+\title{Diferential Ecuation}
+
+\author{A cargo del profesor: Luis Moctezuma Cervantes\\Escrito por: Adrian González Pardo}
+
+\date{\today}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+% Portada
+%encabezado
+\begin{minipage}{0.4\textwidth}
+	\begin{flushleft}
+		\includegraphics[scale = 0.05]{logoescom.png}
+	\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.51\textwidth}
+	\begin{flushright}
+		\includegraphics[scale = 0.055]{logoipn.png}
+	\end{flushright}
+\end{minipage}
+\begin{center}
+	\par\vspace{0.5cm}{
+		\huge\textbf{Instituto Politécnico Nacional \\*[0.20cm] Escuela Superior de Cómputo}
+	}
+	\par\vspace{1cm}{
+		\large\textbf{
+		{Ecuaciones Diferenciales\\Profesor: Luis Moctezuma Cervantes\\Grupo: 1CM6\\Adrian González Pardo\\Semestre: 18/02}}
+	}
+	\par\vspace{1cm}{
+		\includegraphics[scale=0.2]{ecuaciones.jpg}
+	}
+	\par\vspace{2cm}{
+		Ultima fecha modificado: \today
+	}
+\end{center}
+
+% Indice
+\clearpage
+\tableofcontents
+\clearpage
+
+%Contenido
+\section{Introducción}
+\subsection{Presentación}
+Las ecuaciones diferenciales no son más que un conjunto de sistemas lineales o no lineales que representan modelo de comportamiento matemático, el cual puede ser aplicado en áreas como la ingeniería la cual puede servir para describir el comportamiento físico de un circuito electríco mediante las ecuaciones de voltaje de elementos lineales (resistencias, capacitadores e inductores), por otro lado igual puede ser aplicado en modelados matemáticos que puedan representar la medición estadística de una población de bacterias.\\
+Ahora bien con el fin de facilitar el aprendizaje de estos temas se desarrollaran varias notas que se tomaron en el curso así como complemento de propía mano del escritor.
+\subsection{Prerequisitos para la materia}
+Si bien las matemáticas guardan una intima pero fuerte relación entre sus topicos es importante marcar algunos prerequisitos para poder dar seguimiento o poder tener un mejor entendimiento con la materia
+\begin{center}
+  \begin{tabular}{|p{5.5cm}|p{5.5cm}|}
+    \hline
+    Principios de Cálculo & Nociones de Algebra Lineal\\
+    \hline
+    Nociones de Análisis Vectorial & Nociones de Física\\
+    \hline
+  \end{tabular}
+\end{center}
+Si bien podriamos desglosar todos y cada uno de los prerequisitos de cada asignatura, no es la idea asustar a los pequeños lectores o consultores de este documento, ahora si continuemos
+
+\subsection{Libros de consulta}
+Si bien las ecuaciones diferenciales pueden ser estudiadas en cursos los cuales no soliciten libro, te puedes apoyar de material que se encuentra de forma gratuita pero quizas poco legal en internet, por ello yo no quiero alentarte a realizar una conducta dañina a los autores, mi mejor recomendación en este aspecto, es quizas consigue los pdf's pero después de ello busca la forma de conseguirlo en físico para tu formación o para el apoyo de tus compañeros o alumnos.
+\begin{itemize}
+  \item Dennis Zill, Ecuaciones Diferenciales $\rightarrow$ Para comenzar desde el inicio y sin complicaciones
+  \item Editorial Trillas Canek, Ecuaciones Diferenciales ordinarias $\rightarrow$ Para subir el nivel con respecto al Dennis
+  \item Makarenko, Problemas de Ecuaciones Diferenciales ordinarias 1996 $\rightarrow$ Para ejercicios bastante completos y extensos
+\end{itemize}
+
+\section{Inicio}
+Recordemos que para tener un buen inicio con respecto al curso es necesario tener un ligero repaso a las Técnicas de Integración.
+\subsection{Técnicas de Integración}
+Las técnicas de integración son herramientas que nos seran de utilidad como si fuese la frase celebre o la bendición del día a día.\\
+Recordemos que las técnicas más comunes que tenemos son 4:
+\begin{enumerate}
+  \item Por sustitución
+  \item Por partes
+  \item Por sustitución trigonometrica
+  \item Por fracciones parciales
+\end{enumerate}
+Ahora con esto, comencemos.
+\subsubsection{Por sustitución}
+\textbf{Teorema:} Sea $g(x)$ una función derivable y supongase que $F(x)$ es una antiderivada de $f(x)$.\\
+Entonces si $u=g(x)$ tenemos lo siguiente:\\
+\[\int f(g(x))g^{l}(x)dx = \int f(u)du = F(u) + C = F(g(x)) + C   \colon C \in \mathbb{R}\]
+\\
+\textbf{Ejemplos:}
+\\
+\[\int \frac{x}{\cos^{2}(x^{2})}dx\]
+\textit{Solución}\\
+Recordemos identidades trigonometrica como lo es: $\frac{1}{\cos(x)}=\sec(x)$, entonces tenemos lo siguiente
+\[\int x \sec^{2}(x^2)dx\]\\
+Ahora por sustitución definimos a $u=x^{2} \rightarrow du=2x$ completando la integral tenemos:
+\[\frac{1}{2}\int \sec^{2}(u)du = \frac{1}{2}\tan(u) + C\]\\
+Sustituyendo los valores de $u$ tenemos la integral resuelta:
+\[\int \frac{x}{\cos^{2}(x^{2})} = \frac{1}{2} \tan(x^{2}) + C \]
+
+
+
+
+
+
+
+
+
+
+\printindex
+\end{document}
