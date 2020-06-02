@@ -164,6 +164,30 @@ Se propone el siguiente cambio de variable $u=3e^{x}\rightarrow du= 3e^{x}dx$\\
 \[\int\frac{e^{x}}{4 + 9 e^{2x}}dx = \frac{1}{6}\arctan{\frac{3e^{x}}{2}}+C\]\\
 \textbf{Ejecicio propuesto:}\\
 \[\int \frac{a^{\tan(t)}}{\cos^{2}(t)}dt\]
+\clearpage
+\subsubsection{Por partes}
+\textbf{Definición:} Sea un función dada por el producto de dos funciones cuya función se desea buscar su integral indefinida, la formula esta dada por:\\
+\[\int u dv = uv - \int vdu\]\\
+\emph{Algunos tipos a la hora de aplicar la regla de la integración por partes tenemos que tomar encuenta que la aplicación va acorde a la presedencia de sus funciones}
+\begin{itemize}
+  \item Recordemos la famosa regla ILATE que nos ayuda a definir la prioridad de $u$
+  \item I es aplicado para las funciones inversas
+  \item L es aplicado para aquellas funciones logarítmicas
+  \item A es aplicado a todas esas funciones algebraicas
+  \item T es aplicado a todas las funciones trigonométricas
+  \item E es aplicado a todas las funciones que sean exponenciales
+\end{itemize}
+Dicho esto continuemos\\
+\textbf{Ejemplos:}\\
+\[\int \arcsen(x)dx\]\\
+\textit{Solución}
+Por lo cual aplicamos las reglas y sabemos que hay una función inversa con respecto a la función inversa del $\sen(x)$ por lo que proponemos a $u=\arcsen(x)\rightarrow du = \frac{1}{\sqrt{1-x^{2}}}dx$ \& $dv=dx \rightarrow v=x$
+\\
+\[x\arcsen(x)-\int \frac{x}{\sqrt{1-x^{2}}}dx\]\\
+Resolviendo la ultima integral haciendo cambio de variable $w=1-x^{2} \rightarrow dw=-2x dx$\\
+\[x\arcsen(x)-\int \frac{1}{\sqrt{w}}dw \Leftrightarrow x\arcsen(x)+\frac{1}{2}\sqrt{w} + C\]
+Sustituyendo $w$ con su valor de x tenemos:
+\[\int \arcsen(x)dx=x\arcsen(x)+\frac{1}{2}\sqrt{1-x^{2}}+C\]
 
 
 \printindex
