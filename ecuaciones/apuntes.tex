@@ -134,18 +134,36 @@ Entonces si $u=g(x)$ tenemos lo siguiente:\\
 \textit{Solución}\\
 Recordemos identidades trigonometrica como lo es: $\frac{1}{\cos(x)}=\sec(x)$, entonces tenemos lo siguiente
 \[\int x \sec^{2}(x^2)dx\]\\
-Ahora por sustitución definimos a $u=x^{2} \rightarrow du=2x$ completando la integral tenemos:
+Ahora por sustitución definimos a $u=x^{2} \rightarrow du=2x dx$ completando la integral tenemos:
 \[\frac{1}{2}\int \sec^{2}(u)du = \frac{1}{2}\tan(u) + C\]\\
 Sustituyendo los valores de $u$ tenemos la integral resuelta:
 \[\int \frac{x}{\cos^{2}(x^{2})} = \frac{1}{2} \tan(x^{2}) + C \]
+\vspace{1.5cm}
+\[\int \frac{3}{\sqrt{5-9x^{2}}}dx\]
+\textit{Solución}\\
+Recordemos la forma de las integrales que pasan a la forma inversa de una función trigonometrica (arcos) podemos pensar en el cambio de variable por $u=3x \rightarrow du=3dx$, entonces tendremos lo siguiente:\\
+\[\int \frac{1}{\sqrt{5-u^{2}}}du = \arcsen(\frac{u}{5}) + C\]\\
+Sustituyendo $u$ por el valor que tenemos en $x$ tenemos:\\
+\[\int \frac{3}{\sqrt{5-9x^{2}}}dx = \arcsen(\frac{3x}{5}) + C\]
+\vspace{1.5cm}
+\clearpage
+\[\int \frac{6 e^{\frac{1}{x}}}{x^{2}}dx\]\\
+\textit{Solución}\\
+Para este tipo de integral lo que podemos hacer es proponer el siguiente cambio de variable $u = \frac{1}{x} \rightarrow du=-\frac{1}{x^{2}}dx$\\
+\[-6\int e^{u}du = -6 e^{u} + C \]\\
+Sustituyendo $u$ por su valor con respecto a $x$ tenemos:\\
+\[\int \frac{6 e^{\frac{1}{x}}}{x^{2}}dx=-6 e^{\frac{1}{x}} + C\]
 
-
-
-
-
-
-
-
+\vspace{1cm}
+\[\int\frac{e^{x}}{4 + 9 e^{2x}}dx\]
+\\
+\textit{Solución:}\\
+Se propone el siguiente cambio de variable $u=3e^{x}\rightarrow du= 3e^{x}dx$\\
+\[\frac{1}{3}\int \frac{1}{4+u^{2}}du=\frac{1}{6}\arctan{\frac{u}{2}}+C\]
+\\Sustituyendo los valores de $u$ con respecto a $x$\\
+\[\int\frac{e^{x}}{4 + 9 e^{2x}}dx = \frac{1}{6}\arctan{\frac{3e^{x}}{2}}+C\]\\
+\textbf{Ejecicio propuesto:}\\
+\[\int \frac{a^{\tan(t)}}{\cos^{2}(t)}dt\]
 
 
 \printindex
