@@ -132,7 +132,7 @@ Entonces si $u=g(x)$ tenemos lo siguiente:\\
 \\
 \[\int \frac{x}{\cos^{2}(x^{2})}dx\]
 \textit{Solución}\\
-Recordemos identidades trigonometrica como lo es: $\frac{1}{\cos(x)}=\sec(x)$, entonces tenemos lo siguiente
+Recordemos identidades trigonométrica como lo es: $\frac{1}{\cos(x)}=\sec(x)$, entonces tenemos lo siguiente
 \[\int x \sec^{2}(x^2)dx\]\\
 Ahora por sustitución definimos a $u=x^{2} \rightarrow du=2x dx$ completando la integral tenemos:
 \[\frac{1}{2}\int \sec^{2}(u)du = \frac{1}{2}\tan(u) + C\]\\
@@ -141,7 +141,7 @@ Sustituyendo los valores de $u$ tenemos la integral resuelta:
 \vspace{1.5cm}
 \[\int \frac{3}{\sqrt{5-9x^{2}}}dx\]
 \textit{Solución}\\
-Recordemos la forma de las integrales que pasan a la forma inversa de una función trigonometrica (arcos) podemos pensar en el cambio de variable por $u=3x \rightarrow du=3dx$, entonces tendremos lo siguiente:\\
+Recordemos la forma de las integrales que pasan a la forma inversa de una función trigonométrica (arcos) podemos pensar en el cambio de variable por $u=3x \rightarrow du=3dx$, entonces tendremos lo siguiente:\\
 \[\int \frac{1}{\sqrt{5-u^{2}}}du = \arcsen(\frac{u}{5}) + C\]\\
 Sustituyendo $u$ por el valor que tenemos en $x$ tenemos:\\
 \[\int \frac{3}{\sqrt{5-9x^{2}}}dx = \arcsen(\frac{3x}{5}) + C\]
@@ -163,7 +163,12 @@ Se propone el siguiente cambio de variable $u=3e^{x}\rightarrow du= 3e^{x}dx$\\
 \\Sustituyendo los valores de $u$ con respecto a $x$\\
 \[\int\frac{e^{x}}{4 + 9 e^{2x}}dx = \frac{1}{6}\arctan{\frac{3e^{x}}{2}}+C\]\\
 \textbf{Ejecicio propuesto:}\\
-\[\int \frac{a^{\tan(t)}}{\cos^{2}(t)}dt\]
+\begin{enumerate}
+  \item \[\int \frac{a^{\tan(t)}}{\cos^{2}(t)}dt\]
+  \textbf{Hint:} No te espantes y sustituye ese $\frac{1}{cos^{2}(x)}$ por su identidad trigonométrica correspodiente.
+\end{enumerate}
+
+
 \clearpage
 \subsubsection{Por partes}
 \textbf{Definición:} Sea un función dada por el producto de dos funciones cuya función se desea buscar su integral indefinida, la formula esta dada por:\\
@@ -240,5 +245,56 @@ Ahora aplicando identidad de Euler:
 \[\frac{1}{2}e^{x}\sin(x) + \frac{1}{2}e^{x}\cos(x)+C\]
 Reordenando todo:
 \[\frac{1}{2i}\int e^{x}(e^{ix}-e^{-ix})dx \Leftrightarrow \frac{1}{2i}\{\int e^{x(1+i)} - \int e^{x(1-i)}\} = \frac{1}{2}e^x\{\sin(x)+\cos(x)\}+C\]
+\clearpage
+\[\int \sin^{n}(x)dx \colon \forall n\in\mathbb{N}\geq 2\]
+\textit{Solución}\\
+Reescribiremos la integral como:
+\[\int \sin^{n-1}(x)\sin(x)dx\]
+Ahora si podremos aplicar las reglas podemos considerar que $\sin^{n-1}(x)$ como un valor exponencial, por lo que propondremos lo siguiente, $u=\sin^{n-1}(x) \rightarrow du=(n-1)\sin^{n-2}(x)\cos(x)dx$ \& $dv = \sin(x)dx \rightarrow v=-\cos(x)$, ahora:
+\[-\cos(x)\sin^{n-1}(x) + (n-1)\int \sin^{n-2}(x)\cos^{2}(x)dx\]
+Recordemos las identidades trigonométricas de valores que son iguales a $1$:
+\[1=\cos^2(x)+\sin^{2}(x)\]
+\[1=\sec^{2}(x)-\tan^{2}(x)\]
+Aplicaremos esta identidad en la integral de tal forma que podremos sustituir la integral a dos partes:
+\[-\cos(x)\sin^{n-1}(x) + (n-1)\{\int \sin^{n-2}(x)dx -\int\sin^{n}(x)dx\}\]
+Aplicando distributividad:
+\[\int\sin^{n}(x)dx=-\cos(x)\sin^{n-1}(x) + (n-1)\int \sin^{n-2}(x)dx -(n-1)\int\sin^{n}(x)dx\]
+Ahora aplicando algebra:
+\[n\int\sin^{n}(x)dx=-\cos(x)\sin^{n-1}(x) + (n-1)\int \sin^{n-2}(x)dx + C\]
+De nuevo aplicando algebra:
+\[\int\sin^{n}(x)dx=\frac{1}{n}\{-\cos(x)\sin^{n-1}(x) + (n-1)\int \sin^{n-2}(x)dx\} + C \colon \forall n\in\mathbb{N}\geq 2\]
+\vspace{1cm}
+\[\int \cos^{n}(x)dx \colon \forall n\in\mathbb{N}\geq 2\]
+\textit{Solución:}\\
+Ahora ya que tenemos noción de la integral anterior podemos proceder con lo siguiente:
+\[\int\cos^{n-1}(x)\cos(x)dx\]
+\[u=\cos^{n-1}(x)\rightarrow du=-\cos^{n-2}(x)\sin(x)dx\]
+\[dv=\cos(x)dx \rightarrow v=\sin(x)\]
+Esto implica:
+\[\cos^{n-1}(x)\sin(x)+(n-1)\int\cos^{n-2}\sin^{2}(x)dx\]
+Aplicando igual identidades trigonométrica directamente:
+\[\cos^{n-1}(x)\sin(x)+(n-1)\{\int\cos^{n-2}(x)dx - \int\cos^{n}(x)dx\}\]
+\[\int\cos^{n}(x)dx =\cos^{n-1}(x)\sin(x)+(n-1)\int\cos^{n-2}(x)dx-(n-1)\int\cos^{n}(x)dx\ \]
+Ahora con algebra:
+\[n\int\cos^{n}(x)dx =\cos^{n-1}(x)\sin(x)+(n-1)\int\cos^{n-2}(x)dx+C\]
+\[\int\cos^{n}(x)dx =\frac{1}{n}\{\cos^{n-1}(x)\sin(x)+(n-1)\int\cos^{n-2}(x)dx\}+C \colon \forall n\in\mathbb{N}\geq 2\]
+\textbf{Ejercicios propuestos:}
+\begin{enumerate}
+  \item \[\int\ln(t)dt\]
+  \item \[\int \cos^{3}(x)dx\]
+  \item \[\int \sin^{5}(x)dx\]
+\end{enumerate}
+\clearpage
+\subsubsection{Integración trigonométrica}
+Si bien ya aplicamos integración con funciones trigonométricas es importante tambien poder saber un par de tecnicas con respecto a propiedades de las mismas para que originen un ahorro de tiempo a la hora de resolver diversos ejercicios y/o resolver ecuaciones diferenciales.\\
+\textbf{Tipo I:}
+\[\int\sin^{n}(x)dx;\int\cos^{n}(x)dx\colon\forall n\in\mathbb{Z^{+}}\]
+\textit{Podemos aplicar algunas propiedades como la propiedad de $1$ o en el caso de ser valores de $n$ impar podemos hacer lo siguiente:}
+\[\sin^{2}(x)=\frac{1}{2}(1-\cos(2x))\]
+\[\cos^{2}(x)=\frac{1}{2}(1+\cos(2x))\]
+\[1=\cos^{2}(x)+\sin^{2}(x)\]
+\[1=\sec^{2}(x)-\tan^{2}(x)\]
+\textbf{Ejemplos}
+
 \printindex
 \end{document}
