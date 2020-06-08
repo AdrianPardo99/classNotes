@@ -180,7 +180,7 @@ Se propone el siguiente cambio de variable $u=3e^{x}\rightarrow du= 3e^{x}dx$\\
 Dicho esto continuemos\\
 \textbf{Ejemplos:}\\
 \[\int \arcsen(x)dx\]\\
-\textit{Solución}
+\textit{Solución}\\
 Por lo cual aplicamos las reglas y sabemos que hay una función inversa con respecto a la función inversa del $\sen(x)$ por lo que proponemos a $u=\arcsen(x)\rightarrow du = \frac{1}{\sqrt{1-x^{2}}}dx$ \& $dv=dx \rightarrow v=x$
 \\
 \[x\arcsen(x)-\int \frac{x}{\sqrt{1-x^{2}}}dx\]\\
@@ -188,7 +188,57 @@ Resolviendo la ultima integral haciendo cambio de variable $w=1-x^{2} \rightarro
 \[x\arcsen(x)-\int \frac{1}{\sqrt{w}}dw \Leftrightarrow x\arcsen(x)+\frac{1}{2}\sqrt{w} + C\]
 Sustituyendo $w$ con su valor de x tenemos:
 \[\int \arcsen(x)dx=x\arcsen(x)+\frac{1}{2}\sqrt{1-x^{2}}+C\]
+\vspace{1cm}
+\[\int t^{6}\ln(t)dt\]\\
+\textit{Solución}\\
+De acuerdo a lo que tenemos aquí y a las reglas sabemos, tendremos lo siguiente $u=\ln(t) \rightarrow du=\frac{1}{t}dt$ \& $dv=t^{6}dt \rightarrow v=\frac{t^7}{7}$\\
+\[\frac{t^7}{7}\ln(t)-\frac{1}{7}\int t^{6}dt\]
+Ahora resolviendo la ultima integral tenemos que la resolución es:\\
+\[\int t^{6}\ln(t)dt = \frac{t^{7}}{7}-\frac{t^{7}}{49} + C\]
+\vspace{1cm}
+\[\int t^{n}\ln(t)dt \colon n \in \mathbb{N}\]
+\textit{Solución}\\
+Aplicando la regla ILATE tenemos lo siguiente: $u=\ln(t)\rightarrow du=\frac{1}{t}dt$ \& $dv=t^{n}dt \rightarrow v=\frac{t^{n+1}}{n+1}$, ahora aplicando la regla tenemos:\\
+\[\frac{t^{n+1}}{n+1}\ln(t)-\frac{1}{n+1}\int t^{n}dt\]
+Ahora solo solucionamos la ultima integral:
+\[\int t^{n}\ln(t)dt = \frac{t^{n+1}}{n+1}\ln(t)-\frac{t^{n+1}}{(n+1)^{2}} + C \colon \forall n \in \mathbb{N}\]
+\vspace{1cm}
+\[\int e^{x}\sin(x)dx\]\\
+De esta integral partiremos de dos soluciones distintas ambas llegando al mismo resultado:\\
+\textit{Solución 1:}\\
+Tomaremos esta integral de forma directa de tal forma que tendremos lo siguiente $u=\sin(x)\rightarrow du= \cos(x)dx$ \& $dv=e^{x}dx \rightarrow v=e^{x}$, aunado a esto tenemos:
+\[e^{x}\sin(x) - \int e^{x}cos(x)dx \]
+Volveremos a aplicar la regla de la integral por parte esta vez modificando las letras para hacerlo un poco más explicito $u=a$ \& $v=b$, por lo que tendremos es $a=cos(x) \rightarrow da=-sin(x)dx$ \& $db=e^{x}dx \rightarrow b=e^{x}$, ahora continuando el desarrollo de la integral tendremos:
+\[e^{x}\sin(x)-\{e^{x}\cos(x)+\int e^{x}\sin(x)dx\}\]
+Ahora aplicando distribución y signos tenemos:
+\[e^{x}\sin(x)-e^{x}\cos(x)-\int e^{x}\sin(x)dx\]
+Como podemos ver esto se trata de la misma integral a la que tenemos originalmente, lo que nos permite concluir que se trata de una integral ciclica, por lo tanto lo que haremos es lo siguiente:
+\[\int e^{x}\sin(x)dx = e^{x}\sin(x)-e^{x}\cos(x)-\int e^{x}\sin(x)dx\]
+Algebraicamente haremos que la integral del lado derecho pase del lado izquierdo:
+\[2\int e^{x}\sin(x)dx = e^{x}\sin(x)-e^{x}\cos(x)\]
+Ahora por simple algebra:
+\[\int e^{x}\sin(x)dx = \frac{1}{2}\{e^{x}\sin(x)-e^{x}\cos(x)\}+C\]
 
-
+\textit{Solución 2:}\\
+Veamos a $\sin(x)$ como su representación en el campo de los números complejos con ayuda de la identidad de Euler:
+\[\sin(x)= \frac{1}{2i}(e^{ix}-e^{-ix})\]
+Para complementar esto veamos igual al $\cos(x)$ en su forma de Euler:
+\[\cos(x)= \frac{1}{2}(e^{ix}+e^{-ix})\]
+Entonces tendremos:
+\[\frac{1}{2i}\int e^{x}(e^{ix}-e^{-ix})dx \Leftrightarrow \frac{1}{2i}\{\int e^{x(1+i)} - \int e^{x(1-i)}\}\]
+Por lo que propondremos el cambio de variable respectivo $u$ y $v$ donde $u=x(1+i)$ y $v=x(1-i)$, entonces sus derivadas con respecto a $x$ son $du=(1+i)dx$ y $dv=(1-i)dx$, entonces:
+\[\frac{1}{2i}\{\frac{1}{1+i}e^{x(1+i)}-\frac{1}{1-i}e^{x(1-i)}\}+C\]
+Ahora aplicaremos el complemento de cada fracción compleja por lo que en el resultado tendremos:
+\[\frac{1}{2i}\{\frac{1+i}{2}e^{x(1+i)}-\frac{1-i}{2}e^{x(1-i)}\}+C\]
+Ahora separando terminos del campo $\mathbb{R}$ y $\mathbb{C}$ tendremos:
+\[\frac{1}{4i}\{e^{x(1+i)}-e^{x(1-i)} + i(e^{x(1+i)}+e^{x(1-i)})\}+C\]
+Separando terminos y reordenando:
+\[\frac{1}{4i}\{e^{x(1+i)}-e^{x(1-i)}\} + \frac{1}{4}\{(e^{x(1+i)}+e^{x(1-i)})\}+C\]
+Factorizando todos los valores de $e^{x}$ tendremos:
+\[\frac{e^{x}}{4i}\{e^{xi}-e^{-xi}\} + \frac{e^{x}}{4}\{(e^{xi}+e^{-xi})\}+C\]
+Ahora aplicando identidad de Euler:
+\[\frac{1}{2}e^{x}\sin(x) + \frac{1}{2}e^{x}\cos(x)+C\]
+Reordenando todo:
+\[\frac{1}{2i}\int e^{x}(e^{ix}-e^{-ix})dx \Leftrightarrow \frac{1}{2i}\{\int e^{x(1+i)} - \int e^{x(1-i)}\} = \frac{1}{2}e^x\{\sin(x)+\cos(x)\}+C\]
 \printindex
 \end{document}
