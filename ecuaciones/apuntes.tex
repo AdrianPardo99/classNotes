@@ -295,6 +295,48 @@ Si bien ya aplicamos integración con funciones trigonométricas es importante t
 \[1=\cos^{2}(x)+\sin^{2}(x)\]
 \[1=\sec^{2}(x)-\tan^{2}(x)\]
 \textbf{Ejemplos}
+Si $n$ es impar entonces:
+\[\int \sin^{5}(x)dx\]
+\textit{Solución}
+\\
+Primero sabemos y debemos separar el valor de $\sin^{5}(x)$ por $\sin^{4}(x)\sin(x)$
+\[\int\sin^{4}(x)\sin(x)dx\]
+Utilizando propiedades:
+\[\int(1-\cos^{2}(x))^{2}\sin(x)dx \Leftrightarrow \int(1-2\cos^{2}(x)+\cos^{4}(x))\sin(x)dx\]
+\[\int\sin(x)dx - 2\int\cos^{2}(x)\sin(x)dx + \int\cos^{4}(x)\sin(x)dx\]
+Resolveremos la integral de los cosenos elevados a un valor $n$ con cambio de variable, resolviendo directamente tendremos:
+\[\int \sin^{5}(x)dx=-\cos(x)+\frac{2\cos^3(x)}{3}-\frac{\cos^{5}(x)}{5}+C\]
+\vspace{0.75cm}
+Si $n$ es par, entonces:
+\[\int\sin^{2}(x)dx\]
+\textit{Solución}\\
+Utilizando identidades de la introducción a este tipo integrales, tenemos:
+\[\frac{1}{2}\int(1-\cos(2x))dx \Leftrightarrow \frac{1}{2}\{\int dx - \int\cos(2x)dx\}\]
+Resolviendo las integrales
+\[\int\sin^{2}(x)dx=\frac{x}{2}-\frac{\sin(2x)}{4}+C\]
+\clearpage
+\textbf{Ejercicios propuestos:}
+\begin{enumerate}
+  \item \[\int\cos^{3}(x)dx\]
+  \item \[\int\sin^{4}(x)dx\]
+\end{enumerate}
 
+
+\textbf{Tipo II:}
+\[\sin^{m}(x)\cos^{n}(x)dx\]
+Si $m$ o $n$ son $\mathbb{Z^{+}}$ y alguno es impar, y el otro exponente es cualquier número, factorizamos $\sin(x)$ o $\cos(x)$ y utilizamos la identidad de 1, para otros casos a continuación se presentan algunas identidades de producto de funciones trigonometricas con factores $m$ y $n$ distintas pero $\mathbb{R}$ o $\mathbb{Z}$:
+\[\sin(mx)\cos(nx)=\frac{1}{2}\{\sin[(m+n)x]+\sin[(m-n)x]\}\]
+\[\sin(mx)\sin(nx)=\frac{1}{2}\{\cos[(m-n)x]-\cos[(m+n)x]\}\]
+\[\cos(mx)\cos(nx)=\frac{1}{2}\{\cos[(m+n)x]+\cos[(m-n)x]\}\]
+\textbf{Ejemplo}
+\[\int\sin^{3}(x)\cos^{-4}(x)dx \Leftrightarrow \int\sin^{2}(x)\cos^{-4}(x)\sin(x)dx\]
+\textit{Solución}
+\[\int(1-\cos^{2}(x))\cos^{-4}(x)\sin(x)dx \Leftrightarrow \int\cos^{-4}(x)\sin(x)dx - \int\cos^{-2}(x)\sin(x)dx\]
+Por cambio de variable $u=\cos(x) \rightarrow du=-\sin(x)dx$ y aplicando directamente a resolver la integral tendremos:
+\[\int\sin^{3}(x)\cos^{-4}(x)dx = \frac{\sec^{3}(x)}{3}-\sec(x) +C\]
+\textbf{Ejercicio propuesto:}
+\begin{enumerate}
+  \item \[\int\sin^{2}(x)\cos^{4}(x)dx\]
+\end{enumerate}
 \printindex
 \end{document}
