@@ -119,7 +119,7 @@ Recordemos que las técnicas más comunes que tenemos son 4:
 \begin{enumerate}
   \item Por sustitución
   \item Por partes
-  \item Por sustitución trigonometrica
+  \item Por sustitución trigonométrica
   \item Por fracciones parciales
 \end{enumerate}
 Ahora con esto, comencemos.
@@ -324,7 +324,7 @@ Resolviendo las integrales
 
 \textbf{Tipo II:}
 \[\sin^{m}(x)\cos^{n}(x)dx\]
-Si $m$ o $n$ son $\mathbb{Z^{+}}$ y alguno es impar, y el otro exponente es cualquier número, factorizamos $\sin(x)$ o $\cos(x)$ y utilizamos la identidad de 1, para otros casos a continuación se presentan algunas identidades de producto de funciones trigonometricas con factores $m$ y $n$ distintas pero $\mathbb{R}$ o $\mathbb{Z}$:
+Si $m$ o $n$ son $\mathbb{Z^{+}}$ y alguno es impar, y el otro exponente es cualquier número, factorizamos $\sin(x)$ o $\cos(x)$ y utilizamos la identidad de 1, para otros casos a continuación se presentan algunas identidades de producto de funciones trigonométricas con factores $m$ y $n$ distintas pero $\mathbb{R}$ o $\mathbb{Z}$:
 \[\sin(mx)\cos(nx)=\frac{1}{2}\{\sin[(m+n)x]+\sin[(m-n)x]\}\]
 \[\sin(mx)\sin(nx)=\frac{1}{2}\{\cos[(m-n)x]-\cos[(m+n)x]\}\]
 \[\cos(mx)\cos(nx)=\frac{1}{2}\{\cos[(m+n)x]+\cos[(m-n)x]\}\]
@@ -338,5 +338,48 @@ Por cambio de variable $u=\cos(x) \rightarrow du=-\sin(x)dx$ y aplicando directa
 \begin{enumerate}
   \item \[\int\sin^{2}(x)\cos^{4}(x)dx\]
 \end{enumerate}
+\clearpage
+
+
+\subsubsection{Intregación por sustitución trigonométrica}
+Para resolver estas integrales es necesario conocer o tomar como medida de apoyo un triangulo rectangulo, el cual nos facilitara en realizar un cambio de variable al momento de realizar una integral.\\
+\textbf{Caso I:}\\
+\begin{center}
+  \includegraphics[scale=0.5]{imgsAux/triangulo.png}\\
+\end{center}
+Donde:
+\[a=a, b=x \& c=\sqrt{a^{2}-x^{2}}\]
+Partiendo de esto obtendremos:
+\[\sin(\theta)= \frac{x}{a},\;\;\; x=a\sin(\theta),\;\;\; dx=a\cos(\theta)d\theta\]
+Con ello sustituyendo a $x$ tendremos:
+\[\sqrt{a^{2}-x^{2}}\Rightarrow \sqrt{a^{2}-a^{2}\sin^{2}(\theta)} \Leftrightarrow \sqrt{a^{2}[1-\sin^{2}(\theta)]} \Leftrightarrow \sqrt{a^{2}\cos^{2}(\theta)}\;\;\;\;\; \therefore \sqrt{a^{2}-x^{2}}=a\cos(\theta)\]
+\textbf{Caso II:}\\
+\begin{center}
+  \includegraphics[scale=0.5]{imgsAux/triangulo1.png}\\
+\end{center}
+Donde:
+\[a=\sqrt{a^{2}+x^{2}}, b=x \& c=a\]
+Partiendo de esto obtendremos:
+\[\tan(\theta)= \frac{x}{a},\;\;\; x=a\tan(\theta),\;\;\; dx=a\sec^{2}(\theta)d\theta\]
+Con ello sustituyendo a $x$ tendremos:
+\[\sqrt{a^{2}+x^{2}}\Rightarrow \sqrt{a^{2}+a^{2}\tan^{2}(\theta)} \Leftrightarrow \sqrt{a^{2}[1+\tan^{2}(\theta)]} \Leftrightarrow \sqrt{a^{2}\sec^{2}(\theta)}\;\;\;\;\; \therefore \sqrt{a^{2}+x^{2}}=a\sec(\theta)\]
+\clearpage
+\textbf{Caso III:}\\
+\begin{center}
+  \includegraphics[scale=0.5]{imgsAux/triangulo2.png}\\
+\end{center}
+Donde:
+\[a=x, b=\sqrt{x^{2}-a^{2}} \& c=a\]
+Partiendo de esto obtendremos:
+\[\sec(\theta)= \frac{x}{a},\;\;\; x=a\sec(\theta),\;\;\; dx=a\sec(\theta)\tan(\theta)d\theta\]
+Con ello sustituyendo a $x$ tendremos:
+\[\sqrt{x^{2}-a^{2}}\Rightarrow \sqrt{a^{2}\sec^{2}(\theta)-a^{2}} \Leftrightarrow \sqrt{a^{2}[\sec^{2}(\theta)-1]} \Leftrightarrow \sqrt{a^{2}\tan^{2}(\theta)}\;\;\;\;\; \therefore \sqrt{x^{2}-a^{2}}=a\tan(\theta)\]
+\textit{\textbf{Aplicado ahora en alguna integral tendremos:}}\\
+\[\int \frac{dx}{\sqrt{9+x^{2}}}\]
+\textit{Solución}\\
+De acuerdo con los casos que tenemos podemos aplicar el caso 2 en el problema por lo que sustituyendo directamente tendremos $a=3$ \& $x=3\tan(\theta)$:
+\[\int \frac{3\sec^{2}(\theta)}{3\sec(\theta)}d\theta \; \Leftrightarrow \; \int \sec(\theta)d\theta = \ln|\sec(\theta)+\tan(\theta)|+C\]
+Finalmente sustituiremos los valores de las identidades trigonométricas con sus respectivos valores de triangulo:
+\[\int \frac{dx}{\sqrt{9+x^{2}}}= \ln|\frac{\sqrt{9+x^{2}}}{3}+\frac{x}{3}|+C\]
 \printindex
 \end{document}
