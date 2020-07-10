@@ -112,8 +112,8 @@ Si bien las ecuaciones diferenciales pueden ser estudiadas en cursos los cuales 
 \end{itemize}
 
 \section{Inicio}
-Recordemos que para tener un buen inicio con respecto al curso es necesario tener un ligero repaso a las Técnicas de Integración.
-\subsection{Técnicas de Integración}
+Recordemos que para tener un buen inicio con respecto al curso es necesario tener un ligero repaso a las Técnicas de Integración y a algunas técnicas de identificación de identidades trigonométricas, por lo que durante el desarrollo de este texto se añadieron varios formularios respecto al tema.
+\section{Técnicas de Integración}
 Las técnicas de integración son herramientas que nos seran de utilidad como si fuese la frase celebre o la bendición del día a día.\\
 Recordemos que las técnicas más comunes que tenemos son 4:
 \begin{enumerate}
@@ -123,7 +123,7 @@ Recordemos que las técnicas más comunes que tenemos son 4:
   \item Por fracciones parciales
 \end{enumerate}
 Ahora con esto, comencemos.
-\subsubsection{Por sustitución}
+\subsection{Por sustitución}
 \textbf{Teorema:} Sea $g(x)$ una función derivable y supongase que $F(x)$ es una antiderivada de $f(x)$.\\
 Entonces si $u=g(x)$ tenemos lo siguiente:\\
 \[\int f(g(x))g^{l}(x)dx = \int f(u)du = F(u) + C = F(g(x)) + C   \colon C \in \mathbb{R}\]
@@ -142,9 +142,9 @@ Sustituyendo los valores de $u$ tenemos la integral resuelta:
 \[\int \frac{3}{\sqrt{5-9x^{2}}}dx\]
 \textit{Solución}\\
 Recordemos la forma de las integrales que pasan a la forma inversa de una función trigonométrica (arcos) podemos pensar en el cambio de variable por $u=3x \rightarrow du=3dx$, entonces tendremos lo siguiente:\\
-\[\int \frac{1}{\sqrt{5-u^{2}}}du = \arcsen(\frac{u}{5}) + C\]\\
+\[\int \frac{1}{\sqrt{5-u^{2}}}du = \arcsen\left(\frac{u}{5}\right) + C\]\\
 Sustituyendo $u$ por el valor que tenemos en $x$ tenemos:\\
-\[\int \frac{3}{\sqrt{5-9x^{2}}}dx = \arcsen(\frac{3x}{5}) + C\]
+\[\int \frac{3}{\sqrt{5-9x^{2}}}dx = \arcsen\left(\frac{3x}{5}\right) + C\]
 \vspace{1.5cm}
 \clearpage
 \[\int \frac{6 e^{\frac{1}{x}}}{x^{2}}dx\]\\
@@ -170,7 +170,7 @@ Se propone el siguiente cambio de variable $u=3e^{x}\rightarrow du= 3e^{x}dx$\\
 
 
 \clearpage
-\subsubsection{Por partes}
+\subsection{Por partes}
 \textbf{Definición:} Sea un función dada por el producto de dos funciones cuya función se desea buscar su integral indefinida, la formula esta dada por:\\
 \[\int u dv = uv - \int vdu\]\\
 \emph{Algunos tipos a la hora de aplicar la regla de la integración por partes tenemos que tomar encuenta que la aplicación va acorde a la presedencia de sus funciones}
@@ -232,19 +232,19 @@ Para complementar esto veamos igual al $\cos(x)$ en su forma de Euler:
 Entonces tendremos:
 \[\frac{1}{2i}\int e^{x}(e^{ix}-e^{-ix})dx \Leftrightarrow \frac{1}{2i}\{\int e^{x(1+i)} - \int e^{x(1-i)}\}\]
 Por lo que propondremos el cambio de variable respectivo $u$ y $v$ donde $u=x(1+i)$ y $v=x(1-i)$, entonces sus derivadas con respecto a $x$ son $du=(1+i)dx$ y $dv=(1-i)dx$, entonces:
-\[\frac{1}{2i}\{\frac{1}{1+i}e^{x(1+i)}-\frac{1}{1-i}e^{x(1-i)}\}+C\]
+\[\frac{1}{2i}\left\{\frac{1}{1+i}e^{x(1+i)}-\frac{1}{1-i}e^{x(1-i)}\right\}+C\]
 Ahora aplicaremos el complemento de cada fracción compleja por lo que en el resultado tendremos:
-\[\frac{1}{2i}\{\frac{1+i}{2}e^{x(1+i)}-\frac{1-i}{2}e^{x(1-i)}\}+C\]
-Ahora separando terminos del campo $\mathbb{R}$ y $\mathbb{C}$ tendremos:
-\[\frac{1}{4i}\{e^{x(1+i)}-e^{x(1-i)} + i(e^{x(1+i)}+e^{x(1-i)})\}+C\]
-Separando terminos y reordenando:
-\[\frac{1}{4i}\{e^{x(1+i)}-e^{x(1-i)}\} + \frac{1}{4}\{(e^{x(1+i)}+e^{x(1-i)})\}+C\]
+\[\frac{1}{2i}\left\{\frac{1+i}{2}e^{x(1+i)}-\frac{1-i}{2}e^{x(1-i)}\right\}+C\]
+Ahora separando términos del campo $\mathbb{R}$ y $\mathbb{C}$ tendremos:
+\[\frac{1}{4i}\left\{e^{x(1+i)}-e^{x(1-i)} + i(e^{x(1+i)}+e^{x(1-i)})\right\}+C\]
+Separando términos y reordenando:
+\[\frac{1}{4i}\left\{e^{x(1+i)}-e^{x(1-i)}\right\} + \frac{1}{4}\left\{(e^{x(1+i)}+e^{x(1-i)})\right\}+C\]
 Factorizando todos los valores de $e^{x}$ tendremos:
-\[\frac{e^{x}}{4i}\{e^{xi}-e^{-xi}\} + \frac{e^{x}}{4}\{(e^{xi}+e^{-xi})\}+C\]
+\[\frac{e^{x}}{4i}\left\{e^{xi}-e^{-xi}\right\} + \frac{e^{x}}{4}\left\{(e^{xi}+e^{-xi})\right\}+C\]
 Ahora aplicando identidad de Euler:
 \[\frac{1}{2}e^{x}\sin(x) + \frac{1}{2}e^{x}\cos(x)+C\]
 Reordenando todo:
-\[\frac{1}{2i}\int e^{x}(e^{ix}-e^{-ix})dx \Leftrightarrow \frac{1}{2i}\{\int e^{x(1+i)} - \int e^{x(1-i)}\} = \frac{1}{2}e^x\{\sin(x)+\cos(x)\}+C\]
+\[\frac{1}{2i}\int e^{x}(e^{ix}-e^{-ix})dx \Leftrightarrow \frac{1}{2i}\left\{\int e^{x(1+i)} - \int e^{x(1-i)}\right\} = \frac{1}{2}e^x\left\{\sin(x)+\cos(x)\right\}+C\]
 \clearpage
 \[\int \sin^{n}(x)dx \colon \forall n\in\mathbb{N}\geq 2\]
 \textit{Solución}\\
@@ -256,13 +256,13 @@ Recordemos las identidades trigonométricas de valores que son iguales a $1$:
 \[1=\cos^2(x)+\sin^{2}(x)\]
 \[1=\sec^{2}(x)-\tan^{2}(x)\]
 Aplicaremos esta identidad en la integral de tal forma que podremos sustituir la integral a dos partes:
-\[-\cos(x)\sin^{n-1}(x) + (n-1)\{\int \sin^{n-2}(x)dx -\int\sin^{n}(x)dx\}\]
+\[-\cos(x)\sin^{n-1}(x) + (n-1)\left\{\int \sin^{n-2}(x)dx -\int\sin^{n}(x)dx\right\}\]
 Aplicando distributividad:
 \[\int\sin^{n}(x)dx=-\cos(x)\sin^{n-1}(x) + (n-1)\int \sin^{n-2}(x)dx -(n-1)\int\sin^{n}(x)dx\]
 Ahora aplicando algebra:
 \[n\int\sin^{n}(x)dx=-\cos(x)\sin^{n-1}(x) + (n-1)\int \sin^{n-2}(x)dx + C\]
 De nuevo aplicando algebra:
-\[\int\sin^{n}(x)dx=\frac{1}{n}\{-\cos(x)\sin^{n-1}(x) + (n-1)\int \sin^{n-2}(x)dx\} + C \colon \forall n\in\mathbb{N}\geq 2\]
+\[\int\sin^{n}(x)dx=\frac{1}{n}\left\{-\cos(x)\sin^{n-1}(x) + (n-1)\int \sin^{n-2}(x)dx\right\} + C \colon \forall n\in\mathbb{N}\geq 2\]
 \vspace{1cm}
 \[\int \cos^{n}(x)dx \colon \forall n\in\mathbb{N}\geq 2\]
 \textit{Solución:}\\
@@ -273,11 +273,11 @@ Ahora ya que tenemos noción de la integral anterior podemos proceder con lo sig
 Esto implica:
 \[\cos^{n-1}(x)\sin(x)+(n-1)\int\cos^{n-2}\sin^{2}(x)dx\]
 Aplicando igual identidades trigonométrica directamente:
-\[\cos^{n-1}(x)\sin(x)+(n-1)\{\int\cos^{n-2}(x)dx - \int\cos^{n}(x)dx\}\]
+\[\cos^{n-1}(x)\sin(x)+(n-1)\left\{\int\cos^{n-2}(x)dx - \int\cos^{n}(x)dx\right\}\]
 \[\int\cos^{n}(x)dx =\cos^{n-1}(x)\sin(x)+(n-1)\int\cos^{n-2}(x)dx-(n-1)\int\cos^{n}(x)dx\ \]
 Ahora con algebra:
 \[n\int\cos^{n}(x)dx =\cos^{n-1}(x)\sin(x)+(n-1)\int\cos^{n-2}(x)dx+C\]
-\[\int\cos^{n}(x)dx =\frac{1}{n}\{\cos^{n-1}(x)\sin(x)+(n-1)\int\cos^{n-2}(x)dx\}+C \colon \forall n\in\mathbb{N}\geq 2\]
+\[\int\cos^{n}(x)dx =\frac{1}{n}\left\{\cos^{n-1}(x)\sin(x)+(n-1)\int\cos^{n-2}(x)dx\right\}+C \colon \forall n\in\mathbb{N}\geq 2\]
 \textbf{Ejercicios propuestos:}
 \begin{enumerate}
   \item \[\int\ln(t)dt\]
@@ -285,9 +285,10 @@ Ahora con algebra:
   \item \[\int \sin^{5}(x)dx\]
 \end{enumerate}
 \clearpage
-\subsubsection{Integración trigonométrica}
+
+\subsection{Integración trigonométrica}
 Si bien ya aplicamos integración con funciones trigonométricas es importante tambien poder saber un par de tecnicas con respecto a propiedades de las mismas para que originen un ahorro de tiempo a la hora de resolver diversos ejercicios y/o resolver ecuaciones diferenciales.\\
-\textbf{Tipo I:}
+\subsubsection{Tipo I:}
 \[\int\sin^{n}(x)dx;\int\cos^{n}(x)dx\colon\forall n\in\mathbb{Z^{+}}\]
 \textit{Podemos aplicar algunas propiedades como la propiedad de $1$ o en el caso de ser valores de $n$ impar podemos hacer lo siguiente:}
 \[\sin^{2}(x)=\frac{1}{2}(1-\cos(2x))\]
@@ -311,7 +312,7 @@ Si $n$ es par, entonces:
 \[\int\sin^{2}(x)dx\]
 \textit{Solución}\\
 Utilizando identidades de la introducción a este tipo integrales, tenemos:
-\[\frac{1}{2}\int(1-\cos(2x))dx \Leftrightarrow \frac{1}{2}\{\int dx - \int\cos(2x)dx\}\]
+\[\frac{1}{2}\int(1-\cos(2x))dx \Leftrightarrow \frac{1}{2}\left\{\int dx - \int\cos(2x)dx\right\}\]
 Resolviendo las integrales
 \[\int\sin^{2}(x)dx=\frac{x}{2}-\frac{\sin(2x)}{4}+C\]
 \clearpage
@@ -322,7 +323,7 @@ Resolviendo las integrales
 \end{enumerate}
 
 
-\textbf{Tipo II:}
+\subsubsection{Tipo II:}
 \[\sin^{m}(x)\cos^{n}(x)dx\]
 Si $m$ o $n$ son $\mathbb{Z^{+}}$ y alguno es impar, y el otro exponente es cualquier número, factorizamos $\sin(x)$ o $\cos(x)$ y utilizamos la identidad de 1, para otros casos a continuación se presentan algunas identidades de producto de funciones trigonométricas con factores $m$ y $n$ distintas pero $\mathbb{R}$ o $\mathbb{Z}$:
 \[\sin(mx)\cos(nx)=\frac{1}{2}\{\sin[(m+n)x]+\sin[(m-n)x]\}\]
@@ -341,9 +342,9 @@ Por cambio de variable $u=\cos(x) \rightarrow du=-\sin(x)dx$ y aplicando directa
 \clearpage
 
 
-\subsubsection{Intregación por sustitución trigonométrica}
+\subsection{Intregación por sustitución trigonométrica}
 Para resolver estas integrales es necesario conocer o tomar como medida de apoyo un triangulo rectangulo, el cual nos facilitara en realizar un cambio de variable al momento de realizar una integral.\\
-\textbf{Caso I:}\\
+\subsubsection{Caso I:}
 \begin{center}
   \includegraphics[scale=0.5]{imgsAux/triangulo.png}\\
 \end{center}
@@ -353,7 +354,7 @@ Partiendo de esto obtendremos:
 \[\sin(\theta)= \frac{x}{a},\;\;\; x=a\sin(\theta),\;\;\; dx=a\cos(\theta)d\theta\]
 Con ello sustituyendo a $x$ tendremos:
 \[\sqrt{a^{2}-x^{2}}\Rightarrow \sqrt{a^{2}-a^{2}\sin^{2}(\theta)} \Leftrightarrow \sqrt{a^{2}[1-\sin^{2}(\theta)]} \Leftrightarrow \sqrt{a^{2}\cos^{2}(\theta)}\;\;\;\;\; \therefore \sqrt{a^{2}-x^{2}}=a\cos(\theta)\]
-\textbf{Caso II:}\\
+\subsubsection{Caso II:}
 \begin{center}
   \includegraphics[scale=0.5]{imgsAux/triangulo1.png}\\
 \end{center}
@@ -364,7 +365,7 @@ Partiendo de esto obtendremos:
 Con ello sustituyendo a $x$ tendremos:
 \[\sqrt{a^{2}+x^{2}}\Rightarrow \sqrt{a^{2}+a^{2}\tan^{2}(\theta)} \Leftrightarrow \sqrt{a^{2}[1+\tan^{2}(\theta)]} \Leftrightarrow \sqrt{a^{2}\sec^{2}(\theta)}\;\;\;\;\; \therefore \sqrt{a^{2}+x^{2}}=a\sec(\theta)\]
 \clearpage
-\textbf{Caso III:}\\
+\subsubsection{Caso III:}
 \begin{center}
   \includegraphics[scale=0.5]{imgsAux/triangulo2.png}\\
 \end{center}
@@ -377,9 +378,79 @@ Con ello sustituyendo a $x$ tendremos:
 \textit{\textbf{Aplicado ahora en alguna integral tendremos:}}\\
 \[\int \frac{dx}{\sqrt{9+x^{2}}}\]
 \textit{Solución}\\
-De acuerdo con los casos que tenemos podemos aplicar el caso 2 en el problema por lo que sustituyendo directamente tendremos $a=3$ \& $x=3\tan(\theta)$:
-\[\int \frac{3\sec^{2}(\theta)}{3\sec(\theta)}d\theta \; \Leftrightarrow \; \int \sec(\theta)d\theta = \ln|\sec(\theta)+\tan(\theta)|+C\]
+De acuerdo con los casos que tenemos podemos aplicar el Caso II en el problema por lo que sustituyendo directamente tendremos $a=3$ \& $x=3\tan(\theta)$:
+\[\int \frac{3\sec^{2}(\theta)}{3\sec(\theta)}d\theta \; \Leftrightarrow \; \int \sec(\theta)d\theta = \ln\left|\sec(\theta)+\tan(\theta)\right|+C\]
 Finalmente sustituiremos los valores de las identidades trigonométricas con sus respectivos valores de triangulo:
-\[\int \frac{dx}{\sqrt{9+x^{2}}}= \ln|\frac{\sqrt{9+x^{2}}}{3}+\frac{x}{3}|+C\]
+\[\int \frac{dx}{\sqrt{9+x^{2}}}= \ln\left|\frac{\sqrt{9+x^{2}}}{3}+\frac{x}{3}\right|+C\]
+\\\vspace{0.5cm}
+\[\int\frac{dx}{\sqrt{x^{2}+2x+26}}\]
+\textit{Solución}\\
+Para abordar este problema a traves de sustitución trigonométrica es necesario reducir el polinomio interno de la raíz cuadrada, por lo primer rescribiremos la integral:
+\[\int \frac{dx}{\sqrt{x^{2}+2x+25+1}}\Leftrightarrow \int \frac{dx}{\sqrt{(x+1)^{2}+5^{2}}}\]
+Ahora una vez reduciendo esto haremos un cambio de variable el cual sera $u=x+1$ \& $du=dx$, reescribiendo la integral tenemos:
+\[\int \frac{du}{\sqrt{u^{2}+5^{2}}}\]
+Con esto podemos aplicar directamente el Caso II, por lo que saltando todo el cambio de variable hacia $\theta$ debido al anterior ejemplo tendremos:
+\[\int \frac{du}{\sqrt{u^{2}+5^{2}}}=\ln\left|\sec(\theta)+\tan(\theta)\right|+C\]
+Lo cual es:
+\[\int \frac{du}{\sqrt{u^{2}+5^{2}}}=\ln\left|\frac{\sqrt{u^{2}+25}}{5}+\frac{u}{5}\right|+C\]
+Sustituyendo el valor de $u$ por su respectivo valor en $x$:
+\[\int\frac{dx}{\sqrt{x^{2}+2x+26}}=\ln\left|\frac{{\sqrt{(x+1)^2+25}}}{5}+\frac{x+1}{5}\right|+C\]
+\\\vspace{0.5cm}
+\textbf{Ejercicio propuesto:}
+\begin{enumerate}
+  \item \[\int\frac{\sqrt{x^{2}-4}}{x}dx\]
+\end{enumerate}
+\clearpage
+
+\section{Ecuaciones Diferenciales}
+\textbf{Definición:} Se dice que una Ecuación Diferencial (ED) que contiene las derivadas de una o más variables dependientes, con respecto a una o más variables independientes es conocida como una ED.\\
+\textit{Nota:} Para referirse a ellas, se clasifican a las ED's por:
+\begin{itemize}
+  \item Tipo
+  \item Orden
+  \item Linealidad
+\end{itemize}
+\subsection{Clasificación por Tipo}
+Si una ED contiene solo derivadas ordinarias de una o más variables independientes, se dice que es una ED Ordinaria (EDO)
+\\\textbf{Ejemplos:}
+\[\frac{dy}{dx}+5y=e^{x}\;\;\;\;\;\;\frac{d^{2}y}{dx^{2}}-\frac{dy}{dx}+6y=0 \;\;\;\;\;\;\frac{dx}{dt}+\frac{dy}{dt}=2x+y\]
+Una ED con derivadas parciales de una o más variables dependientes con respecto de dos o más variables independientes se llaman ED Parcial (EDP)
+\\\textbf{Ejemplos:}\\
+\[\frac{\partial^{2}u}{\partial x^{2}}+\frac{\partial^{2}u}{\partial y^{2}}=0;\;\;\;\;\;\; u=u(x,y)\]
+\[\frac{\partial^{2}u}{\partial x^{2}}=\frac{\partial^{2}u}{\partial t^{2}}-2\frac{\partial u}{\partial t};\;\;\;\;\;\; u=u(x,t)\]
+\[\frac{\partial u}{\partial y}=\frac{\partial u}{\partial x}; \;\;\;\;\;\; u=u(y)\;\;\&\;\;u=u(x)\]
+\textit{Nota:} En todo o la mayor parte del curso las derivadas ordinarias escribiremos con la notación de Leibniz:
+\[\frac{dy}{dx},\;\;\frac{d^{2}y}{dx^{2}},\;\;\frac{d^{3}y}{dx^{3}},\;\;\ldots\;\;,\frac{d^{n}y}{dx^{n}} \Rightarrow y^{l},\;\;y^{ll},\;\;y^{lll},\;\;y^{n}\]
+Entonces las EDO de los ejemplos quedan como:
+\[y^{l}+5y=e^{x}\;\;\;\;\;\;y^{ll}-y^{l}+6y=0\;\;\;\;\;\;x^{l}+y^{l}=2x+y\]
+\clearpage
+\subsection{Clasificación por Orden}
+El orden de una ED ya sea Ordinaria o Parcial, se defide de acuerdo a la derivada de mayor orden\\
+\textbf{Ejemplos:}
+\[\frac{d^{2}y}{dx^{2}}+5\left(\frac{dy}{dx}\right)^{3}-4y=e^{x}\]
+Encontrado los datos tendremos:
+\begin{itemize}
+  \item $\frac{d^{2}y}{dx^{2}}$ Es una componente diferencial de Orden 2
+  \item $5\left(\frac{d^y}{dx}\right)^{3}$ Es una componente diferencial de Orden 1
+\end{itemize}
+$\therefore$ Esta ED es de Orden 2\\
+\textit{Nota:} En ocasiones las EDO's de $1^{er}$ Orden se escriben como:
+\[y^{l}=f(x,y) \;\;\;\Rightarrow\;\;\; M(x,y)dx+N(x,y)dy=0;\]
+\[N(x,y)dy=-M(x,y)dx;\;\;\;N(x,y)\frac{dy}{dx}=-M(x,y)\]
+\[\frac{dy}{dx}=-\frac{M(x,y)}{N(x,y)}\]
+
+\subsection{Clasificación por Linealidad}
+Una EDO de Orden n-esimo es lineal, si $F(x,y,y^{l},y^{ll},y^{lll},\ldots,y^{n})=0$ es lineal o $y,y^{l},y^{ll},y^{lll},\ldots,y^{n}$, es decir, una EDO de Orden n es lineal si la podemos escribir como:
+\[a_{n}(x)\frac{d^{n}y}{dx^{n}}+\left( a_{n-1}(x)\frac{d^{n-1}y}{dx^{n-1}}+\ldots+a_{2}(x)\frac{d^{2}y}{dx^{2}}+a_{1}(x)\frac{dy}{dx}+a_{0}y\right)=g(x)\ldots\ldots\ldots\ldots(*)\]
+Si vemos la definición de $(*)$ sabemos que es una combinación lineal.\\
+En la combinación lineal observamos que las propiedades y caracteristicas de una EDO lineal son como:
+\begin{enumerate}
+  \item La variable dependiente $(y)$ y todas sus derivadas $y^{l},y^{ll},y^{lll},\ldots,y^{n}$ son de $1^{er}$ grado, es decir, la potencia de cada término en que interviene la variable $y$ es 1
+  \item Los coeficientes $\left(a_{0},a_{1},a_{2},\ldots,a_{n}\;\;de\;\;y,y^{l},y^{ll},\ldots,y^{n}\right)$ dependen unicamento de la variable $x$
+\end{enumerate}
+\textit{Nota:}Una EDO no-lineal es simplemente una que no esta representada en combinación lineal, como:\\
+\textbf{Ejemplo}
+\[(1-y)y^{l}+2y=e^{x}\;\;\;\;\;\;\frac{d^{2}y}{dx^{2}}+\sin(y)=0\;\;\;\;\;\;\frac{d^{4}y}{dx^{4}}+y^{2}=0\]
+
 \printindex
 \end{document}
