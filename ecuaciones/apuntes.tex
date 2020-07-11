@@ -451,6 +451,32 @@ En la combinación lineal observamos que las propiedades y caracteristicas de un
 \textit{Nota:}Una EDO no-lineal es simplemente una que no esta representada en combinación lineal, como:\\
 \textbf{Ejemplo}
 \[(1-y)y^{l}+2y=e^{x}\;\;\;\;\;\;\frac{d^{2}y}{dx^{2}}+\sin(y)=0\;\;\;\;\;\;\frac{d^{4}y}{dx^{4}}+y^{2}=0\]
+\clearpage
+
+\section{Solución de una ED}
+Uno de los objetivos primordiales del curso es resolver o encontrar soluciones de EDO's.\\
+\textbf{Definición:} Cualquier función $\phi(x)$, definida en un intervalo $I$ y con al menos n-derivadas continuas en dicho intervalo de $I$, que al sustituirse en una EDO de n-esimo orden reduce a la ED en una identidad, se considera solución de dicha EDO.
+\\\textbf{Ejemplos:}
+\[a)\;\frac{dy}{dx}=xy^{\frac{1}{2}}\;\;;\;\;y=\frac{x^{4}}{16}\;\;\;\;|\;\;\;\;b)\;y^{ll}-2y^{l}+y=0\;\;;\;\;y=xe^{x}\]
+\textit{Solución} $a,b$, la cual derivaremos y sustituiremos los valores en las ecuaciones correspodientes, se procedera directamente:
+\[\frac{x^{3}}{4}=x\left(\frac{x^{2}}{4}\right)\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;|\;\;\;\;\;\;(x+2)e^{x}-2[(x+1)e^{x}]+xe^{x}=0\]
+Finalmente resolviendo estas ecuaciones algebraicas podemos probar que la ED es correcta en primer instancia.\\
+\textit{Nota:} Una solución de una ED que es identicamente a cero en un intervalo $I$ se llama solución trivial (Si $y\equiv0$)
+
+\section{Solución explicita e implicita}
+\textbf{Definición solución explicita:} Se dice que una solución es explicita, si en dicha solución la variable dependiente se expresa únicamente en términos de la variable independiente y constantes
+\\\textbf{Ejemplos:}
+\[y(x)=\frac{x^{2}}{2}+4\;\;\;\;\;\;\;\;\;\;\;\;y(x)=9x^{2}+5x+e^{5x}\]
+
+\textbf{Definición solución implicita} Una relación $G(x,y)=0$ es una solución implicita de una EDO en un intervalo $I$, siempre que exista al menos una función $\phi(x)$ que satisfaga tanto a la relación como  a la ED en $I$
+\\\textbf{Ejemplo:}
+La relación $x^{2}+y^{2}=25$ es una solución implicita de la ED
+\[\frac{dy}{dx}=-\frac{x}{y}\;\;\;\;\;\;\;en\;\;\;I=(-5,5)\]
+\textit{Solución}\\
+Derivamos implicitamente a la relación:
+\[2x+2yy^{l}=0 \;\Rightarrow\; 2yy^{l}=-2x \;\Rightarrow\; y^{l}=-\frac{2x}{2y}\;\Rightarrow\; y^{l}=-\frac{x}{y}\]
+Por otra parte:
+\[\left|y\right|=\sqrt{25-x^{2}}\;\Rightarrow\;\phi_{1}(x)=\sqrt{25-x^{2}}\;\;\;\&\;\;\;\phi_{2}(x)=-\sqrt{25-x^{2}}\]
 
 \printindex
 \end{document}
