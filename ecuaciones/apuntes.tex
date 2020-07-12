@@ -157,7 +157,7 @@ Sustituyendo $u$ por su valor con respecto a $x$ tenemos:\\
 \vspace{1cm}
 \[\int\frac{e^{x}}{4 + 9 e^{2x}}dx\]
 \\
-\textit{Solución:}\\
+\textit{Solución}\\
 Se propone el siguiente cambio de variable $u=3e^{x}\rightarrow du= 3e^{x}dx$\\
 \[\frac{1}{3}\int \frac{1}{4+u^{2}}du=\frac{1}{6}\arctan{\frac{u}{2}}+C\]
 \\Sustituyendo los valores de $u$ con respecto a $x$\\
@@ -210,7 +210,7 @@ Ahora solo solucionamos la ultima integral:
 \vspace{1cm}
 \[\int e^{x}\sin(x)dx\]\\
 De esta integral partiremos de dos soluciones distintas ambas llegando al mismo resultado:\\
-\textit{Solución 1:}\\
+\textit{Solución 1}\\
 Tomaremos esta integral de forma directa de tal forma que tendremos lo siguiente $u=\sin(x)\rightarrow du= \cos(x)dx$ \& $dv=e^{x}dx \rightarrow v=e^{x}$, aunado a esto tenemos:
 \[e^{x}\sin(x) - \int e^{x}cos(x)dx \]
 Volveremos a aplicar la regla de la integral por parte esta vez modificando las letras para hacerlo un poco más explicito $u=a$ \& $v=b$, por lo que tendremos es $a=cos(x) \rightarrow da=-sin(x)dx$ \& $db=e^{x}dx \rightarrow b=e^{x}$, ahora continuando el desarrollo de la integral tendremos:
@@ -224,7 +224,7 @@ Algebraicamente haremos que la integral del lado derecho pase del lado izquierdo
 Ahora por simple algebra:
 \[\int e^{x}\sin(x)dx = \frac{1}{2}\{e^{x}\sin(x)-e^{x}\cos(x)\}+C\]
 
-\textit{Solución 2:}\\
+\textit{Solución 2}\\
 Veamos a $\sin(x)$ como su representación en el campo de los números complejos con ayuda de la identidad de Euler:
 \[\sin(x)= \frac{1}{2i}(e^{ix}-e^{-ix})\]
 Para complementar esto veamos igual al $\cos(x)$ en su forma de Euler:
@@ -265,7 +265,7 @@ De nuevo aplicando algebra:
 \[\int\sin^{n}(x)dx=\frac{1}{n}\left\{-\cos(x)\sin^{n-1}(x) + (n-1)\int \sin^{n-2}(x)dx\right\} + C \colon \forall n\in\mathbb{N}\geq 2\]
 \vspace{1cm}
 \[\int \cos^{n}(x)dx \colon \forall n\in\mathbb{N}\geq 2\]
-\textit{Solución:}\\
+\textit{Solución}\\
 Ahora ya que tenemos noción de la integral anterior podemos proceder con lo siguiente:
 \[\int\cos^{n-1}(x)\cos(x)dx\]
 \[u=\cos^{n-1}(x)\rightarrow du=-\cos^{n-2}(x)\sin(x)dx\]
@@ -477,6 +477,69 @@ Derivamos implicitamente a la relación:
 \[2x+2yy^{l}=0 \;\Rightarrow\; 2yy^{l}=-2x \;\Rightarrow\; y^{l}=-\frac{2x}{2y}\;\Rightarrow\; y^{l}=-\frac{x}{y}\]
 Por otra parte:
 \[\left|y\right|=\sqrt{25-x^{2}}\;\Rightarrow\;\phi_{1}(x)=\sqrt{25-x^{2}}\;\;\;\&\;\;\;\phi_{2}(x)=-\sqrt{25-x^{2}}\]
+\clearpage
+\subsection{Solución general, condiciones inciales\\Solución particular y unicidad de la solución}
+Para que sea más ilustrativo este tema se mostrara el como se realiza a traves de una ecuación.\\
+Sea $\frac{dy}{dx}=2x$, encontrar su solución general y su solución particular si $y(x=0)=1$
+\\\textit{Solución}
+\[\frac{dy}{dx}=2x\:\:\;\Rightarrow dy=2xdx\:\:\;\Rightarrow \int dy=\int 2xdx\]
+En su solución general es decir que se tiene una familia de curvas bajo la constante $C$ de la integral obtendremos:
+\[y(x)=x^{2}+C\;\;\;|\;C \in \mathbb{R}\;\;\;\;(Sol.\;\;general)\]
+Para su solución particular usaremos la condición inicial dada al inicio, obteniendo lo siguiente con $x=0$:
+\[y(0)\equiv 1 \;\;\;\;\;\;\;\;1=(0)^{2}+C \Rightarrow C=1\;\;\;\;\;\;\;\;\therefore y(x)=x^{2}+1\;\;\;\;(Sol.\;\;particular)\]
+\section{Método de separación de variables para EDO-$1^{er}$ Orden}
+Sea $\frac{dy}{dx}=f(x,y)$, donde sabemos o definimos que $f(x,y)=\frac{h(x)}{g(y)}$\\
+Solucionando esto tendremos que de acuerdo a la ED $\frac{dy}{dx}=\frac{h(x)}{g(y)}$, reacomodando los terminos y tomando en cuenta que los terminos del diferencial $dx$ y $dy$ respectivamente tendremos que "multiplicar" por un diferencial en ambas partes de la ED, este diferencial es $dx$.\\
+Obteniendo:
+\[dy=\frac{h(x)}{g(y)}dx\]
+Reacomodando las funciones de $f(x,y)$:
+\[g(y)dy=h(x)dx\]
+Finalmente integrando:
+\[\int g(y)dx=\int h(x)dx\]
+Obtendremos:
+\[G(y)=H(x)+C \Leftrightarrow G(y)-H(x)=C\]
+\textbf{Ejemplo}\\
+Integrar las siguiente ED's:
+\[a)\;\;\;\;\;\;\frac{dy}{dx}=\frac{2xy}{(x^{2}-1)(y^{3}+3)}\]
+\textit{Solución}
+\[dy=\frac{2xy}{(x^{2}-1)(y^{3}+3)}dx\]
+\[\frac{(y^{3}+3)}{y}dy=\frac{2x}{x^{2}-1}dx \ldots\ldots(0)\]
+Procederemos a resolver $(0)$ separando las integrales necesarias si es necesario y con las tecnicas previamente aprendidas:
+\[\int\frac{y^{3}}{y}dy+3\int\frac{dy}{y}=\int\frac{2x}{x^{2}-1}dx\]
+Resolviendo:
+\[\frac{y^{3}}{3}+3\ln\left|y\right|=\ln\left|x^{2}-1\right|+C\]
+\clearpage
+\[b)\;\;\;\;\;\;y^{l}=xy+x-2y-2;\;\;\;y(0)=2\]
+\textit{Solución}
+\[\frac{dy}{dx}=xy+x-2y-2 \;\Rightarrow\;\frac{dy}{dx}=x(y+1)-2(y+1)\]
+\[\Rightarrow\frac{dy}{dx}=(x-2)(y+1)\;\Rightarrow\;\frac{dy}{y+1}=(x-2)dx\]
+\[\int\frac{dy}{y+1}=\int(x-2)dx\]
+Solucionando la integral:
+\[\ln\left|y+1\right|=\frac{x^{2}}{2}-2x+C\]
+Ahora para resolver el apartado de las condiciones iniciales para encontrar una solución particular procederemos inicialmente a reducir o expandira la ecuación, con:
+\[e^{\ln|y+1|}=e^{x^{2}-2x+C} \Leftrightarrow y+1=e^{x^{2}-2x+C}\]
+De modo que la constante C que interviene en el valor exponencial del lado de $x$ la podemos separar e inmediatamente decir que es:
+\[y+1=Ce^{x^{2}-2x}\Rightarrow y=Ce^{x^{2}-2x}-1\]
+De modo que ya tendremos una función $y(x)$, ahora aplicando las condiciones tendremos:
+\[2=Ce^{x^{2}-2x}-1\;\Rightarrow 2=Ce^{0}-1\;\Rightarrow 2=C-1\;\Rightarrow C=3\]
+\[\therefore y(x)=3e^{x^{2}-2x}-1\]
+\\\vspace{0.5cm}
+\[c)\;\;\frac{dy}{dx}(x^{2}+1)\tan(y)=x\]
+\textit{Solución}
+\[\tan(y)\frac{dy}{dx}=\frac{x}{x^{2}+1}\;\;\;\;\;\;\Rightarrow\;\;\;\;\;\; \tan(y)dy=\frac{x}{x^{2}+1}dx\]
+\[\int \tan(y)dy=\int\frac{x}{x^{2}+1}dx\]
+Hint: $\tan(y)=\frac{\sin(y)}{\cos(y)}$ por cambio de variable en dicha integral
+\[\int\frac{\sin(y)}{\cos(y)}dy=\int\frac{x}{x^{2}+1}dx\]
+\[-\ln\left|\cos(y)\right|=\frac{1}{2}\ln\left|x^{2}+1\right|+C\]
+\clearpage
+\textbf{Ejercicios propuestos:}
+\begin{enumerate}
+  \item \[y^{l}=\frac{(x-2)(y-1)(y+3)}{(x-1)(x+3)(y-2)}\]
+  \item \[y^{l}=\frac{\sin(x)+e^{2y}\sin(x)}{3e^{y}+e^{y}\cos(2x)}\]
+  \item \[y^{l}=\frac{y+1}{\sqrt{x}+\sqrt{xy}}\]
+  \item \[\left(y\ln(x)\right)^{-1}y^{l}=\left(\frac{x}{y+1}\right)^{2}\]
+  \item \[y^{l}=\frac{xy+3y+x-3}{xy+2y-x-2}\]
+\end{enumerate}
 
 \printindex
 \end{document}
