@@ -554,10 +554,27 @@ Para n=0, se tiene una función de grado $0$
 Sea $f(x,y)=\frac{x^{2}-y^{2}}{x^{2}+y^{2}}$
 \textit{Solución}
 \[f(tx,ty)=\frac{t^{2}x^{2}-t^{2}y^{2}}{t^{2}x^{2}+t^{2}y^{2}}\;\;\;\Leftrightarrow\;\;\;f(tx,ty)=\frac{t^{2}}{t^{2}}\frac{x^{2}-y^{2}}{x^{2}+y^{2}}\;\;\;\therefore t^{0}\]
+\clearpage
 \subsection{Ecuaciones Homógeneas en ED}
 Para resolver ED es necesario plantear un modelo de cambio de variable, el cual te permitira resolver la ecuación diferencial de grado $n$\\
 Resolver las siguientes ED's homógeneas:
 \[xy^{l}=\sqrt{x^{2}-y^{2}}+y\]
-
+\textit{Solución}
+\[y^{l}=\frac{\sqrt{x^{2}-y^{2}}+y}{x}\]
+\[y^{l}=\sqrt{\frac{x^{2}}{x^{2}}-\frac{y^{2}}{x^{2}}}+\frac{y}{x}\;\;\;\;\;\ldots\;\;\;\;y^{l}=\sqrt{1-\frac{y^{2}}{x^{2}}}+\frac{y}{x}\rightarrow (1)\]
+\[f(x,y)=\sqrt{1-\frac{y^{2}}{x^{2}}}+\frac{y}{x}\]
+\[f(tx,ty)=\sqrt{1-\left(\frac{ty}{tx}\right)^{2}}+\frac{ty}{tx}\;\;\;\;\;\;\;\;\therefore\;\;Es\;\;Hom\acute{o}genea\]
+Por lo tanto propondremos el siguiente cambio de variable:
+\[u=\frac{y}{x}\;\;\;\;\;\;\;\;\;\;\;\;y=ux\;\;\;\;\Rightarrow\;\;\;\;y^{l}=u+x\frac{du}{dx}\rightarrow(2)\]
+Ahora sustituimos $(2)$ en $(1)$:
+\[u+xu^{l}=\sqrt{1-u^{2}}+u\]
+\[xu^{l}=\sqrt{1-u^{2}}\;\;\;\;\Leftrightarrow\;\;\;\;x\frac{du}{dx}=\sqrt{1-u^{2}}\]
+Ahora solo procederemos a resolver la ED, no olvidando el cambio de variable:
+\[xdu=\sqrt{1-u^{2}}dx\;\;\;\;\Leftrightarrow\;\;\;\;\frac{du}{\sqrt{1-u^{2}}}=\frac{dx}{x}\]
+\[\int\frac{du}{\sqrt{1-u^{2}}}=\int\frac{dx}{x}\]
+Resolviendo la integral tendremos:
+\[\arcsin(u)=\ln(x)+C\;\;\;\;\Leftrightarrow\;\;\;\;u=\sin\left(\ln\left|x\right|+C\right)\]
+Sustituyendo el valor de $u$
+\[\frac{y}{x}=\sin\left(\ln\left|x\right|+C\right)\;\;\;\;\Leftrightarrow\;\;\;\;y=x\sin\left(\ln\left|x\right|+C\right)\]
 \printindex
 \end{document}
