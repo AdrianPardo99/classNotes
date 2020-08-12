@@ -549,8 +549,8 @@ Una función $f(x,y)$ es homógenea de grado $n$, si en sus argumentos si cumple
 \textit{Solución}
 \[f(tx,ty)=t^{2}x^{2}+t^{2}y^{2}-2txty\;\;\;=\;\;\;t^{2}x^{2}+t^{2}y^{2}-2t^{2}xy\]
 \[=t^{2}(x^{2}+y^{2}-2xy)\;\;\;\Rightarrow\;\;\;t^{2}f(x,y)\]
-Para n=0, se tiene una función de grado $0$
-\textbf{Ejemplo:}
+Para n=0, se tiene una función de grado $0$\\
+\textbf{Ejemplo:}\\
 Sea $f(x,y)=\frac{x^{2}-y^{2}}{x^{2}+y^{2}}$
 \textit{Solución}
 \[f(tx,ty)=\frac{t^{2}x^{2}-t^{2}y^{2}}{t^{2}x^{2}+t^{2}y^{2}}\;\;\;\Leftrightarrow\;\;\;f(tx,ty)=\frac{t^{2}}{t^{2}}\frac{x^{2}-y^{2}}{x^{2}+y^{2}}\;\;\;\therefore t^{0}\]
@@ -576,5 +576,29 @@ Resolviendo la integral tendremos:
 \[\arcsin(u)=\ln(x)+C\;\;\;\;\Leftrightarrow\;\;\;\;u=\sin\left(\ln\left|x\right|+C\right)\]
 Sustituyendo el valor de $u$
 \[\frac{y}{x}=\sin\left(\ln\left|x\right|+C\right)\;\;\;\;\Leftrightarrow\;\;\;\;y=x\sin\left(\ln\left|x\right|+C\right)\]
+
+\clearpage
+\[(x-y)dx+(x+y)dy=0\]
+\textit{Solución}
+\[(x-y)dx+(x+y)dy=0\;\;\;\;\Leftrightarrow\;\;\;\;(x+y)dy=(y-x)dx\]
+\[\frac{dy}{dx}=\frac{(y-x)}{(x+y)}\rightarrow(1)\;\;\;\;\Rightarrow\;\;\;\;f(x,y)=\frac{(y-x)}{(x+y)}\]
+Entonces comprobaremos si $f(x,y)$ es homógenea:
+\[f(tx,ty)=\frac{ty-tx}{tx+ty}\;\;\;\;=\;\;\;\;\frac{t}{t}\frac{y-x}{x+y}\;\;\;\;\therefore\;Es\;\;hom\acute{o}genea\]
+\[f(x,y)=\frac{x}{x}\frac{\cfrac{y}{x}-1}{1+\cfrac{y}{x}}\;\;\;\;=\;\;\;\;\frac{\cfrac{y}{x}-1}{1+\cfrac{y}{x}}\]
+Entonces con el cambio de variable propondremos:
+\[u=\frac{y}{x}\;\;\;\;\;\;\;\;\;\;\;\;y=ux\;\;\;\;\;\;\;\;\;\;\;\;y^{l}=u+x\frac{du}{dx}\rightarrow(2)\]
+Ahora sustituyendo $(2)$ en $(1)$:
+\[u+x\frac{du}{dx}=\frac{u-1}{u+1}\;\;\;\;\Leftrightarrow \;\;\;\;x\frac{du}{dx}=\frac{u-1}{u+1}-u\]
+\[x\frac{du}{dx}=\frac{u-1-u(u+1)}{u+1}\;\;\;\;\Leftrightarrow \;\;\;\;x\frac{du}{dx}=\frac{u-1-u^{2}-u}{u+1}\]
+\[x\frac{du}{dx}=-\frac{1+u^{2}}{u+1}\;\;\;\;\Leftrightarrow \;\;\;\;\frac{u+1}{u^{2}+1}du=-\frac{dx}{x}\]
+\[\int\frac{u+1}{u^{2}+1}du=-\int\frac{dx}{x}\]
+\[\int\frac{u}{u^{2}+1}du+\int\frac{du}{u^{2}+1}=-\int\frac{dx}{x}\]
+Resolviendo cada integral tendremos los siguientes resultados:
+\[\frac{1}{2}\ln\left|u^{2}+1\right|+\arctan(u)=-\ln\left|x\right|+C\]
+\[\frac{1}{2}\ln\left|u^{2}+1\right|+\arctan(u)+\ln\left|x\right|=C\]
+Aplicando leyes de los logaritmos:
+\[\ln\left|x\left(u^{2}+1\right)^{\frac{1}{2}}\right|+\arctan(u)=C\]
+Sustituyendo los valores de $u$
+\[\ln\left|x\left(\left(\frac{y}{x}\right)^{2}+1\right)^{\frac{1}{2}}\right|+\arctan\left(\frac{y}{x}\right)=C\]
 \printindex
 \end{document}
