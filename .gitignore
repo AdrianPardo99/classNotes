@@ -6,3 +6,5 @@
 *.ilg
 *.dvi
 *.out
+*.autosave.xopp
+*.xopp~
