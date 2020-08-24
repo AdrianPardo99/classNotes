@@ -600,5 +600,108 @@ Aplicando leyes de los logaritmos:
 \[\ln\left|x\left(u^{2}+1\right)^{\frac{1}{2}}\right|+\arctan(u)=C\]
 Sustituyendo los valores de $u$
 \[\ln\left|x\left(\left(\frac{y}{x}\right)^{2}+1\right)^{\frac{1}{2}}\right|+\arctan\left(\frac{y}{x}\right)=C\]
+
+\clearpage
+\[ydx+x\left(\ln(x)-\ln(y)-1\right)dy=0;\;\;\;\;y(1)=e\]
+\textit{Solución}
+\[ydx+x(\ln(x)-\ln(y)-1)dy=0\;\;\;\;\Leftrightarrow\;\;\;\;ydx+x\left\{\ln(x)-\right[\ln(y)+\ln(e)\left]\right\}dy=0\]
+\[ydx+x\left[\ln(x)-\ln(ey)\right]dy=0\;\;\;\;\Leftrightarrow\;\;\;\;ydx+x\ln\left(\frac{x}{ey}\right)dy=0\]
+\[x\ln\left(\frac{x}{ey}\right)dy=-ydx\;\;\;\;\Leftrightarrow\;\;\;\;x\ln\left(\frac{x}{ey}\right)\frac{dy}{dx}=-y\]
+\[\frac{dy}{dx}=-\frac{y}{x\ln\left(\frac{x}{ey}\right)}\;\;\;\;\Leftrightarrow\;\;\;\;\frac{dy}{dx}=\frac{y}{x\ln\left(\frac{ey}{x}\right)}\]
+Reescribiremos lo siguiente:
+\[f(x,y)=\frac{y}{x\ln\left(\frac{ey}{x}\right)}\]
+\[f(tx,ty)=\frac{t}{t}\frac{y}{x\ln\left(\frac{t}{t}\frac{ey}{x}\right)}\;\;\;\;\therefore\;\;Es\;\;hom\acute{o}genea\]
+Proponiendo el cambio de variable:
+\[u=\frac{y}{x};\;\;\;\;y=ux;\;\;\;\;\frac{dy}{dx}=u+x\frac{du}{dx}\]
+Entonces:
+\[u+x\frac{du}{dx}=\frac{u}{\ln(eu)}\;\;\;\;\Leftrightarrow\;\;\;\;x\frac{du}{dx}=\frac{u-u\ln(eu)}{\ln(eu)}\]
+\[du=\frac{1}{x}\frac{u-u\ln(eu)}{\ln(eu)}dx\;\;\;\;\Leftrightarrow\;\;\;\;\frac{\ln(eu)}{u-u\ln(eu)}du=\frac{dx}{x}\]
+Resolviendo la integral:
+\[\int\frac{\ln(eu)}{u-u\ln(eu)}du=\int\frac{dx}{x}\]
+Para resolver, podemos proponer el cambio de variable, el cual quedaria con lo siguiente
+\[v=u-u\ln(eu)\;\;\;\;\Rightarrow\;\;\;\;dv=1-\ln(eu)+1\;\;\;\therefore\;dv=-\ln(eu)\]
+Ahora:
+\[-\int\frac{dv}{v}=\int\frac{dx}{x}\;\;\;\;\Leftrightarrow\;\;\;\;-\ln|v|=\ln|x|+C\]
+\[-\ln|u-u\ln(eu)|=\ln|x|+C\;\;\;\;\Leftrightarrow\;\;\;\;-\ln\left|\frac{y}{x}-\frac{y}{x}\ln\left(\frac{ey}{x}\right)\right|=\ln|x|+C\]
+Solución general:
+\[\ln\left|\frac{y}{x}-\frac{y}{x}\ln\left(\frac{ey}{x}\right)\right|+\ln|x|+C=0\]
+Solución particular $y(1)=e$:
+\[\ln\left|e-e\ln(e)^{2}\right|+C=0\;\;\;\;\Leftrightarrow\;\;\;\;\ln\left|e-2e\ln(e)\right|+C=0\]
+Donde $\ln|e|=\ln|-e|=1$
+\[\ln|e-2e|+C=0\;\;\;\;\Leftrightarrow\;\;\;\;\ln|-e|+C=0\;\;\;\therefore\;\;C=-1\]
+Solución:
+\[\ln\left|\frac{y}{x}-\frac{y}{x}\ln\left(\frac{ey}{x}\right)\right|+\ln|x|-1=0\]
+\clearpage
+
+\section{Ecuaciones Exactas}
+Sea $z=f(x,y)$ una función de dos variables con primeras derivadas parciales continuas en una región $R\tiny{xy}$ del plano $xy$, entonces su diferencial es:
+\[dz=\frac{\partial{f(x,y)}}{\partial{x}}dx+\frac{\partial{f(x,y)}}{\partial{y}}dy\;\;\;\;(i)\]
+Si $f(x,y)=C;\;\;\;C=cte$, entonces $(i)$ se transforma en:
+\[\frac{\partial{f(x,y)}}{\partial{x}}dx+\frac{\partial{f(x,y)}}{\partial{y}}dy=0\;\;\;\;(ii)\]
+Dada una familia de funciones $f(x,y)=C$ puede generar una ED de primer orden calculando la diferencial en ambos lados de la igualdad:
+\\
+\textbf{Ejemplo:}
+\\
+Si $x^{2}-5xy+y^{2}=C$ el inciso $(ii)$ provee la ED de primer orden
+\[(2x-5y)dx+(-5x+2y)dy=0\]
+De tal forma que la ED es de la forma:
+\[M(x,y)dx+N(x,y)dy=0\;\;\;\;(iii)\]
+Se llama ED exacta si su primer miembro es la diferencial total de una función $f(x.y)$, es decir:
+\[M(x,y)dx+N(x,y)dy=df(x,y)=\frac{\partial{f(x,y)}}{\partial{x}}dx+\frac{\partial{f(x,y)}}{\partial{y}}dy\]
+Entonces obtener la solución de una ED exacta consiste en encontrar una función $f(x,y)=C$, tal que su diferencial sea exactamente la ED que se pretende resolver.
+\\
+\textbf{Ejemplo:}
+\\
+Supongase que se tiene la ED:
+\[2xydx+x^{2}dy)9\]
+Que es exacta ya que proviene de la función:
+\[z=f(x,y)=x^{2}y\]
+Donde podemos observar que:
+\[\frac{\partial{f}}{\partial{x}}=2xy;\;\;\;\frac{\partial{f}}{\partial{y}}=x^{2}\]
+\[\Rightarrow\;\frac{\partial{f}}{\partial{x}}dx+\frac{\partial{f}}{\partial{y}}dy=2xydx+x^{2}dy=0\]
+\[\Rightarrow\;\;M(x,y)=\frac{\partial{f}}{\partial{x}}\;\;\;(iv)\]
+\[\Rightarrow\;\;N(x,y)=\frac{\partial{f}}{\partial{y}}\;\;\;(v)\]
+Ahora, si derivamos a la ecuaciones $(iv)$ y $(v)$, pero ahora con respecto a la otra variable respectivamente:
+\[\frac{\partial{M}}{\partial{y}}=\frac{\partial}{\partial{y}}\frac{\partial{M}}{\partial{x}}=\frac{\partial^{2}{M}}{\partial{y}\partial{x}}\;\;\;\;(vi)\]
+\[\frac{\partial{N}}{\partial{x}}=\frac{\partial}{\partial{x}}\frac{\partial{M}}{\partial{y}}=\frac{\partial^{2}{N}}{\partial{x}\partial{y}}\;\;\;\;(vii)\]
+Continuando, como supusimos desde un inicio que las derivadas parciales de $f(x,y)$ son continuas, tendremos:
+\[\frac{\partial{M}}{\partial{y}}\equiv \frac{\partial{N}}{\partial{x}}\;\;(viii)\;\;Condici\acute{o}n\;para\;que\;una\;ED\;sea\;exacta\]
+\textit{Nota:} Por tanto la ED es exacta si se cumple la condicion $(viii)$\\
+Para poder resolver una ED exacta recurriremos a las ecuaciones $(iv)$ o $(v)$, es decir, nos apoyaremos de dichas expresiones:
+\[M(x,y)=\frac{\partial{f}}{\partial{x}}\;\;\;\;(ix)\]
+\[N(x,y)=\frac{\partial{f}}{\partial{y}}\;\;\;\;(x)\]
+Entonces si tomamos la ecuación $(ix)$ e integramos parcialmente respecto a $x$ obtenemos $f(x,y)$, de tal forma que:
+\[f(x,y)=\int M(x,y)dx+h(y)\;\;\;\;(xi)\]
+que es la solución buscada, solo falta hallar o determinar $h(y)$ que es una expresion que representa a la constante arbitraría de la integral anterior.
+\\
+Para determinar $h(y)$ se deriva a la $(xi)$ respecto de $y$ y se obtiene:
+\[\frac{\partial{f}}{\partial{y}}=N(x,y)=\frac{\partial}{\partial{y}}\int M(x,y)dx + h^{l}(y)\;\;\;(xii)\]
+Que al despejar se tiene:
+\[h^{l}(y)=N(x,y)=-\frac{\partial}{\partial{y}}\int M(x,y)dx\;\;\;\;(xiii)\]
+Y finalmente para conocer $h(y)$ se integra a $(xiii)$.
+\\
+\textit{Nota: }Resaltemos que para el caso de integrar con respecto a $y$ es el mismo procedimiento, solo cambia la variable con la que se trabaja\\
+\clearpage
+\textbf{Ejemplo:}
+\\
+\[2y\sin(x)\cos(x)dx+\sin^{2}(x)dy=0\]
+\textit{Solución}\\
+Paso 1: Determinar si la ecuación es exacta:
+\[M(x,y)=2y\sin(x)\cos(x);\;\;\;\;N(x,y)=\sin^{2}(x)\]
+\[\Rightarrow \frac{\partial{M}}{\partial{y}}=2\sin(x)\cos(x)\;\;\;\&\;\;\;\frac{\partial{N}}{\partial{x}}=2\sin(x)\cos(x)\]
+\[\therefore\;\;\frac{\partial{M}}{\partial{y}}=\frac{\partial{N}}{\partial{x}}\;\;La\;ED\;es\;exacta\]
+Paso 2: seleccionar que vamos a integrar (en este caso sobre x)
+\[\frac{\partial{f}}{\partial{x}}=M(x,y)\]
+\[\int\frac{\partial{f}}{\partial{x}}=\int M(x,y)\;\;\;\;\Leftrightarrow\;\;\;\;f(x,y)=2y\int\sin(x)\cos(x)dx\]
+Resoviendo la integral:
+\[f(x,y)=y\sin^{2}(x)+h(y)\;\;Soluci\acute{o}n\;general\]
+Ahora derivando con respecto a $y$
+\[\frac{\partial{f}}{\partial{y}}=\sin^{2}(x)+h^{l}(y)\equiv N(x,y)=\sin^{2}(x)\]
+\[\Rightarrow\;\;h^{l}(y)=0\;\;\;\;\int h^{l}(y)=\int 0\]
+\[\therefore\;\;h(y)=C\]
+\[f(x,y)=y\sin^{2}(x)+C\;\;Soluci\acute{o}n\;general\]
+Ahora pensando en que $y(x)$
+\[y(x)=\frac{C}{\sin^{2}(x)}\]
+
 \printindex
 \end{document}
