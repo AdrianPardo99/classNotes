@@ -653,7 +653,7 @@ Entonces obtener la solución de una ED exacta consiste en encontrar una funció
 \textbf{Ejemplo:}
 \\
 Supongase que se tiene la ED:
-\[2xydx+x^{2}dy)9\]
+\[2xydx+x^{2}dy=9\]
 Que es exacta ya que proviene de la función:
 \[z=f(x,y)=x^{2}y\]
 Donde podemos observar que:
@@ -702,6 +702,81 @@ Paso 4: Ahora derivando con respecto a $y$
 \[f(x,y)=y\sin^{2}(x)+C\;\;Soluci\acute{o}n\;general\]
 Ahora pensando en que $y(x)$
 \[y(x)=\frac{C}{\sin^{2}(x)}\]
+\clearpage
+Algunos otros ejemplos son:
+\[(ye^{xy}+2x-1)dx+(xe^{xy}-2y+1)dy=0\]
+\textit{Solución}
+\[M(x,y)=ye^{xy}+2x-1\;\;\;\&\;\;\;N(x,y)=xe^{xy}-2y+1\]
+\[\frac{\partial{M}}{\partial{y}}=xye^{xy}+e^{xy}\;\;\;\&\;\;\;\frac{\partial{N}}{\partial{x}}=xye^{xy}+e^{xy}\]
+\[\therefore\;\;\frac{\partial{M}}{\partial{y}}\equiv\frac{\partial{N}}{\partial{x}}\]
+\[\int\frac{\partial{f}}{\partial{x}}dx=\int M(x,y)dx\]
+\[f(x,y)=e^{xy}+x^{2}-x+h(y)\]
+Ahora para encontrar $h(y)$
+\[\frac{\partial{f}}{\partial{y}}=xe^{xy}+h^{l}(y)\equiv N(x,y)=xe^{xy}-2y+1\]
+\[h^{l}(y)=1-2y\;\;\;\Rightarrow\;\;\;\int h^{l}(y)dy=\int(1-2y)dy\]
+\[h(y)=y-y^{2}+C\]
+\[f(x,y)=e^{xy}+x^{2}-x-y^{2}+y+C\]
+\[f(x,y)=e^{xy}+x^{2}-x-y^{2}+y=C\]
+\vspace{0.5cm}\\
+\[(2x+6y)dx+(2y-6x)dy=0\]
+\textit{Solución}
+\[M(x,y)=2x+6y\;\;\;\&\;\;\;N(x,y)=2y-6x\]
+\[\frac{\partial{M}}{\partial{y}}=6\;\;\;\&\;\;\;\frac{\partial{N}}{\partial{x}}=-6\]
+\[\therefore\;\;\frac{\partial{M}}{\partial{y}}\neq\frac{\partial{N}}{\partial{x}}\]
+En el siguiente tema se mostrara el como se resulven ED de primer orden que no cumplen con la propiedad de ser una ED exacta.
+\vspace{1.5cm}\\
+\textbf{Ejercicios propuestos:}
+\begin{enumerate}
+  \item \[(3y^{2}+2y\sin(2x))=\left(\cos(2x)-6xy-4\frac{4}{1+y^{2}}\right)y^{l}\]
+  \item \[\left(y\sin(x)+\sin(y)+\frac{1}{x}\right)dx+\left(x\cos(y)-\cos(x)+\frac{1}{y}\right)dy=0\]
+\end{enumerate}
+\clearpage
+\section{Factor Integrante $\mu(x,y)$}
+En asos excepcinales, cuando $df(x,y)=M(x,y)dx+N(x,y)dy$ no representa una ED exacta, se conseguira hallando una función $\mu(x,y)$ tal que el $2^{do}$ miembro de la expresión anterior multipicado por $\mu(x,y)$, resulta en una diferencial total (exacta).
+\[df(x,y)=\mu(x,y)M(x,y)dx+\mu(x,y)N(x,y)dy\]
+¿Cómo hallar a $\mu(x,y)$?\\
+Partimos del hecho de que la ED tiene que ser exacta
+\[\frac{\partial}{\partial{y}}(\mu M)\equiv \frac{\partial}{\partial{x}}(\mu N)\;\;\;\Rightarrow\;\;\mu\frac{\partial{M}}{\partial{x}}+M\frac{\partial{\mu}}{\partial{x}}=\mu\frac{\partial{N}}{\partial{y}}+N\frac{\partial{\mu}}{\partial{y}}\]
+\[\mu\left(\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}\right)=N\frac{\partial{\mu}}{\partial{x}}-M\frac{\partial{\mu}}{\partial{y}}\]
+Ahora pasaremos la función $\mu$ del otro lado de modo que:
+\[\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}=N\frac{1}{\mu}\frac{\partial{\mu}}{\partial{x}}-M\frac{1}{\mu}\frac{\partial{\mu}}{\partial{y}}\]
+Donde sabemos que:
+\[\frac{1}{\mu}\frac{\partial{\mu}}{\partial{y}}=\frac{\partial}{\partial{y}}\ln(\mu)\;\;\;\;\&\;\;\;\;\frac{1}{\mu}\frac{\partial{\mu}}{\partial{x}}=\frac{\partial}{\partial{x}}\ln(\mu)\]
+Entonces:
+\[\Rightarrow\;\;N\frac{\partial{\ln(\mu)}}{\partial{x}}-M\frac{\partial{\ln(\mu)}}{\partial{y}}=\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}\]
+\vspace{0.5cm}
+\[Caso\;\;(i)\;\;si\;\;\mu=\mu(x)\;\Rightarrow\;\frac{\partial{\ln(\mu)}}{\partial{y}}=0\]\\
+\[\Rightarrow\;\;N\frac{d\ln(\mu)}{dx}=\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}\;\;\;\;\Rightarrow\;\;\;\;\frac{d\ln(\mu)}{dx}=\frac{\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}}{N}\]
+\[\int d\ln(\mu)=\int\frac{\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}}{N}dx\]
+\[\ln(\mu)=\int\frac{\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}}{N}dx\;\;\Leftrightarrow\;\;\mu(x)=e^{\int{\frac{\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}}{N}dx}}\]
+\vspace{1cm}
+\[Caso\;\;(i)\;\;si\;\;\mu=\mu(y)\;\Rightarrow\;\frac{\partial{\ln(\mu)}}{\partial{x}}=0\]\\
+\[\Rightarrow\;\;-M\frac{d\ln(\mu)}{dy}=\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}\;\;\;\;\Rightarrow\;\;\;\;\frac{d\ln(\mu)}{dy}=\frac{\frac{\partial{N}}{\partial{x}}-\frac{\partial{M}}{\partial{y}}}{M}\]
+\[\int d\ln(\mu)=\int\frac{\frac{\partial{N}}{\partial{x}}-\frac{\partial{M}}{\partial{y}}}{M}dy\]
+\[\mu(y)=e^{\int\frac{\frac{\partial{N}}{\partial{x}}-\frac{\partial{M}}{\partial{y}}}{M}dy}\]
+\clearpage
+\textbf{Ejemplo:}
+\[\left(3y^{2}\cot(x)+\sin(x)\cos(x)\right)dx-2ydy=0\]
+\textit{Solución:}
+\[\frac{\partial{M}}{\partial{y}}=6y\cot(x)\;\;\;\;\neq\;\;\;\;\frac{\partial{N}}{\partial{x}}=0\]
+Propondremos $\mu=\mu(x)$:
+\[\int\frac{\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}}{N}dx\;=\;\int\frac{6y\cot(x)}{-2y}dx\;=\;-3\int\cot(x)dx\]
+\[=\;-3\ln|\sin(x)|\;\;=\;\;\ln\left|\sin(x)\right|^{-3}\]
+Ahora:
+\[\mu(x)=e^{\ln\left|\sin(x)\right|^{-3}}\;\;\Leftrightarrow\;\;\mu(x)=\sin^{-3}(x)=\csc^{3}(x)\]
+Multiplicando por $\mu$ por la ED original:
+\[\left(3y^{2}\csc^{3}(x)\cot(x)+\csc^{2}(x)\cos(x)\right)dx-2y\csc^{3}(x)dy=0\]
+Resolviendo:
+\[\frac{\partial{\bar{M}}}{\partial{y}}=6y\csc^{3}(x)\cot(x)\;\;\;\equiv\;\;\;\frac{\partial{\bar{N}}}{\partial{x}}=6y\csc^{3}(x)\cot(x)\]
+\[\int\frac{\partial{f}}{\partial{y}}dy=-2\int y\csc^{3}(x)dy\]
+Resolviendo:
+\[f(x,y)=-y^{2}\csc^{3}(x)+h(x)\]
+Derivando:
+\[\frac{\partial{f}}{\partial{x}}=3y^{2}\csc^{3}(x)\cot(x)+h^{l}(x)\equiv\bar{M}(x,y)=3y^{2}\csc^{3}(x)\cot(x)+\csc^{2}(x)\cos(x)\]
+\[h^{l}(x)=\csc^{2}(x)\cos(x)\;\;\Rightarrow\;\;\int h^{l}(x)dx=\int\csc^{2}(x)\cos(x)dx\]
+\[h(x)=\csc(x)+K\]
+\[f(x,y)=-y^{2}\csc^{3}(x)+\csc(x)+K\]
+\[K=-y^{2}\csc^{3}(x)+\csc(x)\]
 
 \printindex
 \end{document}
