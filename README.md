@@ -7,3 +7,5 @@ Un repositorio donde esta almacenado parte de las notas que fui realizando a tra
 | [Curso impartido de programación en lenguaje C Diciembre de 2019](cursoDeC/apunte.pdf) |
 | [Ecuaciones Diferenciales](ecuaciones/apuntes.pdf) |
 | [Algoritmos Genéticos Curso Udemy](curso-algoritmos-geneticos/notas.pdf) |
+| [Soft Computing Master Degree IPN CIC](softComputing/notas.pdf) |
+| [Parallel and Concurrent Programming IPN](parallelAndConcurrentProgramming/notas.pdf) |
