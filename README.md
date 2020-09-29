@@ -1,5 +1,5 @@
 # classNotes
-Un repositorio donde esta almacenado parte de las notas que fui realizando a través de mis estudios en la Escuela Superior de Computo a través de notas hechas a partir de LaTex.
+Un repositorio donde esta almacenado parte de las notas que fui realizando a través de mis estudios en la Escuela Superior de Computo a través de notas hechas a partir de LaTex, y otras a traves de la plataforma de notas Xournal y Xournal++.
 
 | Algunos apuntes son |
 | --- |
@@ -7,7 +7,9 @@ Un repositorio donde esta almacenado parte de las notas que fui realizando a tra
 | [Curso impartido de programación en lenguaje C Diciembre de 2019](cursoDeC/apunte.pdf) |
 | [Ecuaciones Diferenciales](ecuaciones/apuntes.pdf) |
 | [Algoritmos Genéticos Curso Udemy](curso-algoritmos-geneticos/notas.pdf) |
+
 | Cursos actuales en proceso 2020 |
+| --- |
 | [Soft Computing Master Degree IPN CIC](softComputing/notas.pdf) |
 | [Metaheuristics Master Degree IPN CIC](metaheuristics/notas.pdf)
 | [Parallel and Concurrent Programming IPN](parallelAndConcurrentProgramming/notas.pdf) |
