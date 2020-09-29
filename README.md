@@ -9,3 +9,5 @@ Un repositorio donde esta almacenado parte de las notas que fui realizando a tra
 | [Algoritmos Genéticos Curso Udemy](curso-algoritmos-geneticos/notas.pdf) |
 | [Soft Computing Master Degree IPN CIC](softComputing/notas.pdf) |
 | [Parallel and Concurrent Programming IPN](parallelAndConcurrentProgramming/notas.pdf) |
+| [Bioinformatics IPN](bioinformatics/notas.pdf) |
+| [Gestion Empresarial](gestionEmpresarial/notas.pdf) |
