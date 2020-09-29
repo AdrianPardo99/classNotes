@@ -9,7 +9,7 @@ Un repositorio donde esta almacenado parte de las notas que fui realizando a tra
 | [Algoritmos Genéticos Curso Udemy](curso-algoritmos-geneticos/notas.pdf) |
 | Cursos actuales en proceso 2020 |
 | [Soft Computing Master Degree IPN CIC](softComputing/notas.pdf) |
-| [Metaheuristics](metaheuristics/notas.pdf)
+| [Metaheuristics Master Degree IPN CIC](metaheuristics/notas.pdf)
 | [Parallel and Concurrent Programming IPN](parallelAndConcurrentProgramming/notas.pdf) |
 | [Bioinformatics IPN](bioinformatics/notas.pdf) |
 | [Gestion Empresarial](gestionEmpresarial/notas.pdf) |
