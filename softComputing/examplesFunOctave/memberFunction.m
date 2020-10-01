@@ -1,0 +1,10 @@
+x=[0:0.1:90]
+bell=1./(1+((x-45)/20).^6)
+s=plot(x,bell,"markersize", 10)
+set(s,'Color','red','LineWidth',1)
+xlabel('x')
+ylabel('Pertenencia')
+title('FMs')
+name=sprintf("FMs.jpg")
+print(name)
+pause(20)
