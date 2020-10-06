@@ -1,24 +1,18 @@
 PROJ=muestreo
-ARCHF=archivos
-PROCF=procesamiento
 DSTPATH=/usr/local/bin
 CFLAGS=-Wall
 COBJ=-c
 LINKF=-lm
 CC=gcc
+SRCC=$(wildcard *.c)
+OBJS=$(SRCC:.c=.o)
 all: ${PROJ}
 
-${PROJ}.o:	${PROJ}.c
-	${CC} ${COBJ} ${PROJ}.c ${CFLAGS}
+%.o:	%.c
+	${CC} ${COBJ} $< ${CFLAGS} 
 
-${PROCF}.o: ${PROCF}.c
-	${CC} ${COBJ} ${PROCF}.c ${CFLAGS}
-
-${ARCHF}.o: ${ARCHF}.c
-	${CC} ${COBJ} ${ARCHF}.c ${CFLAGS}
-
-${PROJ}: ${PROJ}.o ${PROCF}.o ${ARCHF}.o
-	${CC} ${PROJ}.o ${PROCF}.o ${ARCHF}.o -o ${PROJ} ${LINKF}
+${PROJ}: ${OBJS}
+	${CC} $^ -o $@ ${LINKF}
 
 .PHONY: clean
 
