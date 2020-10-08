@@ -19,7 +19,7 @@ int main(void){
     printf("La suma es: %f\n",suma);
     exit(20);
   }else{
-    sleep(5);
+    
     printf("Proceso padre ejecutando...\nPID padre: %d\n",getpid());
     resta=n1,n2;
     printf("La resta es: %f\n",resta);
