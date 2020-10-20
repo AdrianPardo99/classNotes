@@ -1,0 +1,11 @@
+/*
+ * @author Adrian Gonzalez Pardo
+ */
+#ifndef DEFS_H
+#define DEFS_H
+
+#define N 128
+#define N_PROC 4
+#define CONSTANT 10
+
+#endif
