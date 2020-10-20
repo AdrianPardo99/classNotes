@@ -1,8 +1,14 @@
+/*
+ * @author Adrian Gonzalez Pardo
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include "defs.h"
-#include "helper.h"
 #include "procesamiento.h"
+
+int isPair(int a){
+  return a%2==0;
+}
 
 int mayor_valor(int *a){
   register int i;

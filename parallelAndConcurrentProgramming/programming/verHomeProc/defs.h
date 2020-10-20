@@ -1,3 +1,6 @@
+/*
+ * @author Adrian Gonzalez Pardo
+ */
 #ifndef DEFS_H
 #define DEFS_H
 

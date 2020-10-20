@@ -1,3 +1,5 @@
+# Archivo Makefile
+# @author Adrian Gonzalez Pardo
 PROJ=principal
 DSTPATH=/usr/local/bin
 CFLAGS=-Wall
@@ -6,6 +8,7 @@ LINKF=-lm
 CC=gcc
 SRCC=$(wildcard *.c)
 OBJS=$(SRCC:.c=.o)
+
 all: ${PROJ}
 
 %.o:	%.c
@@ -14,7 +17,16 @@ all: ${PROJ}
 ${PROJ}: ${OBJS}
 	${CC} $^ -o $@ ${LINKF}
 
-.PHONY: clean
+.PHONY: clean install clean
 
 clean:
-	rm -f *.o ${PROJ} *.gch
+	rm -f *.o ${PROJ}
+
+install: all
+	if [ ! -d ${DSTPATH} ]; then\
+		sudo mkdir ${DSTPATH}; \
+	fi
+	sudo cp ${PROJ} ${DSTPATH}
+
+uninstall:
+	sudo rm ${DSTPATH}/${PROJ}

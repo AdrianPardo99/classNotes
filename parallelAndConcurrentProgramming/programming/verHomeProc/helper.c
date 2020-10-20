@@ -1,3 +1,6 @@
+/*
+ * @author Adrian Gonzalez Pardo
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -5,9 +8,6 @@
 #include "defs.h"
 #include "helper.h"
 
-int isPair(int a){
-  return a%2==0;
-}
 
 int *reserva_memoria(int s){
   return (int*)malloc(sizeof(int)*s);

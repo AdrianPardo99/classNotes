@@ -1,3 +1,6 @@
+/*
+ * @author Adrian Gonzalez Pardo
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/wait.h>
@@ -22,11 +25,6 @@ void proceso_padre(){
 
 void proceso_hijo(int id,int *a){
   int r=0;
-  printf("Proceso hijo %d: realiza tarea de %s\n",getpid(),
-    (id==0)?("elemento mayor del arreglo"):
-    ((id==1)?("elemento menor del arreglo"):
-    ((id==2)?("promedio del arreglo"):
-    ("cuantos numeros pares existe en el arreglo"))));
   switch(id){
     case 0:
       r=mayor_valor(a);
@@ -41,6 +39,11 @@ void proceso_hijo(int id,int *a){
       r=pares(a);
     break;
   }
+  printf("\nProceso hijo %d: realiza tarea de %s\n",getpid(),
+    (id==0)?("elemento mayor del arreglo"):
+    ((id==1)?("elemento menor del arreglo"):
+    ((id==2)?("promedio del arreglo"):
+    ("cuantos numeros pares existe en el arreglo"))));
   free(a);
   exit(r);
 }

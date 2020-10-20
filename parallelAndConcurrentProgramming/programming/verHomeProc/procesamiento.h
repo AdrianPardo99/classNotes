@@ -1,3 +1,6 @@
+/*
+ * @author Adrian Gonzalez Pardo
+ */
 #ifndef PROCESAMIENTO_H
 #define PROCESAMIENTO_H
 
