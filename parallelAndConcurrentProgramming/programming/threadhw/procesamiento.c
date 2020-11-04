@@ -63,7 +63,12 @@ int primos(int *a){
   for(i=0;i<N;i++){
     if(check_is_prime(*(a+i))){
       p++;
+      if(p%16==0&&p>0){
+        printf("\n");
+      }
+      printf("%4d",*(a+i));
     }
   }
+  printf("\n");
   return p;
 }
