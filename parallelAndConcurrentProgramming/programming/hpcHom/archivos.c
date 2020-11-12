@@ -36,6 +36,7 @@ void leer_archivo(float *a,char *namefile,int t){
   register int i=0;
   while(i<t){
     fscanf(in,"%f",(a+i));
+    *(a+i)-=2200;
     i++;
   }
   fclose(in);

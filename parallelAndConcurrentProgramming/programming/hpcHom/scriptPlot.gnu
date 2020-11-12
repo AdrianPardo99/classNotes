@@ -12,3 +12,7 @@ clear
 files="HannWindow"
 plot for [file in  files] file.".dat"  title file with lines
 pause mouse
+clear
+files="PulseSensor"
+plot for [file in  files] file.".dat"  title file with lines
+pause mouse

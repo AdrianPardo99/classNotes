@@ -16,6 +16,7 @@ all: ${PROJ}
 
 ${PROJ}: ${OBJS}
 	${CC} $^ -o $@ ${LINKF}
+	echo ${PROJ} > .gitignore
 
 .PHONY: clean install clean
 
