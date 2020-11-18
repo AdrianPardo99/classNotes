@@ -10,7 +10,6 @@
 #include "helper.h"
 
 int suma,*a,*b;
-pthread_mutex_t lock=PTHREAD_MUTEX_INITIALIZER;
 
 void process_solv();
 void thread_solv();
@@ -75,7 +74,6 @@ void thread_solv(){
   int id_t[N_THREAD],*sp;
   register int i;
   suma=0;
-  pthread_mutex_init(&lock,NULL);
   for(i=0;i<N_THREAD;i++){
     id_t[i]=i;
     pthread_create(&t_id[i],NULL,hilo_procesamiento,(void*)&id_t[i]);
@@ -85,5 +83,4 @@ void thread_solv(){
     suma+=*sp;
     free(sp);
   }
-  pthread_mutex_destroy(&lock);
 }

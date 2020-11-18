@@ -6,7 +6,6 @@
 
 
 extern int suma,*a,*b;
-extern pthread_mutex_t lock;
 
 /*
  * @params arg es la seccion de memoria del hilo
