@@ -38,7 +38,7 @@ void *hilo_producto(void *arg){
   for(i=init;i<end;i++){
     *(x+i)=0;
     for(j=i;j<MUESTRAS;j++){
-      *(x+i)+=*(b+j)**(b+(j-i));
+      *(x+i)+=*(c+j)**(c+(j-i));
     }
   }
   printf("Thread %d finish\n",*id);
