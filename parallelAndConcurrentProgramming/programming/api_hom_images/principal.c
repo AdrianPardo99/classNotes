@@ -7,6 +7,7 @@
 #include "processing_image.h"
 #include "threads.h"
 #include "defs.h"
+#include "flag_parser.h"
 
 bmpInfoHeader info;
 unsigned char *imgGray,*imgFiltrada;
@@ -21,13 +22,28 @@ int main(int argc,char **argv){
     printf("Error\nUsage: %s <Input_bmp_file>",
       *argv),exit(EXIT_FAILURE);
   }
+  int type=get_processing_type(argc,argv);
+  if(type==0){
+    printf("Solucion con hilos\n");
+  }else if(type==-1){
+    exit(1);
+  }else{
+    printf("Solucion concurrente\n");
+  }
+  char *prefix[]={"outputs/salida_threads_filtro_newgray_",
+    "outputs/salida_threads_newgray_","outputs/salida_threads_gray_",
+    "outputs/salida_threads_filtro_gray_",
+    "outputs/salida_threads_brillo_newgraw_",
+    "outputs/salida_threads_brillo_gray_"},
+  *prefix1[]={"outputs/salida_concurrente_filtro_newgray_",
+    "outputs/salida_concurrente_newgray_","outputs/salida_concurrente_gray_",
+    "outputs/salida_concurrente_filtro_gray_",
+    "outputs/salida_concurrente_brillo_newgraw_",
+    "outputs/salida_concurrente_brillo_gray_"};
   register int i=0;
   unsigned char *imgRGB,*imgGray_2;
   char *src=*(argv+1),*dst;
-  char *prefix[]={"outputs/salida_filtro_newgray_",
-    "outputs/salida_newgray_","outputs/salida_gray_",
-    "outputs/salida_filtro_gray_","outputs/salida_brillo_newgraw_",
-    "outputs/salida_brillo_gray_"};
+
   timer start,end,ip,ep;
   long total=0,p1=0,p2=0,p3=0,p4=0,p5=0,p6=0;
   gettimeofday(&start,NULL);
@@ -47,7 +63,10 @@ int main(int argc,char **argv){
       p=i+1;
     }
   }
-  memcpy(dst,*(prefix+1),strlen(*(prefix+1)));
+
+  /* Crea el primer nombre de salida para el newgray */
+  memcpy(dst,(type==0)?(*(prefix+1)):(*(prefix1+1)),
+    strlen((type==0)?(*(prefix+1)):(*(prefix1+1))));
   memcpy(dst+strlen(*(prefix+1)),src+p,strlen(src)-p);
   displayInfo(&info);
 
@@ -67,14 +86,23 @@ int main(int argc,char **argv){
 
   /* Llama a hilos para el procesamiento paralelo de filtro pb newgray */
   gettimeofday(&ip,NULL);
-  call_pthreads(info);
+  if(type==0){
+    call_pthreads(info);
+  }else{
+    for(i=0;i<NUM_THREADS;i++){
+      filtroPB(imgGray,imgFiltrada,info.width,info.height,i);
+    }
+  }
   gettimeofday(&ep,NULL);
   GrayToRGB(imgRGB,imgFiltrada,info.width,info.height);
   p2=((ep.tv_sec-ip.tv_sec)*1000 + (ep.tv_usec-ip.tv_usec)/1000)+0.5;
 
+  /* Apartado para crear el nombre del filtro pasa bajas de newgray */
   memset(dst,0,1000);
-  memcpy(dst,*(prefix),strlen(*(prefix)));
-  memcpy(dst+strlen(*(prefix)),src+p,strlen(src)-p);
+  memcpy(dst,(type==0)?(*(prefix)):(*(prefix1)),
+    strlen((type==0)?(*(prefix)):(*(prefix1))));
+  memcpy(dst+strlen((type==0)?(*(prefix)):(*(prefix1))),
+    src+p,strlen(src)-p);
 
   guardarBMP(dst,&info,imgRGB);
 
@@ -85,9 +113,12 @@ int main(int argc,char **argv){
   GrayToRGB(imgRGB,imgGray,info.width,info.height);
   p3=((ep.tv_sec-ip.tv_sec)*1000 + (ep.tv_usec-ip.tv_usec)/1000)+0.5;
 
+  /* Apartado para crear el nombre newgray con brillo */
   memset(dst,0,1000);
-  memcpy(dst,*(prefix+4),strlen(*(prefix+4)));
-  memcpy(dst+strlen(*(prefix+4)),src+p,strlen(src)-p);
+  memcpy(dst,(type==0)?(*(prefix+4)):(*(prefix1+4)),
+    strlen((type==0)?(*(prefix+4)):(*(prefix1+4))));
+  memcpy(dst+strlen((type==0)?(*(prefix+4)):(*(prefix1+4))),
+    src+p,strlen(src)-p);
   guardarBMP(dst,&info,imgRGB);
 
   /* Apartado para guardar gray */
@@ -95,22 +126,35 @@ int main(int argc,char **argv){
   memset(imgGray,0,info.height*info.width);
   memset(dst,0,1000);
   memcpy(imgGray,imgGray_2,info.width*info.height);
-  memcpy(dst,*(prefix+2),strlen(*(prefix+2)));
-  memcpy(dst+strlen(*(prefix+2)),src+p,strlen(src)-p);
+
+  /* Apartado para crear el nombre gray */
+  memcpy(dst,(type==0)?(*(prefix+2)):(*(prefix1+2)),
+    strlen((type==0)?(*(prefix+2)):(*(prefix1+2))));
+  memcpy(dst+strlen((type==0)?(*(prefix+2)):(*(prefix1+2))),
+    src+p,strlen(src)-p);
 
   GrayToRGB(imgRGB,imgGray,info.width,info.height);
   guardarBMP(dst,&info,imgRGB);
 
   /* Apartado para procesamiento paralelo de filtro pb gray */
   gettimeofday(&ip,NULL);
-  call_pthreads(info);
+  if(type==0){
+    call_pthreads(info);
+  }else{
+    for(i=0;i<NUM_THREADS;i++){
+      filtroPB(imgGray,imgFiltrada,info.width,info.height,i);
+    }
+  }
   gettimeofday(&ep,NULL);
   p5=((ep.tv_sec-ip.tv_sec)*1000 + (ep.tv_usec-ip.tv_usec)/1000)+0.5;
   GrayToRGB(imgRGB,imgFiltrada,info.width,info.height);
 
+  /* Apartado para crear el nombre del filtro pasa bajas gray */
   memset(dst,0,1000);
-  memcpy(dst,*(prefix+3),strlen(*(prefix+3)));
-  memcpy(dst+strlen(*(prefix+3)),src+p,strlen(src)-p);
+  memcpy(dst,(type==0)?(*(prefix+3)):(*(prefix1+3)),
+    strlen((type==0)?(*(prefix+3)):(*(prefix1+3))));
+  memcpy(dst+strlen((type==0)?(*(prefix+3)):(*(prefix1+3))),
+    src+p,strlen(src)-p);
   guardarBMP(dst,&info,imgRGB);
 
   /* Apartado para guardar gray con brillo */
@@ -120,6 +164,13 @@ int main(int argc,char **argv){
   GrayToRGB(imgRGB,imgGray,info.width,info.height);
   p6=((ep.tv_sec-ip.tv_sec)*1000 + (ep.tv_usec-ip.tv_usec)/1000)+0.5;
 
+  /* Apartado para crear el nombre gray con brillo */
+  memset(dst,0,1000);
+  memcpy(dst,(type==0)?(*(prefix+5)):(*(prefix1+5)),
+    strlen((type==0)?(*(prefix+5)):(*(prefix1+5))));
+  memcpy(dst+strlen((type==0)?(*(prefix+5)):(*(prefix1+5))),
+    src+p,strlen(src)-p);
+  guardarBMP(dst,&info,imgRGB);
   free(imgRGB);
   free(imgGray_2);
   free(imgFiltrada);
