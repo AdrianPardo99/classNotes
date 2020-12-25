@@ -1,0 +1,169 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <pthread.h>
+#include <sys/time.h>
+#include "imagen.h"
+#include "processing_image.h"
+#include "threads.h"
+#include "defs.h"
+
+bmpInfoHeader info;
+unsigned char *imgGray,*imgFiltrada;
+
+char *reserva_memoria_char();
+void call_pthreads(bmpInfoHeader);
+
+typedef struct timeval timer;
+
+int main(int argc,char **argv){
+  if(argc<2){
+    printf("Error\nUsage: %s <Input_bmp_file>",
+      *argv),exit(EXIT_FAILURE);
+  }
+  register int i=0;
+  unsigned char *imgRGB,*imgGray_2;
+  char *src=*(argv+1),*dst;
+  char *prefix[]={"outputs/salida_filtro_newgray_",
+    "outputs/salida_newgray_","outputs/salida_gray_",
+    "outputs/salida_filtro_gray_","outputs/salida_brillo_newgraw_",
+    "outputs/salida_brillo_gray_"};
+  timer start,end,ip,ep;
+  long total=0,p1=0,p2=0,p3=0,p4=0,p5=0,p6=0;
+  gettimeofday(&start,NULL);
+  imgRGB=abrirBMP(src,&info);
+  imgGray=reservar_memoria(info.width,info.height);
+  imgGray_2=reservar_memoria(info.width,info.height);
+  imgFiltrada=reservar_memoria(info.width,info.height);
+  dst=reserva_memoria_char();
+
+  memset(dst,0,1000);
+  memset(imgFiltrada,255,info.width*info.height);
+  memset(imgGray_2,0,info.width*info.height);
+
+  int t=strlen(src),p=0;
+  for(i=0;i<t;i++){
+    if(*(src+i)=='/'){
+      p=i+1;
+    }
+  }
+  memcpy(dst,*(prefix+1),strlen(*(prefix+1)));
+  memcpy(dst+strlen(*(prefix+1)),src+p,strlen(src)-p);
+  displayInfo(&info);
+
+  /* Apartado para guardar en newgray */
+  gettimeofday(&ip,NULL);
+  newRGBToGray(imgRGB,imgGray,info.width,info.height);
+  gettimeofday(&ep,NULL);
+  p1=((ep.tv_sec-ip.tv_sec)*1000 + (ep.tv_usec-ip.tv_usec)/1000)+0.5;
+
+  gettimeofday(&ip,NULL);
+  RGBToGray(imgRGB,imgGray_2,info.width,info.height);
+  gettimeofday(&ep,NULL);
+  p4=((ep.tv_sec-ip.tv_sec)*1000 + (ep.tv_usec-ip.tv_usec)/1000)+0.5;
+
+  GrayToRGB(imgRGB,imgGray,info.width,info.height);
+  guardarBMP(dst,&info,imgRGB);
+
+  /* Llama a hilos para el procesamiento paralelo de filtro pb newgray */
+  gettimeofday(&ip,NULL);
+  call_pthreads(info);
+  gettimeofday(&ep,NULL);
+  GrayToRGB(imgRGB,imgFiltrada,info.width,info.height);
+  p2=((ep.tv_sec-ip.tv_sec)*1000 + (ep.tv_usec-ip.tv_usec)/1000)+0.5;
+
+  memset(dst,0,1000);
+  memcpy(dst,*(prefix),strlen(*(prefix)));
+  memcpy(dst+strlen(*(prefix)),src+p,strlen(src)-p);
+
+  guardarBMP(dst,&info,imgRGB);
+
+  /* Apartado para guardar newgray con brillo */
+  gettimeofday(&ip,NULL);
+  brilloImagen(imgGray,info.width,info.height);
+  gettimeofday(&ep,NULL);
+  GrayToRGB(imgRGB,imgGray,info.width,info.height);
+  p3=((ep.tv_sec-ip.tv_sec)*1000 + (ep.tv_usec-ip.tv_usec)/1000)+0.5;
+
+  memset(dst,0,1000);
+  memcpy(dst,*(prefix+4),strlen(*(prefix+4)));
+  memcpy(dst+strlen(*(prefix+4)),src+p,strlen(src)-p);
+  guardarBMP(dst,&info,imgRGB);
+
+  /* Apartado para guardar gray */
+  memset(imgFiltrada,255,info.width*info.height);
+  memset(imgGray,0,info.height*info.width);
+  memset(dst,0,1000);
+  memcpy(imgGray,imgGray_2,info.width*info.height);
+  memcpy(dst,*(prefix+2),strlen(*(prefix+2)));
+  memcpy(dst+strlen(*(prefix+2)),src+p,strlen(src)-p);
+
+  GrayToRGB(imgRGB,imgGray,info.width,info.height);
+  guardarBMP(dst,&info,imgRGB);
+
+  /* Apartado para procesamiento paralelo de filtro pb gray */
+  gettimeofday(&ip,NULL);
+  call_pthreads(info);
+  gettimeofday(&ep,NULL);
+  p5=((ep.tv_sec-ip.tv_sec)*1000 + (ep.tv_usec-ip.tv_usec)/1000)+0.5;
+  GrayToRGB(imgRGB,imgFiltrada,info.width,info.height);
+
+  memset(dst,0,1000);
+  memcpy(dst,*(prefix+3),strlen(*(prefix+3)));
+  memcpy(dst+strlen(*(prefix+3)),src+p,strlen(src)-p);
+  guardarBMP(dst,&info,imgRGB);
+
+  /* Apartado para guardar gray con brillo */
+  gettimeofday(&ip,NULL);
+  brilloImagen(imgGray,info.width,info.height);
+  gettimeofday(&ep,NULL);
+  GrayToRGB(imgRGB,imgGray,info.width,info.height);
+  p6=((ep.tv_sec-ip.tv_sec)*1000 + (ep.tv_usec-ip.tv_usec)/1000)+0.5;
+
+  free(imgRGB);
+  free(imgGray_2);
+  free(imgFiltrada);
+  free(imgGray);
+  free(dst);
+  gettimeofday(&end,NULL);
+  total=((end.tv_sec-start.tv_sec)*1000 + (end.tv_usec-start.tv_usec)/1000)+0.5;
+
+  printf("Tiempo de procesamiento de cada proceso concurrente:\n"
+    "T1 Crear bmp new gray %ld ms\n"
+    "T2 Procesamiento paralelo new gray PB %ld ms\n"
+    "T3 Crear bmp con brillo de newgray %ld ms\n"
+    "T4 Crear bmp gray %ld ms\n"
+    "T5 Procesamiento paralelo gray PB %ld ms\n"
+    "T6 Crear bmp con brillo de gray %ld ms\n"
+    "Total de tiempo en ejecucion %ld ms\n",p1,p2,p3,p4,p5,p6,total);
+  return 0;
+}
+
+char *reserva_memoria_char(){
+  char *a=(char*)malloc(sizeof(char)*1000);
+  if(!a){
+    perror("Error allocating memory"),exit(EXIT_FAILURE);
+  }
+  return a;
+}
+
+void call_pthreads(bmpInfoHeader info){
+  register int i;
+  pthread_t *id=(pthread_t*)malloc(sizeof(pthread_t)*NUM_THREADS);
+  int *id_thread=(int*)malloc(sizeof(int)*NUM_THREADS);
+  if(!id){
+    perror("Error allocating memory threads"),exit(EXIT_FAILURE);
+  }
+  if(!id_thread){
+    perror("Error allocating memory int"),exit(EXIT_FAILURE);
+  }
+  for(i=0;i<NUM_THREADS;i++){
+    *(id_thread+i)=i;
+    pthread_create(&*(id+i),NULL,processing_pb,(void*)&*(id_thread+i));
+  }
+  for(i=0;i<NUM_THREADS;i++){
+    pthread_join(*(id+i),NULL);
+  }
+  free(id);
+  free(id_thread);
+}
