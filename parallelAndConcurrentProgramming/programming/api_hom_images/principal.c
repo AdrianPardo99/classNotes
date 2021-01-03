@@ -11,6 +11,7 @@
 
 bmpInfoHeader info;
 unsigned char *imgGray,*imgFiltrada;
+int type;
 
 char *reserva_memoria_char();
 void call_pthreads(bmpInfoHeader);
@@ -22,9 +23,9 @@ int main(int argc,char **argv){
     printf("Error\nUsage: %s <Input_bmp_file>",
       *argv),exit(EXIT_FAILURE);
   }
-  int type=get_processing_type(argc,argv);
-  if(type==0){
-    printf("Solucion con hilos\n");
+  type=get_processing_type(argc,argv);
+  if(type==0||type==2){
+    printf("Solucion con hilos %s\n",(type==0)?("alternada"):("bloques"));
   }else if(type==-1){
     exit(1);
   }else{
@@ -65,8 +66,8 @@ int main(int argc,char **argv){
   }
 
   /* Crea el primer nombre de salida para el newgray */
-  memcpy(dst,(type==0)?(*(prefix+1)):(*(prefix1+1)),
-    strlen((type==0)?(*(prefix+1)):(*(prefix1+1))));
+  memcpy(dst,(type==0||type==2)?(*(prefix+1)):(*(prefix1+1)),
+    strlen((type==0||type==2)?(*(prefix+1)):(*(prefix1+1))));
   memcpy(dst+strlen(*(prefix+1)),src+p,strlen(src)-p);
   displayInfo(&info);
 
@@ -86,7 +87,7 @@ int main(int argc,char **argv){
 
   /* Llama a hilos para el procesamiento paralelo de filtro pb newgray */
   gettimeofday(&ip,NULL);
-  if(type==0){
+  if(type==0||type==2){
     call_pthreads(info);
   }else{
     for(i=0;i<NUM_THREADS;i++){
@@ -99,9 +100,9 @@ int main(int argc,char **argv){
 
   /* Apartado para crear el nombre del filtro pasa bajas de newgray */
   memset(dst,0,1000);
-  memcpy(dst,(type==0)?(*(prefix)):(*(prefix1)),
-    strlen((type==0)?(*(prefix)):(*(prefix1))));
-  memcpy(dst+strlen((type==0)?(*(prefix)):(*(prefix1))),
+  memcpy(dst,(type==0||type==2)?(*(prefix)):(*(prefix1)),
+    strlen((type==0||type==2)?(*(prefix)):(*(prefix1))));
+  memcpy(dst+strlen((type==0||type==2)?(*(prefix)):(*(prefix1))),
     src+p,strlen(src)-p);
 
   guardarBMP(dst,&info,imgRGB);
@@ -115,9 +116,9 @@ int main(int argc,char **argv){
 
   /* Apartado para crear el nombre newgray con brillo */
   memset(dst,0,1000);
-  memcpy(dst,(type==0)?(*(prefix+4)):(*(prefix1+4)),
-    strlen((type==0)?(*(prefix+4)):(*(prefix1+4))));
-  memcpy(dst+strlen((type==0)?(*(prefix+4)):(*(prefix1+4))),
+  memcpy(dst,(type==0||type==2)?(*(prefix+4)):(*(prefix1+4)),
+    strlen((type==0||type==2)?(*(prefix+4)):(*(prefix1+4))));
+  memcpy(dst+strlen((type==0||type==2)?(*(prefix+4)):(*(prefix1+4))),
     src+p,strlen(src)-p);
   guardarBMP(dst,&info,imgRGB);
 
@@ -128,9 +129,9 @@ int main(int argc,char **argv){
   memcpy(imgGray,imgGray_2,info.width*info.height);
 
   /* Apartado para crear el nombre gray */
-  memcpy(dst,(type==0)?(*(prefix+2)):(*(prefix1+2)),
-    strlen((type==0)?(*(prefix+2)):(*(prefix1+2))));
-  memcpy(dst+strlen((type==0)?(*(prefix+2)):(*(prefix1+2))),
+  memcpy(dst,(type==0||type==2)?(*(prefix+2)):(*(prefix1+2)),
+    strlen((type==0||type==2)?(*(prefix+2)):(*(prefix1+2))));
+  memcpy(dst+strlen((type==0||type==2)?(*(prefix+2)):(*(prefix1+2))),
     src+p,strlen(src)-p);
 
   GrayToRGB(imgRGB,imgGray,info.width,info.height);
@@ -138,7 +139,7 @@ int main(int argc,char **argv){
 
   /* Apartado para procesamiento paralelo de filtro pb gray */
   gettimeofday(&ip,NULL);
-  if(type==0){
+  if(type==0||type==2){
     call_pthreads(info);
   }else{
     for(i=0;i<NUM_THREADS;i++){
@@ -151,9 +152,9 @@ int main(int argc,char **argv){
 
   /* Apartado para crear el nombre del filtro pasa bajas gray */
   memset(dst,0,1000);
-  memcpy(dst,(type==0)?(*(prefix+3)):(*(prefix1+3)),
-    strlen((type==0)?(*(prefix+3)):(*(prefix1+3))));
-  memcpy(dst+strlen((type==0)?(*(prefix+3)):(*(prefix1+3))),
+  memcpy(dst,(type==0||type==2)?(*(prefix+3)):(*(prefix1+3)),
+    strlen((type==0||type==2)?(*(prefix+3)):(*(prefix1+3))));
+  memcpy(dst+strlen((type==0||type==2)?(*(prefix+3)):(*(prefix1+3))),
     src+p,strlen(src)-p);
   guardarBMP(dst,&info,imgRGB);
 
@@ -166,9 +167,9 @@ int main(int argc,char **argv){
 
   /* Apartado para crear el nombre gray con brillo */
   memset(dst,0,1000);
-  memcpy(dst,(type==0)?(*(prefix+5)):(*(prefix1+5)),
-    strlen((type==0)?(*(prefix+5)):(*(prefix1+5))));
-  memcpy(dst+strlen((type==0)?(*(prefix+5)):(*(prefix1+5))),
+  memcpy(dst,(type==0||type==2)?(*(prefix+5)):(*(prefix1+5)),
+    strlen((type==0||type==2)?(*(prefix+5)):(*(prefix1+5))));
+  memcpy(dst+strlen((type==0||type==2)?(*(prefix+5)):(*(prefix1+5))),
     src+p,strlen(src)-p);
   guardarBMP(dst,&info,imgRGB);
   free(imgRGB);

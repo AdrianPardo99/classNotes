@@ -84,3 +84,32 @@ unsigned char* reservar_memoria(uint32_t width,uint32_t height){
   }
   return a;
 }
+
+void filtroPB_bloque(unsigned char *imagenG, unsigned char *imagenF,
+  uint32_t width, uint32_t height, int init){
+	register int x, y, xm, ym;
+	int indicem, indicei, conv;
+  int bloque=(height-DIMASK)/NUM_THREADS,
+      init_bloque=bloque*init,
+      fin_bloque=(init!=3)?(init_bloque+bloque):(height-DIMASK);
+	int mascara[DIMASK*DIMASK] = {
+		1,	4,	7,	4,	1,
+		4,	20,	33,	20,	4,
+		7,	33,	54,	33,	7,
+		4,	20,	33,	20,	4,
+		1,	4,	7,	4,	1
+	};
+	for(y=init_bloque;y<=fin_bloque;y++)
+		for(x=0;x<=width-DIMASK;x++){
+			indicem=0;
+			conv=0;
+			for(ym=0;ym<DIMASK;ym++)
+				for(xm= 0;xm<DIMASK;xm++){
+					indicei=(y+ym)*width+(x+xm);
+					conv+=imagenG[indicei]*mascara[indicem++];
+				}
+			conv/=FACTOR;
+			indicei=(y+1)*width+(x+1);
+			imagenF[indicei]=conv;
+		}
+}
