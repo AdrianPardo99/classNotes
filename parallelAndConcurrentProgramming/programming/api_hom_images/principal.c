@@ -20,7 +20,7 @@ typedef struct timeval timer;
 
 int main(int argc,char **argv){
   if(argc<2){
-    printf("Error\nUsage: %s <Input_bmp_file>",
+    printf("Error\nUsage: %s <Input_bmp_file> <Flag solution>",
       *argv),exit(EXIT_FAILURE);
   }
   type=get_processing_type(argc,argv);
