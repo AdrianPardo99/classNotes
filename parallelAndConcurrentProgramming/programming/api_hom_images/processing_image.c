@@ -72,7 +72,7 @@ void filtroPB(unsigned char *imagenG, unsigned char *imagenF,
 					conv+=imagenG[indicei]*mascara[indicem++];
 				}
 			conv/=FACTOR;
-			indicei=(y+1)*width+(x+1);
+			indicei=(y+2)*width+(x+2);
 			imagenF[indicei]=conv;
 		}
 }
@@ -109,7 +109,7 @@ void filtroPB_bloque(unsigned char *imagenG, unsigned char *imagenF,
 					conv+=imagenG[indicei]*mascara[indicem++];
 				}
 			conv/=FACTOR;
-			indicei=(y+1)*width+(x+1);
+			indicei=(y+2)*width+(x+2);
 			imagenF[indicei]=conv;
 		}
 }
