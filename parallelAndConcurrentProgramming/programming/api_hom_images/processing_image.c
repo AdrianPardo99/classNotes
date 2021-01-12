@@ -1,7 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <math.h>
 #include "defs.h"
+
+/*
+ * @author Adrian Gonzalez Pardo
+ **/
 
 void newRGBToGray(unsigned char *src,unsigned char *dst,
   uint32_t width,uint32_t height){
@@ -112,4 +117,71 @@ void filtroPB_bloque(unsigned char *imagenG, unsigned char *imagenF,
 			indicei=(y+2)*width+(x+2);
 			imagenF[indicei]=conv;
 		}
+}
+
+void sobel(unsigned char *imagenG, unsigned char *imagenF,
+  uint32_t width, uint32_t height, int init){
+  register int x,y,xm,ym;
+  int indicem,indicei,convFil,convCol,
+  gradiente_fila[SOBELMASK*SOBELMASK]={
+    1, 0, -1,
+    2, 0, -2,
+    1, 0, -1
+  },gradiente_columna[SOBELMASK*SOBELMASK]={
+    -1, -2 ,-1,
+    0, 0, 0,
+    1, 2, 1
+  };
+  for(y=init;y<=(height-SOBELMASK);y+=NUM_THREADS){
+    for(x=0;x<=(width-SOBELMASK);x++){
+      indicem=0;
+      convFil=0;
+      convCol=0;
+      for(ym=0;ym<SOBELMASK;ym++){
+        for(xm=0;xm<SOBELMASK;xm++){
+          indicei=(y+ym)*width+(x+xm);
+          convFil+=imagenG[indicei]*gradiente_fila[indicem];
+          convCol+=imagenG[indicei]*gradiente_columna[indicem++];
+        }
+      }
+      convFil>>=2;
+      convCol>>=2;
+      indicei=(y+1)*width+(x+1);
+      imagenF[indicei]=(unsigned char)sqrt((convFil*convFil)+(convCol*convCol));
+    }
+  }
+}
+void sobel_bloque(unsigned char *imagenG, unsigned char *imagenF,
+  uint32_t width, uint32_t height, int init){
+  register int x,y,xm,ym;
+  int indicem,indicei,convFil,convCol,
+  gradiente_fila[SOBELMASK*SOBELMASK]={
+    1, 0, -1,
+    2, 0, -2,
+    1, 0, -1
+  },gradiente_columna[SOBELMASK*SOBELMASK]={
+    -1, -2 ,-1,
+    0, 0, 0,
+    1, 2, 1
+  },bloque=(height-SOBELMASK)/NUM_THREADS,
+  init_bloque=bloque*init,
+  fin_bloque=(init!=(NUM_THREADS-1))?(init_bloque+bloque):(height-SOBELMASK);
+  for(y=init_bloque;y<=fin_bloque;y++){
+    for(x=0;x<=(width-SOBELMASK);x++){
+      indicem=0;
+      convFil=0;
+      convCol=0;
+      for(ym=0;ym<SOBELMASK;ym++){
+        for(xm=0;xm<SOBELMASK;xm++){
+          indicei=(y+ym)*width+(x+xm);
+          convFil+=imagenG[indicei]*gradiente_fila[indicem];
+          convCol+=imagenG[indicei]*gradiente_columna[indicem++];
+        }
+      }
+      convFil>>=2;
+      convCol>>=2;
+      indicei=(y+1)*width+(x+1);
+      imagenF[indicei]=(unsigned char)sqrt((convFil*convFil)+(convCol*convCol));
+    }
+  }
 }

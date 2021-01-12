@@ -2,6 +2,11 @@
 #include <stdio.h>
 
 #ifndef IMAGEN_H
+
+/*
+ * @author Adrian Gonzalez Pardo
+ **/
+ 
 #define IMAGEN_H
 
 typedef struct bmpFileHeader{

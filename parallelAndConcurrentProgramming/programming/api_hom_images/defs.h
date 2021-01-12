@@ -2,10 +2,16 @@
 #include <stdlib.h>
 #include <stdint.h>
 #ifndef DEFS_H
+
+/*
+ * @author Adrian Gonzalez Pardo
+ **/
+
 #define DEFS_H
 
 #define NUM_THREADS 4
 #define DIMASK 5
+#define SOBELMASK 3
 #define FACTOR 330
 
 /*typedef struct informacion{

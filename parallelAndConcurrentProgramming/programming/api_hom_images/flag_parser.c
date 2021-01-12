@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+/*
+ * @author Adrian Gonzalez Pardo
+ **/
+ 
 int get_processing_type(int argc,char **argv){
   int c;
   while((c=getopt(argc,argv,"ctha"))!=-1){

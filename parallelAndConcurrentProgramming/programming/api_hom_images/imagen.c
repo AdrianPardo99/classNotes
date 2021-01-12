@@ -3,6 +3,10 @@
 #include <stdlib.h>
 #include "imagen.h"
 
+/*
+ * @author Adrian Gonzalez Pardo
+ **/
+
 unsigned char *abrirBMP(char *filename, bmpInfoHeader *bInfoHeader){
   FILE *f;
   bmpFileHeader header;     /* cabecera */

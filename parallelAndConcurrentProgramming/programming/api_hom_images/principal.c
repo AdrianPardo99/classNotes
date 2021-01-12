@@ -9,12 +9,16 @@
 #include "defs.h"
 #include "flag_parser.h"
 
+/*
+ * @author Adrian Gonzalez Pardo
+ **/
+
 bmpInfoHeader info;
 unsigned char *imgGray,*imgFiltrada;
 int type;
 
 char *reserva_memoria_char();
-void call_pthreads(bmpInfoHeader);
+void call_pthreads(bmpInfoHeader,int);
 
 typedef struct timeval timer;
 
@@ -35,18 +39,22 @@ int main(int argc,char **argv){
     "outputs/salida_threads_newgray_","outputs/salida_threads_gray_",
     "outputs/salida_threads_filtro_gray_",
     "outputs/salida_threads_brillo_newgraw_",
-    "outputs/salida_threads_brillo_gray_"},
+    "outputs/salida_threads_brillo_gray_",
+    "outputs/salida_threads_sobel_newgray_",
+    "outputs/salida_threads_sobel_gray_"},
   *prefix1[]={"outputs/salida_concurrente_filtro_newgray_",
     "outputs/salida_concurrente_newgray_","outputs/salida_concurrente_gray_",
     "outputs/salida_concurrente_filtro_gray_",
     "outputs/salida_concurrente_brillo_newgraw_",
-    "outputs/salida_concurrente_brillo_gray_"};
+    "outputs/salida_concurrente_brillo_gray_",
+    "outputs/salida_concurrente_sobel_newgray_",
+    "outputs/salida_concurrente_sobel_gray_"};
   register int i=0;
   unsigned char *imgRGB,*imgGray_2;
   char *src=*(argv+1),*dst;
 
   timer start,end,ip,ep;
-  long total=0,p1=0,p2=0,p3=0,p4=0,p5=0,p6=0;
+  long total=0,p1=0,p2=0,p3=0,p4=0,p5=0,p6=0,p7=0,p8=0;
   gettimeofday(&start,NULL);
   imgRGB=abrirBMP(src,&info);
   imgGray=reservar_memoria(info.width,info.height);
@@ -88,7 +96,7 @@ int main(int argc,char **argv){
   /* Llama a hilos para el procesamiento paralelo de filtro pb newgray */
   gettimeofday(&ip,NULL);
   if(type==0||type==2){
-    call_pthreads(info);
+    call_pthreads(info,0);
   }else{
     for(i=0;i<NUM_THREADS;i++){
       filtroPB(imgGray,imgFiltrada,info.width,info.height,i);
@@ -107,6 +115,27 @@ int main(int argc,char **argv){
 
   guardarBMP(dst,&info,imgRGB);
 
+  /* Apartado para filtro sobel con newgray */
+  memset(imgFiltrada,255,info.width*info.height);
+  gettimeofday(&ip,NULL);
+  if(type==0||type==2){
+    call_pthreads(info,1);
+  }else{
+    for(i=0;i<NUM_THREADS;i++){
+      sobel(imgGray,imgFiltrada,info.width,info.height,i);
+    }
+  }
+  gettimeofday(&ep,NULL);
+  GrayToRGB(imgRGB,imgFiltrada,info.width,info.height);
+  p7=((ep.tv_sec-ip.tv_sec)*1000 + (ep.tv_usec-ip.tv_usec)/1000)+0.5;
+  /* Guarda */
+  memset(dst,0,1000);
+  memcpy(dst,(type==0||type==2)?(*(prefix+6)):(*(prefix1+6)),
+    strlen((type==0||type==2)?(*(prefix+6)):(*(prefix1+6))));
+  memcpy(dst+strlen((type==0||type==2)?(*(prefix+6)):(*(prefix1+6))),
+    src+p,strlen(src)-p);
+  guardarBMP(dst,&info,imgRGB);
+
   /* Apartado para guardar newgray con brillo */
   gettimeofday(&ip,NULL);
   brilloImagen(imgGray,info.width,info.height);
@@ -121,6 +150,7 @@ int main(int argc,char **argv){
   memcpy(dst+strlen((type==0||type==2)?(*(prefix+4)):(*(prefix1+4))),
     src+p,strlen(src)-p);
   guardarBMP(dst,&info,imgRGB);
+
 
   /* Apartado para guardar gray */
   memset(imgFiltrada,255,info.width*info.height);
@@ -140,7 +170,7 @@ int main(int argc,char **argv){
   /* Apartado para procesamiento paralelo de filtro pb gray */
   gettimeofday(&ip,NULL);
   if(type==0||type==2){
-    call_pthreads(info);
+    call_pthreads(info,0);
   }else{
     for(i=0;i<NUM_THREADS;i++){
       filtroPB(imgGray,imgFiltrada,info.width,info.height,i);
@@ -155,6 +185,27 @@ int main(int argc,char **argv){
   memcpy(dst,(type==0||type==2)?(*(prefix+3)):(*(prefix1+3)),
     strlen((type==0||type==2)?(*(prefix+3)):(*(prefix1+3))));
   memcpy(dst+strlen((type==0||type==2)?(*(prefix+3)):(*(prefix1+3))),
+    src+p,strlen(src)-p);
+  guardarBMP(dst,&info,imgRGB);
+
+  /* Apartado para filtro sobel con newgray */
+  memset(imgFiltrada,255,info.width*info.height);
+  gettimeofday(&ip,NULL);
+  if(type==0||type==2){
+    call_pthreads(info,1);
+  }else{
+    for(i=0;i<NUM_THREADS;i++){
+      sobel(imgGray,imgFiltrada,info.width,info.height,i);
+    }
+  }
+  gettimeofday(&ep,NULL);
+  GrayToRGB(imgRGB,imgFiltrada,info.width,info.height);
+  p8=((ep.tv_sec-ip.tv_sec)*1000 + (ep.tv_usec-ip.tv_usec)/1000)+0.5;
+  /* Guarda */
+  memset(dst,0,1000);
+  memcpy(dst,(type==0||type==2)?(*(prefix+7)):(*(prefix1+7)),
+    strlen((type==0||type==2)?(*(prefix+7)):(*(prefix1+7))));
+  memcpy(dst+strlen((type==0||type==2)?(*(prefix+7)):(*(prefix1+7))),
     src+p,strlen(src)-p);
   guardarBMP(dst,&info,imgRGB);
 
@@ -182,12 +233,14 @@ int main(int argc,char **argv){
 
   printf("Tiempo de procesamiento de cada proceso concurrente:\n"
     "T1 Crear bmp new gray %ld ms\n"
-    "T2 Procesamiento paralelo new gray PB %ld ms\n"
-    "T3 Crear bmp con brillo de newgray %ld ms\n"
-    "T4 Crear bmp gray %ld ms\n"
-    "T5 Procesamiento paralelo gray PB %ld ms\n"
-    "T6 Crear bmp con brillo de gray %ld ms\n"
-    "Total de tiempo en ejecucion %ld ms\n",p1,p2,p3,p4,p5,p6,total);
+    "T2 Procesamiento paralelo o concurrente new gray PB %ld ms\n"
+    "T3 Procesamiento paralelo o concurrente new gray filtro sobel %ld ms\n"
+    "T4 Crear bmp con brillo de newgray %ld ms\n"
+    "T5 Crear bmp gray %ld ms\n"
+    "T6 Procesamiento paralelo o concurrente gray PB %ld ms\n"
+    "T7 Procesamiento paralelo o concurrente gray filtro sobel %ld ms\n"
+    "T8 Crear bmp con brillo de gray %ld ms\n"
+    "Total de tiempo en ejecucion %ld ms\n",p1,p2,p7,p3,p4,p5,p8,p6,total);
   return 0;
 }
 
@@ -199,7 +252,7 @@ char *reserva_memoria_char(){
   return a;
 }
 
-void call_pthreads(bmpInfoHeader info){
+void call_pthreads(bmpInfoHeader info,int type_fil){
   register int i;
   pthread_t *id=(pthread_t*)malloc(sizeof(pthread_t)*NUM_THREADS);
   int *id_thread=(int*)malloc(sizeof(int)*NUM_THREADS);
@@ -211,7 +264,9 @@ void call_pthreads(bmpInfoHeader info){
   }
   for(i=0;i<NUM_THREADS;i++){
     *(id_thread+i)=i;
-    pthread_create(&*(id+i),NULL,processing_pb,(void*)&*(id_thread+i));
+
+    pthread_create(&*(id+i),NULL,(type_fil==0)?processing_pb:processing_sobel
+      ,(void*)&*(id_thread+i));
   }
   for(i=0;i<NUM_THREADS;i++){
     pthread_join(*(id+i),NULL);
