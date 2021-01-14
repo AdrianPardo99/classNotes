@@ -76,7 +76,7 @@ int main(int argc,char **argv){
   /* Crea el primer nombre de salida para el newgray */
   memcpy(dst,(type==0||type==2)?(*(prefix+1)):(*(prefix1+1)),
     strlen((type==0||type==2)?(*(prefix+1)):(*(prefix1+1))));
-  memcpy(dst+strlen(*(prefix+1)),src+p,strlen(src)-p);
+  memcpy(dst+strlen((type==0||type==2)?(*(prefix+1)):(*(prefix1+1))),src+p,strlen(src)-p);
   displayInfo(&info);
 
   /* Apartado para guardar en newgray */
