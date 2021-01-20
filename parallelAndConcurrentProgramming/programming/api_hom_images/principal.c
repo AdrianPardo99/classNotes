@@ -8,7 +8,7 @@
 #include "threads.h"
 #include "defs.h"
 #include "flag_parser.h"
-
+#include "tools.h"
 /*
  * @author Adrian Gonzalez Pardo
  **/
@@ -61,7 +61,12 @@ int main(int argc,char **argv){
   imgGray_2=reservar_memoria(info.width,info.height);
   imgFiltrada=reservar_memoria(info.width,info.height);
   dst=reserva_memoria_char();
-
+  if(info.imgsize==0){
+    printf("Imagen incompleta mejorando...\n");
+    call_repair(src);
+    free(imgRGB);
+    imgRGB=abrirBMP(src,&info);
+  }
   memset(dst,0,1000);
   memset(imgFiltrada,255,info.width*info.height);
   memset(imgGray_2,0,info.width*info.height);
