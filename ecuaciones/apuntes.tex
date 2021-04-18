@@ -1,4 +1,4 @@
-\documentclass[10pt,executivepaper]{article}
+\documentclass[10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{amsmath}
@@ -10,12 +10,28 @@
 \usepackage{imakeidx}
 \makeindex[columns=3, title=Alphabetical Index, intoc]
 \usepackage{listings}
-\usepackage{xcolor}
 \usepackage{multicol}
 \usepackage{changepage}
 \usepackage{float}
 \usepackage{cite}
 \usepackage{url}
+\usepackage{hyperref}
+\usepackage{pdflscape}
+\usepackage[document]{ragged2e}
+\usepackage{xcolor,colortbl}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+}
+
+\definecolor{Red}{rgb}{0.7,0,0}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{AquaCyan}{rgb}{0.2,1,0.5}
+\definecolor{Gray}{gray}{0.85}
+\definecolor{DarkBlue}{rgb}{0.1,0.1,0.5}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -40,7 +56,14 @@
     showtabs=false,
     tabsize=3
 }
-
+\def\fillandplacepagenumber{%
+ \par\pagestyle{empty}%
+ \vbox to 0pt{\vss}\vfill
+ \vbox to 0pt{\baselineskip0pt
+   \hbox to\linewidth{\hss}%
+   \baselineskip\footskip
+   \hbox to\linewidth{%
+     \hfil\thepage\hfil}\vss}}
 \lstset{style=mystyle}
 
 \title{Diferential Ecuation}
@@ -126,7 +149,7 @@ Ahora con esto, comencemos.
 \subsection{Por sustitución}
 \textbf{Teorema:} Sea $g(x)$ una función derivable y supongase que $F(x)$ es una antiderivada de $f(x)$.\\
 Entonces si $u=g(x)$ tenemos lo siguiente:\\
-\[\int f(g(x))g^{l}(x)dx = \int f(u)du = F(u) + C = F(g(x)) + C   \colon C \in \mathbb{R}\]
+\[\int f(g(x))g'(x)dx = \int f(u)du = F(u) + C = F(g(x)) + C   \colon C \in \mathbb{R}\]
 \\
 \textbf{Ejemplos:}
 \\
@@ -287,7 +310,7 @@ Ahora con algebra:
 \clearpage
 
 \subsection{Integración trigonométrica}
-Si bien ya aplicamos integración con funciones trigonométricas es importante tambien poder saber un par de tecnicas con respecto a propiedades de las mismas para que originen un ahorro de tiempo a la hora de resolver diversos ejercicios y/o resolver ecuaciones diferenciales.\\
+Si bien ya aplicamos integración con funciones trigonométricas es importante también poder saber un par de tecnicas con respecto a propiedades de las mismas para que originen un ahorro de tiempo a la hora de resolver diversos ejercicios y/o resolver ecuaciones diferenciales.\\
 \subsubsection{Tipo I:}
 \[\int\sin^{n}(x)dx;\int\cos^{n}(x)dx\colon\forall n\in\mathbb{Z^{+}}\]
 \textit{Podemos aplicar algunas propiedades como la propiedad de $1$ o en el caso de ser valores de $n$ impar podemos hacer lo siguiente:}
@@ -420,9 +443,9 @@ Una ED con derivadas parciales de una o más variables dependientes con respecto
 \[\frac{\partial^{2}u}{\partial x^{2}}=\frac{\partial^{2}u}{\partial t^{2}}-2\frac{\partial u}{\partial t};\;\;\;\;\;\; u=u(x,t)\]
 \[\frac{\partial u}{\partial y}=\frac{\partial u}{\partial x}; \;\;\;\;\;\; u=u(y)\;\;\&\;\;u=u(x)\]
 \textit{Nota:} En todo o la mayor parte del curso las derivadas ordinarias escribiremos con la notación de Leibniz:
-\[\frac{dy}{dx},\;\;\frac{d^{2}y}{dx^{2}},\;\;\frac{d^{3}y}{dx^{3}},\;\;\ldots\;\;,\frac{d^{n}y}{dx^{n}} \Rightarrow y^{l},\;\;y^{ll},\;\;y^{lll},\;\;y^{n}\]
+\[\frac{dy}{dx},\;\;\frac{d^{2}y}{dx^{2}},\;\;\frac{d^{3}y}{dx^{3}},\;\;\ldots\;\;,\frac{d^{n}y}{dx^{n}} \Rightarrow y',\;\;y'',\;\;y''',\;\;y^{n}\]
 Entonces las EDO de los ejemplos quedan como:
-\[y^{l}+5y=e^{x}\;\;\;\;\;\;y^{ll}-y^{l}+6y=0\;\;\;\;\;\;x^{l}+y^{l}=2x+y\]
+\[y'+5y=e^{x}\;\;\;\;\;\;y''-y'+6y=0\;\;\;\;\;\;x'+y'=2x+y\]
 \clearpage
 \subsection{Clasificación por Orden}
 El orden de una ED ya sea Ordinaria o Parcial, se defide de acuerdo a la derivada de mayor orden\\
@@ -435,29 +458,29 @@ Encontrado los datos tendremos:
 \end{itemize}
 $\therefore$ Esta ED es de Orden 2\\
 \textit{Nota:} En ocasiones las EDO's de $1^{er}$ Orden se escriben como:
-\[y^{l}=f(x,y) \;\;\;\Rightarrow\;\;\; M(x,y)dx+N(x,y)dy=0;\]
+\[y'=f(x,y) \;\;\;\Rightarrow\;\;\; M(x,y)dx+N(x,y)dy=0;\]
 \[N(x,y)dy=-M(x,y)dx;\;\;\;N(x,y)\frac{dy}{dx}=-M(x,y)\]
 \[\frac{dy}{dx}=-\frac{M(x,y)}{N(x,y)}\]
 
 \subsection{Clasificación por Linealidad}
-Una EDO de Orden n-esimo es lineal, si $F(x,y,y^{l},y^{ll},y^{lll},\ldots,y^{n})=0$ es lineal o $y,y^{l},y^{ll},y^{lll},\ldots,y^{n}$, es decir, una EDO de Orden n es lineal si la podemos escribir como:
+Una EDO de Orden n-esimo es lineal, si $F(x,y,y',y'',y''',\ldots,y^{n})=0$ es lineal o $y,y',y'',y''' ,\ldots,y^{n}$, es decir, una EDO de Orden n es lineal si la podemos escribir como:
 \[a_{n}(x)\frac{d^{n}y}{dx^{n}}+\left( a_{n-1}(x)\frac{d^{n-1}y}{dx^{n-1}}+\ldots+a_{2}(x)\frac{d^{2}y}{dx^{2}}+a_{1}(x)\frac{dy}{dx}+a_{0}y\right)=g(x)\ldots\ldots\ldots\ldots(*)\]
 Si vemos la definición de $(*)$ sabemos que es una combinación lineal.\\
 En la combinación lineal observamos que las propiedades y caracteristicas de una EDO lineal son como:
 \begin{enumerate}
-  \item La variable dependiente $(y)$ y todas sus derivadas $y^{l},y^{ll},y^{lll},\ldots,y^{n}$ son de $1^{er}$ grado, es decir, la potencia de cada término en que interviene la variable $y$ es 1
-  \item Los coeficientes $\left(a_{0},a_{1},a_{2},\ldots,a_{n}\;\;de\;\;y,y^{l},y^{ll},\ldots,y^{n}\right)$ dependen unicamento de la variable $x$
+  \item La variable dependiente $(y)$ y todas sus derivadas $y',y'',y''',\ldots,y^{n}$ son de $1^{er}$ grado, es decir, la potencia de cada término en que interviene la variable $y$ es 1
+  \item Los coeficientes $\left(a_{0},a_{1},a_{2},\ldots,a_{n}\;\;de\;\;y,y',y'',\ldots,y^{n}\right)$ dependen unicamento de la variable $x$
 \end{enumerate}
 \textit{Nota:}Una EDO no-lineal es simplemente una que no esta representada en combinación lineal, como:\\
 \textbf{Ejemplo}
-\[(1-y)y^{l}+2y=e^{x}\;\;\;\;\;\;\frac{d^{2}y}{dx^{2}}+\sin(y)=0\;\;\;\;\;\;\frac{d^{4}y}{dx^{4}}+y^{2}=0\]
+\[(1-y)y'+2y=e^{x}\;\;\;\;\;\;\frac{d^{2}y}{dx^{2}}+\sin(y)=0\;\;\;\;\;\;\frac{d^{4}y}{dx^{4}}+y^{2}=0\]
 \clearpage
 \section{Soluciones}
 \subsection{Solución de una ED}
 Uno de los objetivos primordiales del curso es resolver o encontrar soluciones de EDO's.\\
 \textbf{Definición:} Cualquier función $\phi(x)$, definida en un intervalo $I$ y con al menos n-derivadas continuas en dicho intervalo de $I$, que al sustituirse en una EDO de n-esimo orden reduce a la ED en una identidad, se considera solución de dicha EDO.
 \\\textbf{Ejemplos:}
-\[a)\;\frac{dy}{dx}=xy^{\frac{1}{2}}\;\;;\;\;y=\frac{x^{4}}{16}\;\;\;\;|\;\;\;\;b)\;y^{ll}-2y^{l}+y=0\;\;;\;\;y=xe^{x}\]
+\[a)\;\frac{dy}{dx}=xy^{\frac{1}{2}}\;\;;\;\;y=\frac{x^{4}}{16}\;\;\;\;|\;\;\;\;b)\;y''-2y'+y=0\;\;;\;\;y=xe^{x}\]
 \textit{Solución} $a,b$, la cual derivaremos y sustituiremos los valores en las ecuaciones correspodientes, se procedera directamente:
 \[\frac{x^{3}}{4}=x\left(\frac{x^{2}}{4}\right)\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;|\;\;\;\;\;\;(x+2)e^{x}-2[(x+1)e^{x}]+xe^{x}=0\]
 Finalmente resolviendo estas ecuaciones algebraicas podemos probar que la ED es correcta en primer instancia.\\
@@ -474,7 +497,7 @@ La relación $x^{2}+y^{2}=25$ es una solución implicita de la ED
 \[\frac{dy}{dx}=-\frac{x}{y}\;\;\;\;\;\;\;en\;\;\;I=(-5,5)\]
 \textit{Solución}\\
 Derivamos implicitamente a la relación:
-\[2x+2yy^{l}=0 \;\Rightarrow\; 2yy^{l}=-2x \;\Rightarrow\; y^{l}=-\frac{2x}{2y}\;\Rightarrow\; y^{l}=-\frac{x}{y}\]
+\[2x+2yy'=0 \;\Rightarrow\; 2yy'=-2x \;\Rightarrow\; y'=-\frac{2x}{2y}\;\Rightarrow\; y'=-\frac{x}{y}\]
 Por otra parte:
 \[\left|y\right|=\sqrt{25-x^{2}}\;\Rightarrow\;\phi_{1}(x)=\sqrt{25-x^{2}}\;\;\;\&\;\;\;\phi_{2}(x)=-\sqrt{25-x^{2}}\]
 \clearpage
@@ -509,7 +532,7 @@ Procederemos a resolver $(0)$ separando las integrales necesarias si es necesari
 Resolviendo:
 \[\frac{y^{3}}{3}+3\ln\left|y\right|=\ln\left|x^{2}-1\right|+C\]
 \clearpage
-\[b)\;\;\;\;\;\;y^{l}=xy+x-2y-2;\;\;\;y(0)=2\]
+\[b)\;\;\;\;\;\;y'=xy+x-2y-2;\;\;\;y(0)=2\]
 \textit{Solución}
 \[\frac{dy}{dx}=xy+x-2y-2 \;\Rightarrow\;\frac{dy}{dx}=x(y+1)-2(y+1)\]
 \[\Rightarrow\frac{dy}{dx}=(x-2)(y+1)\;\Rightarrow\;\frac{dy}{y+1}=(x-2)dx\]
@@ -534,11 +557,11 @@ Hint: $\tan(y)=\frac{\sin(y)}{\cos(y)}$ por cambio de variable en dicha integral
 \clearpage
 \textbf{Ejercicios propuestos:}
 \begin{enumerate}
-  \item \[y^{l}=\frac{(x-2)(y-1)(y+3)}{(x-1)(x+3)(y-2)}\]
-  \item \[y^{l}=\frac{\sin(x)+e^{2y}\sin(x)}{3e^{y}+e^{y}\cos(2x)}\]
-  \item \[y^{l}=\frac{y+1}{\sqrt{x}+\sqrt{xy}}\]
-  \item \[\left(y\ln(x)\right)^{-1}y^{l}=\left(\frac{x}{y+1}\right)^{2}\]
-  \item \[y^{l}=\frac{xy+3y+x-3}{xy+2y-x-2}\]
+  \item \[y'=\frac{(x-2)(y-1)(y+3)}{(x-1)(x+3)(y-2)}\]
+  \item \[y'=\frac{\sin(x)+e^{2y}\sin(x)}{3e^{y}+e^{y}\cos(2x)}\]
+  \item \[y'=\frac{y+1}{\sqrt{x}+\sqrt{xy}}\]
+  \item \[\left(y\ln(x)\right)^{-1}y'=\left(\frac{x}{y+1}\right)^{2}\]
+  \item \[y'=\frac{xy+3y+x-3}{xy+2y-x-2}\]
 \end{enumerate}
 
 \section{Ecuaciones Homógeneas}
@@ -558,17 +581,17 @@ Sea $f(x,y)=\frac{x^{2}-y^{2}}{x^{2}+y^{2}}$
 \subsection{Ecuaciones Homógeneas en ED}
 Para resolver ED es necesario plantear un modelo de cambio de variable, el cual te permitira resolver la ecuación diferencial de grado $n$\\
 Resolver las siguientes ED's homógeneas:
-\[xy^{l}=\sqrt{x^{2}-y^{2}}+y\]
+\[xy'=\sqrt{x^{2}-y^{2}}+y\]
 \textit{Solución}
-\[y^{l}=\frac{\sqrt{x^{2}-y^{2}}+y}{x}\]
-\[y^{l}=\sqrt{\frac{x^{2}}{x^{2}}-\frac{y^{2}}{x^{2}}}+\frac{y}{x}\;\;\;\;\;\ldots\;\;\;\;y^{l}=\sqrt{1-\frac{y^{2}}{x^{2}}}+\frac{y}{x}\rightarrow (1)\]
+\[y'=\frac{\sqrt{x^{2}-y^{2}}+y}{x}\]
+\[y'=\sqrt{\frac{x^{2}}{x^{2}}-\frac{y^{2}}{x^{2}}}+\frac{y}{x}\;\;\;\;\;\ldots\;\;\;\;y'=\sqrt{1-\frac{y^{2}}{x^{2}}}+\frac{y}{x}\rightarrow (1)\]
 \[f(x,y)=\sqrt{1-\frac{y^{2}}{x^{2}}}+\frac{y}{x}\]
 \[f(tx,ty)=\sqrt{1-\left(\frac{ty}{tx}\right)^{2}}+\frac{ty}{tx}\;\;\;\;\;\;\;\;\therefore\;\;Es\;\;Hom\acute{o}genea\]
 Por lo tanto propondremos el siguiente cambio de variable:
-\[u=\frac{y}{x}\;\;\;\;\;\;\;\;\;\;\;\;y=ux\;\;\;\;\Rightarrow\;\;\;\;y^{l}=u+x\frac{du}{dx}\rightarrow(2)\]
+\[u=\frac{y}{x}\;\;\;\;\;\;\;\;\;\;\;\;y=ux\;\;\;\;\Rightarrow\;\;\;\;y'=u+x\frac{du}{dx}\rightarrow(2)\]
 Ahora sustituimos $(2)$ en $(1)$:
-\[u+xu^{l}=\sqrt{1-u^{2}}+u\]
-\[xu^{l}=\sqrt{1-u^{2}}\;\;\;\;\Leftrightarrow\;\;\;\;x\frac{du}{dx}=\sqrt{1-u^{2}}\]
+\[u+xu'=\sqrt{1-u^{2}}+u\]
+\[xu'=\sqrt{1-u^{2}}\;\;\;\;\Leftrightarrow\;\;\;\;x\frac{du}{dx}=\sqrt{1-u^{2}}\]
 Ahora solo procederemos a resolver la ED, no olvidando el cambio de variable:
 \[xdu=\sqrt{1-u^{2}}dx\;\;\;\;\Leftrightarrow\;\;\;\;\frac{du}{\sqrt{1-u^{2}}}=\frac{dx}{x}\]
 \[\int\frac{du}{\sqrt{1-u^{2}}}=\int\frac{dx}{x}\]
@@ -586,7 +609,7 @@ Entonces comprobaremos si $f(x,y)$ es homógenea:
 \[f(tx,ty)=\frac{ty-tx}{tx+ty}\;\;\;\;=\;\;\;\;\frac{t}{t}\frac{y-x}{x+y}\;\;\;\;\therefore\;Es\;\;hom\acute{o}genea\]
 \[f(x,y)=\frac{x}{x}\frac{\cfrac{y}{x}-1}{1+\cfrac{y}{x}}\;\;\;\;=\;\;\;\;\frac{\cfrac{y}{x}-1}{1+\cfrac{y}{x}}\]
 Entonces con el cambio de variable propondremos:
-\[u=\frac{y}{x}\;\;\;\;\;\;\;\;\;\;\;\;y=ux\;\;\;\;\;\;\;\;\;\;\;\;y^{l}=u+x\frac{du}{dx}\rightarrow(2)\]
+\[u=\frac{y}{x}\;\;\;\;\;\;\;\;\;\;\;\;y=ux\;\;\;\;\;\;\;\;\;\;\;\;y'=u+x\frac{du}{dx}\rightarrow(2)\]
 Ahora sustituyendo $(2)$ en $(1)$:
 \[u+x\frac{du}{dx}=\frac{u-1}{u+1}\;\;\;\;\Leftrightarrow \;\;\;\;x\frac{du}{dx}=\frac{u-1}{u+1}-u\]
 \[x\frac{du}{dx}=\frac{u-1-u(u+1)}{u+1}\;\;\;\;\Leftrightarrow \;\;\;\;x\frac{du}{dx}=\frac{u-1-u^{2}-u}{u+1}\]
@@ -675,9 +698,9 @@ Entonces si tomamos la ecuación $(ix)$ e integramos parcialmente respecto a $x$
 que es la solución buscada, solo falta hallar o determinar $h(y)$ que es una expresion que representa a la constante arbitraría de la integral anterior.
 \\
 Para determinar $h(y)$ se deriva a la $(xi)$ respecto de $y$ y se obtiene:
-\[\frac{\partial{f}}{\partial{y}}=N(x,y)=\frac{\partial}{\partial{y}}\int M(x,y)dx + h^{l}(y)\;\;\;(xii)\]
+\[\frac{\partial{f}}{\partial{y}}=N(x,y)=\frac{\partial}{\partial{y}}\int M(x,y)dx + h'(y)\;\;\;(xii)\]
 Que al despejar se tiene:
-\[h^{l}(y)=N(x,y)=-\frac{\partial}{\partial{y}}\int M(x,y)dx\;\;\;\;(xiii)\]
+\[h'(y)=N(x,y)=-\frac{\partial}{\partial{y}}\int M(x,y)dx\;\;\;\;(xiii)\]
 Y finalmente para conocer $h(y)$ se integra a $(xiii)$.
 \\
 \textit{Nota: }Resaltemos que para el caso de integrar con respecto a $y$ es el mismo procedimiento, solo cambia la variable con la que se trabaja\\
@@ -696,8 +719,8 @@ Paso 2: seleccionar que vamos a integrar (en este caso sobre x)
 Paso 3: Resoviendo la integral:
 \[f(x,y)=y\sin^{2}(x)+h(y)\;\;Soluci\acute{o}n\;general\]
 Paso 4: Ahora derivando con respecto a $y$
-\[\frac{\partial{f}}{\partial{y}}=\sin^{2}(x)+h^{l}(y)\equiv N(x,y)=\sin^{2}(x)\]
-\[\Rightarrow\;\;h^{l}(y)=0\;\;\;\;\int h^{l}(y)=\int 0\]
+\[\frac{\partial{f}}{\partial{y}}=\sin^{2}(x)+h'(y)\equiv N(x,y)=\sin^{2}(x)\]
+\[\Rightarrow\;\;h'(y)=0\;\;\;\;\int h'(y)=\int 0\]
 \[\therefore\;\;h(y)=C\]
 \[f(x,y)=y\sin^{2}(x)+C\;\;Soluci\acute{o}n\;general\]
 Ahora pensando en que $y(x)$
@@ -712,8 +735,8 @@ Algunos otros ejemplos son:
 \[\int\frac{\partial{f}}{\partial{x}}dx=\int M(x,y)dx\]
 \[f(x,y)=e^{xy}+x^{2}-x+h(y)\]
 Ahora para encontrar $h(y)$
-\[\frac{\partial{f}}{\partial{y}}=xe^{xy}+h^{l}(y)\equiv N(x,y)=xe^{xy}-2y+1\]
-\[h^{l}(y)=1-2y\;\;\;\Rightarrow\;\;\;\int h^{l}(y)dy=\int(1-2y)dy\]
+\[\frac{\partial{f}}{\partial{y}}=xe^{xy}+h'(y)\equiv N(x,y)=xe^{xy}-2y+1\]
+\[h'(y)=1-2y\;\;\;\Rightarrow\;\;\;\int h'(y)dy=\int(1-2y)dy\]
 \[h(y)=y-y^{2}+C\]
 \[f(x,y)=e^{xy}+x^{2}-x-y^{2}+y+C\]
 \[f(x,y)=e^{xy}+x^{2}-x-y^{2}+y=C\]
@@ -727,7 +750,7 @@ En el siguiente tema se mostrara el como se resulven ED de primer orden que no c
 \vspace{1.5cm}\\
 \textbf{Ejercicios propuestos:}
 \begin{enumerate}
-  \item \[(3y^{2}+2y\sin(2x))=\left(\cos(2x)-6xy-4\frac{4}{1+y^{2}}\right)y^{l}\]
+  \item \[(3y^{2}+2y\sin(2x))=\left(\cos(2x)-6xy-4\frac{4}{1+y^{2}}\right)y'\]
   \item \[\left(y\sin(x)+\sin(y)+\frac{1}{x}\right)dx+\left(x\cos(y)-\cos(x)+\frac{1}{y}\right)dy=0\]
 \end{enumerate}
 \clearpage
@@ -772,11 +795,179 @@ Resolviendo:
 Resolviendo:
 \[f(x,y)=-y^{2}\csc^{3}(x)+h(x)\]
 Derivando:
-\[\frac{\partial{f}}{\partial{x}}=3y^{2}\csc^{3}(x)\cot(x)+h^{l}(x)\equiv\bar{M}(x,y)=3y^{2}\csc^{3}(x)\cot(x)+\csc^{2}(x)\cos(x)\]
-\[h^{l}(x)=\csc^{2}(x)\cos(x)\;\;\Rightarrow\;\;\int h^{l}(x)dx=\int\csc^{2}(x)\cos(x)dx\]
+\[\frac{\partial{f}}{\partial{x}}=3y^{2}\csc^{3}(x)\cot(x)+h'(x)\equiv\bar{M}(x,y)=3y^{2}\csc^{3}(x)\cot(x)+\csc^{2}(x)\cos(x)\]
+\[h'(x)=\csc^{2}(x)\cos(x)\;\;\Rightarrow\;\;\int h'(x)dx=\int\csc^{2}(x)\cos(x)dx\]
 \[h(x)=\csc(x)+K\]
 \[f(x,y)=-y^{2}\csc^{3}(x)+\csc(x)+K\]
 \[K=-y^{2}\csc^{3}(x)+\csc(x)\]
+\textbf{Ejercicios propuestos:}
+\begin{enumerate}
+  \item \(\displaystyle \left(x+y^{2}\right)dx-2xydy=0\)
+  \item \(\displaystyle \left[2xy\ln\left(y\right)\right]dx+\left(x^{2}+y^{2}\sqrt{y^{2}+1}\right)dy=0\)
+  \item \(\displaystyle \left[3x^{5}\tan\left(y\right)-2y^{3}\right]dx+\left[x^{6}\sec^{2}\left(y\right)+4x^{3}y^{4}+3xy^{2}\right]dy=0\)
+\end{enumerate}
+\clearpage
+\section{Ecuaciones Lineales de $1^{er}$ Orden}
+Dada la ED de la forma:
+\[a_{1}\left(x\right)\frac{dy}{dx}+a_{2}\left(x\right)y=g\left(x\right)\;\;(i)\]
+Si nomalizamos $(i)$ obtendremos:
+\[\frac{dy}{dx}+\frac{a_{2}\left(x\right)}{a_{1}\left(x\right)}y=\frac{g\left(x\right)}{a_{1}\left(x\right)}\;\;(ii)\]
+Y denotaremos lo siguiente:
+\[\frac{a_{2}(x)}{a_{1}(x)}=p(x)\;\;\&\;\;\frac{g(x)}{a_{1}(x)}=q(x)\]
+De tal forma que $(ii)$ lo reescribimos como:
+\[\frac{dy}{dx}+p(x)y=q(x)\;\;\acute{o}\;\;y'+p(x)y=q(x)\;\;(ii)\]
+A la ED $(ii)$ se le llama ED lineal-no homogénea.\\
+El método de soluci para esta forma de la ED lineal-no homogénea de $1^{er}$ orden llamdado método de variación de la constante lo exponemos por medio del siguiente ejemplo:
+\\
+\textbf{Ejemplos:}
+\\
+Resolver:
+\[y'+2xy=0\;\;(0)\]
+\textit{Solución}\\
+\[\frac{dy}{dx}=-2xy \Rightarrow \int\frac{dy}{y}=-2\int xdx \Rightarrow \ln\left|y\right|=-x^{2}+C\]
+Sustituyendo el logaritmo:
+\[y=e^{-x^{2}+C}\Rightarrow y=e^{C}e^{-x^{2}}\;\;\therefore y=Ce^{-x^{2}}\;\;(i)\]
+La cual denotaremos a $(i)$ como la Solución homogénea.\\
+Ahora proponemos sustituirlo en la siguiente ecuación, pero poniendo a $C$ en función de $x$, denotando:
+\[y_{p}=C(x)e^{-x^{2}}\;\;(1)\]
+Derivando incialmente:
+\[\frac{dy}{dx}=C'(x)e^{-x^{2}}-2xC(x)e^{-x^{2}}\;\;(3)\]
+Posteriormente escribimos la formula de la ED lineal-no homogénea, toamdo en consideración la forma de la ED al inicio $(0)$ con los valores de $(1)$ y $(2)$:
+\[C'(x)e^{-x^{2}}-2xC(x)e^{-x^{2}}+2xCe^{-x^2}=2xe^{-x^{2}}\]
+Resolviendo tendremos lo siguiente:
+\[C'(x)e^{-x^{2}}=2xe^{-x^{2}}\Rightarrow C'(x)=2x \Rightarrow \int C'(x)dx=\int 2xdx\]
+Resolviendo:
+\[C(x)=x^{2}+C\]
+Sustituyendo la Solución homogénea:
+\[y(x)=\left(x^{2}+C\right)e^{-x^{2}}\Leftrightarrow y(x)=x^{2}e^{-x^{2}}+Ce^{-x^{2}}\]
 
+\textbf{Ejercicios propuestos:}
+\begin{enumerate}
+  \item \(\displaystyle 2xy' -y=3x^{2}\)
+  \item \(\displaystyle y'+\left(\cot(x)\right)y=2\csc(x)\;y\left(\frac{\pi}{2}\right)=1\)
+\end{enumerate}
+\section{Aplicaciones}
+Una de las principales y comunes aplicaciones de las ED en ingeniería son en el uso y calculo de voltaje o corriente en los Circuitos RLC:
+\begin{center}
+  \includegraphics[scale=0.5]{imgsAux/rlc.png}
+\end{center}
+Dos principios físicos que rigen a los Circuitos RLC en serie son:
+\begin{enumerate}
+  \item La conservación de la Carga Electrica $(Q)$
+  \item La conservación de la Energía
+\end{enumerate}
+Estas leyes de la conservación para Circuitos Electricos estan dados por la función formulada por G. Kirchhoff en 1859 y se llaman Leyes de Kirchhoff, las cuales no dicen:
+\begin{enumerate}
+  \item La corriente $I$ que circula a traves de cada uno de los elementos en serie debe ser la misma.
+  \item La suma algebraica de los cambios instantáneos de potencial (Caídas de voltaje) alrededor de un Circuito cerrado debe ser cero y los voltajes de cada elemento son dados por:
+  \begin{enumerate}
+    \item Resistencia (R):
+    \begin{itemize}
+      \item Ley de Ohm
+      \item \(\displaystyle V_{R}=IR \)
+      \item \(\displaystyle V_{R}\) Caída de voltaje (Volts: V)
+      \item \(\displaystyle I\) Intensidad de Corriente (Amperes: A)
+      \item \(\displaystyle R\) Resistencia (Ohms: $\Omega$)
+    \end{itemize}
+    \item Inductor (Bobina) (L):
+    \begin{itemize}
+      \item Por las leyes de Faraday y la Ley de Lenz:
+      \item \(\displaystyle V_{L}=L\frac{dI}{dt} \)
+      \item \(\displaystyle V_{L}\) Voltaje (V)
+      \item \(\displaystyle L\) Bobina o inductor (Henrys:hy)
+      \item \(\displaystyle I\) Intensidad de Corriente (A)
+    \end{itemize}
+    \item Capacitor (C):
+    \begin{itemize}
+      \item \(\displaystyle V_{C}=\frac{Q}{C}\)
+      \item \(\displaystyle V_{C}\) Voltaje (V)
+      \item \(\displaystyle C\) Capacitor (Farads:Fd)
+      \item \(\displaystyle Q\) Carga (Coulombs:C)
+    \end{itemize}
+  \end{enumerate}
+\end{enumerate}
+La fuerza electromotriz proporciona voltaje o energía potencial al Circuito. Si denotamos a $V$ como $E(t)$ y lo llamamos al voltaje  aplicado al tiempo $t$, entonces la Ley de Kirchhoff de conservación de la energía es:
+\[E(t)=V_{R}+V_{L}+V_{C}\]
+Sustituyendo esta formula con las definiciones de voltaje previamente explicadas, tendremos:
+\[E(t)=IR+L\frac{dI}{dt}+\frac{1}{C}Q\]
+Remarcando que \(\displaystyle I=\frac{dQ}{dt}\), entonces tendremos la ED:
+\[E(t)=L\frac{d^{2}Q}{dt^{2}}+R\frac{dQ}{dt}+\frac{1}{C}Q\;\;ED\;de\;2^{do}\;orden\]
+Para este caso de primer orden pensaremos en circuitos RL o RC, quedando ED de primer orden.
+\subsection{RC}
+Para este caso la ED sería:
+\[R\frac{dQ}{dt}+\frac{1}{C}Q=E(t)\]
+Normalizando:
+\[\dot{Q}+\frac{1}{RC}Q=\frac{E(t)}{R}\]
+\subsection{RL}
+Para este caso la ED sería:
+\[L\frac{dI}{dt}+RI=E(t)\]
+Normalizando:
+\[\dot{I}+\frac{R}{L}I=\frac{E(t)}{L}\]
+\textit{Nota: Resolver como los ejercicios normales, solo cuidar las unidades con las que se trabajan}\\
+\textbf{Ejercicios propuestos:}
+\begin{enumerate}
+  \item Considere un Circuito RC con $R=120\Omega$ y \(\displaystyle C=\frac{1}{1200}fd\) al tiempo $t=0$ se conecta una fuente de voltaje constante de $E(t)=120V$ si inicialmente la carga $Q=0$, determine como cambia la carga en el capacitor y la corriente del circuito.
+  \item Se conecta un resistor $R=40\Omega$ y un Inductor $L=0.1hy$ con una fuente de $E(t)=110V$ si originalmente no hay corriente al $t=0$ $I(t=0)=0$ determine la corriente al tiempo $t$
+\end{enumerate}
+\section{Ecuaciones de Orden Superior}
+La ED de orden superior cuenta con la siguiente forma:
+\[a_{n}(x)\frac{d^{n}x}{dy^{n}}+a_{n-1}(x)\frac{d^{n-1}x}{dy^{n-1}}+\cdots+a_{2}\frac{d^{2}x}{dy^{2}}+a_{1}\frac{dx}{dy}+a_{0}(x)y=g(x)\]
+Se dice llamar ED lineal de Orden-n donde los coeficientes $a_{i}(x)\;\forall i$ y $g(x)$ son funciones continuas en un intervalo I.\\
+La ED se dice homogénea si $g(x)=0\;\forall x\in I$ de otra forma la ED es no-homogénea $g(x)\neq 0$
+\\
+\textbf{Ejemplo:}\\
+\(\displaystyle 2y''+3y'-6y=0\;\;\;\;\;\;\;\;\;x^{3}y'''+6y'+10y=e^{x}\)\\
+Donde podemos ver que la ED de la izquierda si es homogénea, mientras que la ED de la derecha es no-homogénea.\\
+Supongamos que los coeficientos de la ED son números reales, entonces la ED se transforma en:
+\[a_{n}y^{n}+a_{n-1}y^{n-1}+\cdots+a_{2}y''+a_{1}y'+a_{0}y=g(x)\]
+A esta ecuación se le llama ED lineal de coeficientes constantes.\\
+\textbf{Ejemplo:}\\
+\(\displaystyle y'''+2y''+y'=e^{x}\;\;\;\;\;\;\;\;\;xy''+2y'+xy=0\)\\
+\(\displaystyle y'''-y''=12x^{2}+6x\)\\
+Donde podemos ver que las dos primeras ecuaciones de la izquierda son ED's con coeficientes constantes, mientras la ED de la derecho es una ED con coeficientes variables.
+\clearpage
+\subsection{Problemas de valor inicial}
+Para una ED de orden-n sobre un intervalo I el problema de valor inicial consiste en que la ED y las n-condiciones, las cuales son:
+\[y(x_{0})=y_{0},\;y'(x_{0})=y_{1},\;y''(x_{0})=y_{2},\;\cdots,\;y^{n-1}(x_{0})=y_{n-1}\]
+Para cualquier punto $x_{0}\in I$ tendremos al Teorema de superposición:\\
+\textbf{Teorema: (Teorema de superposición)}\\
+Sean \(\displaystyle y_{1},\;y_{2},\;\cdots,\;y_{k}\) soluciones de la ED-homogénea de orden-n en un intervalor I.\\
+Entonces \(\displaystyle C_{1}y_{1},\;C_{2}y_{2},\;\cdots,\;C_{k}y_{k}\) también son soluciones de la ED-homogénea, así como la combinación lineal de estas soluciones, es decir:
+\[C_{1}y_{1}+C_{2}y_{2}+\cdots+C_{k}y_{k}=y(x)\] Que es la solución de la ED.\\
+\textbf{Corolario:}
+\begin{enumerate}
+  \item Un múltiplo constante \(\displaystyle y=C_{i}y_{i}(x)\) de una solución \(\displaystyle y_{i}(x)\) es una ED lineal homogénea, es también solución
+  \item Una ED lineal homogénea posee siempre la solución trivial \(\displaystyle y(x)=0\)
+\end{enumerate}
+\subsection{Ecuaciones lineales homogeneas de coeficientes constantes}
+Sea dada la ED donde los coeficientes \(\displaystyle a_{i}\forall i\) son constantes reales:
+\[a_{n}y^{n}+a_{n-1}y^{n-1}+\cdots+a_{2}y''+a_{1}y'+a_{0}y=0\]
+Consideremos la ecuación asociada (o caracteristica) de la forma:
+\[a_{n}\lambda^{n}+a_{n-1}\lambda^{n-1}+\cdots+a_{2}\lambda^{2}+a_{1}\lambda+a_{0}=0\]
+Donde los \(\displaystyle \lambda\) son raíces o ceros de la ecuación asociada, entre las cuales pueden haber raíces multiples y/o complejas.\\
+Por ello:
+\begin{enumerate}
+  \item Raíces Reales y distintas
+  \begin{itemize}
+    \item Si \(\displaystyle \lambda_{1},\;\lambda_{2},\;\cdots,\;\lambda_{n}\) son reales y distintas, la solución de la ED-lineal-homogénea es de la forma:
+    \item \(\displaystyle y(x)=C_{1}e^{\lambda_{1}x}+C_{2}e^{\lambda_{2}x}+\cdots+C_{n}e^{\lambda_{n}x}\)
+  \end{itemize}
+  \item Raíces Reales multiples:
+  \begin{itemize}
+    \item Las raices de la ecuación asociada son reales, pero algunas son iguales, denotados por: \(\displaystyle \lambda_{1}=\lambda_{2}=\cdots=\lambda_{k}=\bar{\lambda}\); de modo que \(\displaystyle \bar{\lambda}\) es una raíz k-multiple de la solución, mientras que las demas (n-k) raíces son distintas, la solución es de la forma:
+    \item \(\displaystyle y(x)=C_{1}e^{\bar{\lambda_{1}}x}+C_{2}xe^{\bar{\lambda_{2}}x}+\cdots+C_{k}x^{k-1}e^{\bar{\lambda_{n}}x}+C_{k+1}e^{\lambda_{k+1}x}+\cdots+C_{n}e^{\lambda_{n}x}\)
+  \end{itemize}
+  \item Raíces Complejas (Imaginarias) y distintas
+  \begin{itemize}
+    \item Si \(\displaystyle \lambda_{j}=\alpha_{j}\pm i\beta_{j}\) son distintos entre todas las soluciones, es decir  \(\displaystyle\lambda_{1}\neq\lambda_{2}\neq\cdots\neq\lambda_{k}\), las solución quedaria escrita como:
+    \item \(\displaystyle y(x)=C_{1}e^{\alpha_{1}x}\cos\left(\beta_{1}x\right)+C_{2}e^{\alpha_{2}x}\sin\left(\beta_{2}x\right) + \cdots + C_{k}e^{\alpha_{k}x}\sin\left(\beta_{k}x\right)+C_{k+1}e^{\lambda_{k+1}x}+\cdots+C_{n}e^{\lambda_{n}x}\)
+    \item \textit{Nota:} Recordemos que para este caso: \(\displaystyle e^{i\beta x}=\cos\left(\beta x\right)\) y \(\displaystyle e^{-i\beta x}=\sin\left(\beta x\right)\)
+  \end{itemize}
+  \item Raíces Complejas multiples:
+  \begin{itemize}
+    \item Al igual que las raíces reales multiples estas se acompañan por un valor un valor multiplicativo $x$ por cada raiz repetida.
+  \end{itemize}
+\end{enumerate}
+\textit{Nota:} para resolver y encontrar raíces de cualquier tipo es necesario estudiar el tema de División sintetica.
 \printindex
 \end{document}
