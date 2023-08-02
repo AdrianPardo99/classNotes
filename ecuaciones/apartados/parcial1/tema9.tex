@@ -1,0 +1,261 @@
+\chapter{Ecuaciones Exactas}
+
+Sea \(\displaystyle z=f(x,y)\) una función de dos variables con primeras derivadas parciales continuas en una región \(\displaystyle R\tiny{xy}\) del plano \(\displaystyle xy\), entonces su diferencial es:
+
+\begin{equation}
+    \begin{gathered}
+        dz=\frac{\partial{f(x,y)}}{\partial{x}}dx+\frac{\partial{f(x,y)}}{\partial{y}}dy
+    \end{gathered}
+\end{equation}
+
+Si \(\displaystyle f(x,y)=C;\;\;\;C=cte\), entonces \(\displaystyle (7.1)\) se transforma en:
+
+\begin{equation}
+    \begin{gathered}
+        \frac{\partial{f(x,y)}}{\partial{x}}dx+\frac{\partial{f(x,y)}}{\partial{y}}dy=0
+    \end{gathered}
+\end{equation}
+Dada una familia de funciones \(\displaystyle f(x,y)=C\) puede generar una ED de primer orden calculando la diferencial en ambos lados de la igualdad:\\
+
+\textbf{Ejemplo}\\
+
+Si \(\displaystyle x^{2}-5xy+y^{2}=C\) el inciso \(\displaystyle (7.2)\) provee la ED de primer orden
+
+\begin{equation*}
+    \begin{gathered}
+        (2x-5y)dx+(-5x+2y)dy=0
+    \end{gathered}
+\end{equation*}
+De tal forma que la ED es de la forma:
+\begin{equation}
+    \begin{gathered}
+        M(x,y)dx+N(x,y)dy=0
+    \end{gathered}
+\end{equation}
+Se llama ED exacta si su primer miembro es la diferencial total de una función \(\displaystyle f(x.y)\), es decir:
+
+\begin{equation*}
+    \begin{gathered}
+        M(x,y)dx+N(x,y)dy=df(x,y)=\frac{\partial{f(x,y)}}{\partial{x}}dx+\frac{\partial{f(x,y)}}{\partial{y}}dy
+    \end{gathered}
+\end{equation*}
+
+Entonces obtener la solución de una ED exacta consiste en encontrar una función \(\displaystyle f(x,y)=C\), tal que su diferencial sea exactamente la ED que se pretende resolver.\\
+
+\textbf{Ejemplo}\\
+
+Supongase que se tiene la ED:
+
+\begin{equation*}
+    \begin{gathered}
+        2xydx+x^{2}dy=9
+    \end{gathered}
+\end{equation*}
+
+Que es exacta ya que proviene de la función:
+
+\begin{equation*}
+    \begin{gathered}
+        z=f(x,y)=x^{2}y
+    \end{gathered}
+\end{equation*}
+
+Donde podemos observar que:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{\partial{f}}{\partial{x}}=2xy;\;\;\;\frac{\partial{f}}{\partial{y}}=x^{2}\\\\
+        \Rightarrow\;\frac{\partial{f}}{\partial{x}}dx+\frac{\partial{f}}{\partial{y}}dy=2xydx+x^{2}dy=0\\\\
+    \end{gathered}
+\end{equation*}
+
+\begin{equation}
+    \begin{gathered}
+        \Rightarrow\;\;M(x,y)=\frac{\partial{f}}{\partial{x}}
+    \end{gathered}
+\end{equation}
+
+\begin{equation}
+    \begin{gathered}
+        \Rightarrow\;\;N(x,y)=\frac{\partial{f}}{\partial{y}}
+    \end{gathered}
+\end{equation}
+
+Ahora, si derivamos a la ecuaciones \(\displaystyle (7.3)\) y \(\displaystyle (7.4)\), pero ahora con respecto a la otra variable respectivamente:
+
+\begin{equation}
+    \begin{gathered}
+        \frac{\partial{M}}{\partial{y}}=\frac{\partial}{\partial{y}}\frac{\partial{M}}{\partial{x}}=\frac{\partial^{2}{M}}{\partial{y}\partial{x}}
+    \end{gathered}
+\end{equation}
+
+\begin{equation}
+    \begin{gathered}
+        \frac{\partial{N}}{\partial{x}}=\frac{\partial}{\partial{x}}\frac{\partial{M}}{\partial{y}}=\frac{\partial^{2}{N}}{\partial{x}\partial{y}}
+    \end{gathered}
+\end{equation}
+
+Continuando, como supusimos desde un inicio que las derivadas parciales de \(\displaystyle f(x,y)\) son continuas, tendremos:
+
+\begin{equation}
+    \begin{gathered}
+        \frac{\partial{M}}{\partial{y}}\equiv \frac{\partial{N}}{\partial{x}}\;\;Condici\acute{o}n\;para\;que\;una\;ED\;sea\;exacta
+    \end{gathered}
+\end{equation}
+
+\textit{Nota:} Por tanto la ED es exacta si se cumple la condicion \(\displaystyle (7.8)\)\\
+
+Para poder resolver una ED exacta recurriremos a las ecuaciones \(\displaystyle (7.4)\) o \(\displaystyle (7.5)\), es decir, nos apoyaremos de dichas expresiones:
+
+\begin{equation}
+    \begin{gathered}
+        M(x,y)=\frac{\partial{f}}{\partial{x}}
+    \end{gathered}
+\end{equation}
+\begin{equation}
+    \begin{gathered}
+        N(x,y)=\frac{\partial{f}}{\partial{y}}
+    \end{gathered}
+\end{equation}
+Entonces si tomamos la ecuación \(\displaystyle (7.9)\) e integramos parcialmente respecto a \(\displaystyle x\) obtenemos \(\displaystyle f(x,y)\), de tal forma que:
+\begin{equation}
+    \begin{gathered}
+        f(x,y)=\int M(x,y)dx+h(y)
+    \end{gathered}
+\end{equation}
+
+Que es la solución buscada, solo falta hallar o determinar \(\displaystyle h(y)\) que es una expresion que representa a la constante arbitraría de la integral anterior.\\
+
+Para determinar \(\displaystyle h(y)\) se deriva a la \(\displaystyle (xi)\) respecto de \(\displaystyle y\) y se obtiene:
+
+\begin{equation}
+    \begin{gathered}
+        \frac{\partial{f}}{\partial{y}}=N(x,y)=\frac{\partial}{\partial{y}}\int M(x,y)dx + h'(y)
+    \end{gathered}
+\end{equation}
+
+Que al despejar se tiene:
+
+\begin{equation}
+    \begin{gathered}
+        h'(y)=N(x,y)=-\frac{\partial}{\partial{y}}\int M(x,y)dx
+    \end{gathered}
+\end{equation}
+Y finalmente para conocer \(\displaystyle h(y)\) se integra a \(\displaystyle (7.13)\).\\
+
+\textit{Nota: }Resaltemos que para el caso de integrar con respecto a \(\displaystyle y\) es el mismo procedimiento, solo cambia la variable con la que se trabaja
+
+\clearpage
+
+\textbf{Ejemplo}
+
+\begin{equation}
+    \begin{gathered}
+        2y\sin(x)\cos(x)dx+\sin^{2}(x)dy=0
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}\\
+
+Paso 1: Determinar si la ecuación es exacta:
+
+\begin{equation*}
+    \begin{gathered}
+        M(x,y)=2y\sin(x)\cos(x);\;\;\;\;N(x,y)=\sin^{2}(x)\\\\
+        \Rightarrow \frac{\partial{M}}{\partial{y}}=2\sin(x)\cos(x)\;\;\;\&\;\;\;\frac{\partial{N}}{\partial{x}}=2\sin(x)\cos(x)\\\
+        \therefore\;\;\frac{\partial{M}}{\partial{y}}=\frac{\partial{N}}{\partial{x}}\;\;La\;ED\;es\;exacta
+    \end{gathered}
+\end{equation*}
+
+Paso 2: seleccionar que vamos a integrar (en este caso sobre \(\displaystyle x\))
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{\partial{f}}{\partial{x}}=M(x,y)\\\\
+        \int\frac{\partial{f}}{\partial{x}}=\int M(x,y)\;\;\;\;\Leftrightarrow\;\;\;\;f(x,y)=2y\int\sin(x)\cos(x)dx
+    \end{gathered}
+\end{equation*}
+
+Paso 3: Resoviendo la integral:
+
+\begin{equation*}
+    \begin{gathered}
+        f(x,y)=y\sin^{2}(x)+h(y)\;\;Soluci\acute{o}n\;general
+    \end{gathered}
+\end{equation*}
+
+Paso 4: Ahora derivando con respecto a \(\displaystyle y\)
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{\partial{f}}{\partial{y}}=\sin^{2}(x)+h'(y)\equiv N(x,y)=\sin^{2}(x)\\\\
+        \Rightarrow\;\;h'(y)=0\;\;\;\;\int h'(y)=\int 0\\\\
+        \therefore\;\;h(y)=C\\\\
+        f(x,y)=y\sin^{2}(x)+C\;\;Soluci\acute{o}n\;general
+    \end{gathered}
+\end{equation*}
+
+Ahora pensando en que \(\displaystyle y(x)\)
+
+\begin{equation*}
+    \begin{gathered}
+        y(x)=\frac{C}{\sin^{2}(x)}
+    \end{gathered}
+\end{equation*}
+\clearpage
+Algunos otros ejemplos son:
+
+\begin{equation}
+    \begin{gathered}
+        (ye^{xy}+2x-1)dx+(xe^{xy}-2y+1)dy=0
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}
+
+\begin{equation*}
+    \begin{gathered}
+        M(x,y)=ye^{xy}+2x-1\;\;\;\&\;\;\;N(x,y)=xe^{xy}-2y+1\\\\
+        \frac{\partial{M}}{\partial{y}}=xye^{xy}+e^{xy}\;\;\;\&\;\;\;\frac{\partial{N}}{\partial{x}}=xye^{xy}+e^{xy}\\\\
+        \therefore\;\;\frac{\partial{M}}{\partial{y}}\equiv\frac{\partial{N}}{\partial{x}}\\\\
+        \int\frac{\partial{f}}{\partial{x}}dx=\int M(x,y)dx\\\\
+        f(x,y)=e^{xy}+x^{2}-x+h(y)
+    \end{gathered}
+\end{equation*}
+
+Ahora para encontrar \(\displaystyle h(y)\)
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{\partial{f}}{\partial{y}}=xe^{xy}+h'(y)\equiv N(x,y)=xe^{xy}-2y+1\\\\
+        h'(y)=1-2y\;\;\;\Rightarrow\;\;\;\int h'(y)dy=\int(1-2y)dy\\\\
+        h(y)=y-y^{2}+C\\\\
+        f(x,y)=e^{xy}+x^{2}-x-y^{2}+y+C\\\\
+        f(x,y)=e^{xy}+x^{2}-x-y^{2}+y=C
+    \end{gathered}
+\end{equation*}
+
+\vspace{1cm}
+
+\begin{equation}
+    \begin{gathered}
+        (2x+6y)dx+(2y-6x)dy=0
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}
+
+\begin{equation*}
+    \begin{gathered}
+        M(x,y)=2x+6y\;\;\;\&\;\;\;N(x,y)=2y-6x\\\\
+        \frac{\partial{M}}{\partial{y}}=6\;\;\;\&\;\;\;\frac{\partial{N}}{\partial{x}}=-6\\\\
+        \therefore\;\;\frac{\partial{M}}{\partial{y}}\neq\frac{\partial{N}}{\partial{x}}
+    \end{gathered}
+\end{equation*}
+
+En el siguiente tema se mostrara el como se resulven ED de primer orden que no cumplen con la propiedad de ser una ED exacta.\\
+\textbf{Ejercicios propuestos}
+\begin{enumerate}
+  \item \(\displaystyle (3y^{2}+2y\sin(2x))=\left(\cos(2x)-6xy-4\frac{4}{1+y^{2}}\right)y'\)
+  \item \(\displaystyle \left(y\sin(x)+\sin(y)+\frac{1}{x}\right)dx+\left(x\cos(y)-\cos(x)+\frac{1}{y}\right)dy=0\)
+\end{enumerate}

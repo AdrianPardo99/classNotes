@@ -1,0 +1,118 @@
+\chapter{Ecuaciones Lineales de \(\displaystyle1^{er}\) Orden}
+
+Dada la ED de la forma:
+
+\begin{equation}
+    \begin{gathered}
+        a_{1}\left(x\right)\frac{dy}{dx}+a_{2}\left(x\right)y=g\left(x\right)
+    \end{gathered}
+\end{equation}
+
+Si nomalizamos \(\displaystyle(9.1)\) obtendremos:
+
+\begin{equation}
+    \begin{gathered}
+        \frac{dy}{dx}+\frac{a_{2}\left(x\right)}{a_{1}\left(x\right)}y=\frac{g\left(x\right)}{a_{1}\left(x\right)}
+    \end{gathered}
+\end{equation}
+
+Y denotaremos lo siguiente:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{a_{2}(x)}{a_{1}(x)}=p(x)\;\;\&\;\;\frac{g(x)}{a_{1}(x)}=q(x)
+    \end{gathered}
+\end{equation*}
+
+De tal forma que \(\displaystyle (9.2)\) lo reescribimos como:
+
+\begin{equation}
+    \begin{gathered}
+        \frac{dy}{dx}+p(x)y=q(x)\;\;\acute{o}\;\;y'+p(x)y=q(x)
+    \end{gathered}
+\end{equation}
+
+A la ED \(\displaystyle (9.3)\) se le llama ED lineal-no homogénea.\\
+
+El método de soluci para esta forma de la ED lineal-no homogénea de \(\displaystyle 1^{er}\) orden llamdado método de variación de la constante lo exponemos por medio del siguiente Ejemplo\\
+
+\textbf{Ejemplos:}\\
+
+Resolver:
+
+\begin{equation}
+    \begin{gathered}
+        y'+2xy=0\;\;(0)
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}
+
+\begin{equation}
+    \begin{gathered}
+        \frac{dy}{dx}=-2xy \Rightarrow \int\frac{dy}{y}=-2\int xdx \Rightarrow \ln\left|y\right|=-x^{2}+C
+    \end{gathered}
+\end{equation}
+
+Sustituyendo el logaritmo:
+
+\begin{equation*}
+    \begin{gathered}
+        y=e^{-x^{2}+C}\Rightarrow y=e^{C}e^{-x^{2}}\;\;\therefore y=Ce^{-x^{2}}\;\;(i)
+    \end{gathered}
+\end{equation*}
+
+La cual denotaremos a \(\displaystyle(i)\) como la Solución homogénea.\\
+Ahora proponemos sustituirlo en la siguiente ecuación, pero poniendo a \(\displaystyle C\) en función de \(\displaystyle x\), denotando:
+
+\begin{equation*}
+    \begin{gathered}
+        y_{p}=C(x)e^{-x^{2}}\;\;(1)
+    \end{gathered}
+\end{equation*}
+
+Derivando incialmente:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{dy}{dx}=C'(x)e^{-x^{2}}-2xC(x)e^{-x^{2}}\;\;(2)
+    \end{gathered}
+\end{equation*}
+
+Posteriormente escribimos la formula de la ED lineal-no homogénea, toamdo en consideración la forma de la ED al inicio \(\displaystyle (0)\) con los valores de \(\displaystyle (1)\) y \(\displaystyle (2)\):
+
+\begin{equation*}
+    \begin{gathered}
+        C'(x)e^{-x^{2}}-2xC(x)e^{-x^{2}}+2xCe^{-x^2}=2xe^{-x^{2}}
+    \end{gathered}
+\end{equation*}
+
+Resolviendo tendremos lo siguiente:
+
+\begin{equation*}
+    \begin{gathered}
+        C'(x)e^{-x^{2}}=2xe^{-x^{2}}\Rightarrow C'(x)=2x \Rightarrow \int C'(x)dx=\int 2xdx
+    \end{gathered}
+\end{equation*}
+
+Resolviendo:
+
+\begin{equation*}
+    \begin{gathered}
+        C(x)=x^{2}+C
+    \end{gathered}
+\end{equation*}
+
+Sustituyendo la Solución homogénea:
+
+\begin{equation*}
+    \begin{gathered}
+        y(x)=\left(x^{2}+C\right)e^{-x^{2}}\Leftrightarrow y(x)=x^{2}e^{-x^{2}}+Ce^{-x^{2}}
+    \end{gathered}
+\end{equation*}
+
+\textbf{Ejercicios propuestos}
+\begin{enumerate}
+  \item \(\displaystyle 2xy' -y=3x^{2}\)
+  \item \(\displaystyle y'+\left(\cot(x)\right)y=2\csc(x)\;y\left(\frac{\pi}{2}\right)=1\)
+\end{enumerate}

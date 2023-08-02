@@ -1,0 +1,107 @@
+\chapter{Soluciones}
+
+\section{Solución de una ED}
+
+Uno de los objetivos primordiales del curso es resolver o encontrar soluciones de EDO's.\\
+
+\textbf{Definición:} Cualquier función \(\displaystyle\phi(x)\), definida en un intervalo \(\displaystyle I \) y con al menos n-derivadas continuas en dicho intervalo de \(\displaystyle I\), que al sustituirse en una EDO de n-esimo orden reduce a la ED en una identidad, se considera solución de dicha EDO.\\
+
+\textbf{Ejemplos:}
+
+\begin{equation}
+    \begin{gathered}
+        a)\;\frac{dy}{dx}=xy^{\frac{1}{2}}\;\;;\;\;y=\frac{x^{4}}{16}\\\\
+        b)\;y''-2y'+y=0\;\;;\;\;y=xe^{x}
+    \end{gathered}
+\end{equation}
+
+\textit{Solución} \(\displaystyle 4.1\), la cual derivaremos y sustituiremos los valores en las ecuaciones correspodientes, se procedera directamente:
+
+\begin{equation*}
+    \begin{gathered}
+        a)\;\frac{x^{3}}{4}=x\left(\frac{x^{2}}{4}\right)\\\\
+        b)\; (x+2)e^{x}-2[(x+1)e^{x}]+xe^{x}=0
+    \end{gathered}
+\end{equation*}
+
+Finalmente resolviendo estas ecuaciones algebraicas podemos probar que la ED es correcta en primer instancia.\\
+
+\textit{Nota:} Una solución de una ED que es identicamente a cero en un intervalo \(\displaystyle I\) se llama solución trivial (Si \(\displaystyle y\equiv0\))
+
+\section{Solución explicita e implicita}
+
+\textbf{Definición solución explicita:} Se dice que una solución es explicita, si en dicha solución la variable dependiente se expresa únicamente en términos de la variable independiente y constantes\\
+
+\textbf{Ejemplos:}
+
+\begin{equation*}
+    \begin{gathered}
+        y(x)=\frac{x^{2}}{2}+4\;\;\;\;\;\;\;\;\;\;\;\;y(x)=9x^{2}+5x+e^{5x}
+    \end{gathered}
+\end{equation*}
+
+
+\textbf{Definición solución implicita} Una relación \(\displaystyle G(x,y)=0\) es una solución implicita de una EDO en un intervalo \(\displaystyle I\), siempre que exista al menos una función \(\displaystyle\phi(x)\) que satisfaga tanto a la relación como  a la ED en \(\displaystyle I\)\\
+
+\textbf{Ejemplo}
+
+La relación \(\displaystyle x^{2}+y^{2}=25\) es una solución implicita de la ED
+
+\begin{equation}
+    \begin{gathered}
+        \frac{dy}{dx}=-\frac{x}{y}\;\;\;\;\;\;\;en\;\;\;I=(-5,5)
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}\\
+
+Derivamos implicitamente a la relación:
+
+\begin{equation*}
+    \begin{gathered}
+        2x+2yy'=0 \;\Rightarrow\; 2yy'=-2x \\\\
+        \Rightarrow\; y'=-\frac{2x}{2y}\\\\
+        \Rightarrow\; y'=-\frac{x}{y}
+    \end{gathered}
+\end{equation*}
+
+Por otra parte:
+
+\begin{equation*}
+    \begin{gathered}
+        \left|y\right|=\sqrt{25-x^{2}}\\\\
+        \Rightarrow\;\phi_{1}(x)=\sqrt{25-x^{2}}\;\;\;\&\;\;\;\phi_{2}(x)=-\sqrt{25-x^{2}}
+    \end{gathered}
+\end{equation*}
+
+\section{Solución general, condiciones inciales; Solución particular y unicidad de la solución}
+
+Para que sea más ilustrativo este tema se mostrara el como se realiza a traves de una ecuación.\\
+
+Sea \(\displaystyle\frac{dy}{dx}=2x\), encontrar su solución general y su solución particular si \(\displaystyle y(x=0)=1\)\\
+
+\textit{Solución}
+
+\begin{equation}
+    \begin{gathered}
+        \frac{dy}{dx}=2x\:\:\;\Rightarrow dy=2xdx\:\:\;\Rightarrow \int dy=\int 2xdx
+    \end{gathered}
+\end{equation}
+
+En su solución general es decir que se tiene una familia de curvas bajo la constante \(\displaystyle C\) de la integral obtendremos:
+
+\begin{equation*}
+    \begin{gathered}
+        y(x)=x^{2}+C\;\;\;|\;C \in \mathbb{R}\;\;\;\;(Sol.\;\;general)
+    \end{gathered}
+\end{equation*}
+
+Para su solución particular usaremos la condición inicial dada al inicio, obteniendo lo siguiente con \(\displaystyle x=0\):
+
+\begin{equation*}
+    \begin{gathered}
+        y(0)\equiv 1 \\\\
+        1=(0)^{2}+C \Rightarrow C=1\\\\
+        \therefore y(x)=x^{2}+1\;\;\;\;(Sol.\;\;particular)
+    \end{gathered}
+\end{equation*}

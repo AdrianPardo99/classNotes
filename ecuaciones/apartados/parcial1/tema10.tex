@@ -1,0 +1,132 @@
+\chapter{Factor Integrante \(\displaystyle \mu(x,y)\)}
+
+En asos excepcinales, cuando \(\displaystyle df(x,y)=M(x,y)dx+N(x,y)dy\) no representa una ED exacta, se conseguira hallando una función \(\displaystyle \mu(x,y)\) tal que el \(\displaystyle 2^{do}\) miembro de la expresión anterior multipicado por \(\displaystyle \mu(x,y)\), resulta en una diferencial total (exacta).
+
+\begin{equation*}
+    \begin{gathered}
+        df(x,y)=\mu(x,y)M(x,y)dx+\mu(x,y)N(x,y)dy
+    \end{gathered}
+\end{equation*}
+
+¿Cómo hallar a \(\displaystyle \mu(x,y)\)?\\
+
+Partimos del hecho de que la ED tiene que ser exacta
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{\partial}{\partial{y}}(\mu M)\equiv \frac{\partial}{\partial{x}}(\mu N)\;\;\;\Rightarrow\;\;\mu\frac{\partial{M}}{\partial{x}}+M\frac{\partial{\mu}}{\partial{x}}=\mu\frac{\partial{N}}{\partial{y}}+N\frac{\partial{\mu}}{\partial{y}}\\\\
+        \mu\left(\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}\right)=N\frac{\partial{\mu}}{\partial{x}}-M\frac{\partial{\mu}}{\partial{y}}
+    \end{gathered}
+\end{equation*}
+
+Ahora pasaremos la función \(\displaystyle \mu\) del otro lado de modo que:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}=N\frac{1}{\mu}\frac{\partial{\mu}}{\partial{x}}-M\frac{1}{\mu}\frac{\partial{\mu}}{\partial{y}}
+    \end{gathered}
+\end{equation*}
+
+Donde sabemos que:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{1}{\mu}\frac{\partial{\mu}}{\partial{y}}=\frac{\partial}{\partial{y}}\ln(\mu)\;\;\;\;\&\;\;\;\;\frac{1}{\mu}\frac{\partial{\mu}}{\partial{x}}=\frac{\partial}{\partial{x}}\ln(\mu)
+    \end{gathered}
+\end{equation*}
+
+Entonces:
+
+\begin{equation*}
+    \begin{gathered}
+        \Rightarrow\;\;N\frac{\partial{\ln(\mu)}}{\partial{x}}-M\frac{\partial{\ln(\mu)}}{\partial{y}}=\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}\\\\\\
+        Caso\;\;(i)\;\;si\;\;\mu=\mu(x)\;\Rightarrow\;\frac{\partial{\ln(\mu)}}{\partial{y}}=0\\\\
+        \Rightarrow\;\;N\frac{d\ln(\mu)}{dx}=\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}\;\;\;\;\Rightarrow\;\;\;\;\frac{d\ln(\mu)}{dx}=\frac{\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}}{N}\\\\
+        \int d\ln(\mu)=\int\frac{\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}}{N}dx\\\\
+        \ln(\mu)=\int\frac{\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}}{N}dx\;\;\Leftrightarrow\;\;\mu(x)=e^{\int{\frac{\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}}{N}dx}}\\\\\\
+        Caso\;\;(i)\;\;si\;\;\mu=\mu(y)\;\Rightarrow\;\frac{\partial{\ln(\mu)}}{\partial{x}}=0\\\\
+        \Rightarrow\;\;-M\frac{d\ln(\mu)}{dy}=\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}\;\;\;\;\Rightarrow\;\;\;\;\frac{d\ln(\mu)}{dy}=\frac{\frac{\partial{N}}{\partial{x}}-\frac{\partial{M}}{\partial{y}}}{M}\\\\
+        \int d\ln(\mu)=\int\frac{\frac{\partial{N}}{\partial{x}}-\frac{\partial{M}}{\partial{y}}}{M}dy\\\\
+        \mu(y)=e^{\int\frac{\frac{\partial{N}}{\partial{x}}-\frac{\partial{M}}{\partial{y}}}{M}dy}
+    \end{gathered}
+\end{equation*}
+
+\clearpage
+
+\textbf{Ejemplo}
+
+\begin{equation}
+    \begin{gathered}
+        \left(3y^{2}\cot(x)+\sin(x)\cos(x)\right)dx-2ydy=0
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{\partial{M}}{\partial{y}}=6y\cot(x)\;\;\;\;\neq\;\;\;\;\frac{\partial{N}}{\partial{x}}=0
+    \end{gathered}
+\end{equation*}
+
+Propondremos \(\displaystyle\mu=\mu(x)\):
+
+\begin{equation*}
+    \begin{gathered}
+        \int\frac{\frac{\partial{M}}{\partial{y}}-\frac{\partial{N}}{\partial{x}}}{N}dx\;=\;\int\frac{6y\cot(x)}{-2y}dx\;=\;-3\int\cot(x)dx\\\\
+        =\;-3\ln|\sin(x)|\;\;=\;\;\ln\left|\sin(x)\right|^{-3}
+    \end{gathered}
+\end{equation*}
+
+Ahora:
+
+\begin{equation*}
+    \begin{gathered}
+        \mu(x)=e^{\ln\left|\sin(x)\right|^{-3}}\;\;\Leftrightarrow\;\;\mu(x)=\sin^{-3}(x)=\csc^{3}(x)
+    \end{gathered}
+\end{equation*}
+
+Multiplicando por \(\displaystyle\mu\) por la ED original:
+
+\begin{equation*}
+    \begin{gathered}
+        \left(3y^{2}\csc^{3}(x)\cot(x)+\csc^{2}(x)\cos(x)\right)dx-2y\csc^{3}(x)dy=0
+    \end{gathered}
+\end{equation*}
+
+Resolviendo:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{\partial{\bar{M}}}{\partial{y}}=6y\csc^{3}(x)\cot(x)\;\;\;\equiv\;\;\;\frac{\partial{\bar{N}}}{\partial{x}}=6y\csc^{3}(x)\cot(x)\\\\
+        \int\frac{\partial{f}}{\partial{y}}dy=-2\int y\csc^{3}(x)dy
+    \end{gathered}
+\end{equation*}
+
+Resolviendo:
+
+\begin{equation*}
+    \begin{gathered}
+        f(x,y)=-y^{2}\csc^{3}(x)+h(x)
+    \end{gathered}
+\end{equation*}
+
+Derivando:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{\partial{f}}{\partial{x}}=3y^{2}\csc^{3}(x)\cot(x)+h'(x)\equiv\bar{M}(x,y)=3y^{2}\csc^{3}(x)\cot(x)+\csc^{2}(x)\cos(x)\\\\
+        h'(x)=\csc^{2}(x)\cos(x)\;\;\Rightarrow\;\;\int h'(x)dx=\int\csc^{2}(x)\cos(x)dx\\\\
+        h(x)=\csc(x)+K\\\\
+        f(x,y)=-y^{2}\csc^{3}(x)+\csc(x)+K\\\\
+        K=-y^{2}\csc^{3}(x)+\csc(x)
+    \end{gathered}
+\end{equation*}
+
+\textbf{Ejercicios propuestos}
+\begin{enumerate}
+  \item \(\displaystyle \left(x+y^{2}\right)dx-2xydy=0\)
+  \item \(\displaystyle \left[2xy\ln\left(y\right)\right]dx+\left(x^{2}+y^{2}\sqrt{y^{2}+1}\right)dy=0\)
+  \item \(\displaystyle \left[3x^{5}\tan\left(y\right)-2y^{3}\right]dx+\left[x^{6}\sec^{2}\left(y\right)+4x^{3}y^{4}+3xy^{2}\right]dy=0\)
+\end{enumerate}
+\clearpage

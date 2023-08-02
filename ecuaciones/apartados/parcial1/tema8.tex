@@ -1,0 +1,280 @@
+\chapter{Ecuaciones Homógeneas}
+Una función \(\displaystyle f(x,y)\) es homógenea de grado \(\displaystyle n\), si en sus argumentos si cumple lo siguiente:
+
+\begin{equation*}
+    \begin{gathered}
+        f(tx,ty)=t^{n}f(x,y)
+    \end{gathered}
+\end{equation*}
+
+\textbf{Ejemplo}\\
+
+Sea \(\displaystyle f(x,y)=x^{2}+y^{2}-2xy\), verificar que es una función de grado \(\displaystyle 2\):\\
+
+\textit{Solución}
+
+\begin{equation*}
+    \begin{gathered}
+        f(tx,ty)=t^{2}x^{2}+t^{2}y^{2}-2txty\\\\
+        =t^{2}x^{2}+t^{2}y^{2}-2t^{2}xy\\\\
+        =t^{2}(x^{2}+y^{2}-2xy)\\\\
+        \Rightarrow\;\;\;t^{2}f(x,y)
+    \end{gathered}
+\end{equation*}
+Para \(\displaystyle n=0\), se tiene una función de grado \(\displaystyle 0\)\\
+
+\textbf{Ejemplo}\\
+
+Sea \(\displaystyle f(x,y)=\frac{x^{2}-y^{2}}{x^{2}+y^{2}}\)
+
+\textit{Solución}
+
+\begin{equation*}
+    \begin{gathered}
+        f(tx,ty)=\frac{t^{2}x^{2}-t^{2}y^{2}}{t^{2}x^{2}+t^{2}y^{2}}\\\\
+        \Leftrightarrow\;\;\;f(tx,ty)=\frac{t^{2}}{t^{2}}\frac{x^{2}-y^{2}}{x^{2}+y^{2}}\\\\
+        \therefore t^{0}
+    \end{gathered}
+\end{equation*}
+
+\section{Ecuaciones Homógeneas en ED}
+
+Para resolver ED es necesario plantear un modelo de cambio de variable, el cual te permitira resolver la ecuación diferencial de grado \(\displaystyle n\)\\
+
+Resolver las siguientes ED's homógeneas:
+
+\begin{equation}
+    \begin{gathered}
+        xy'=\sqrt{x^{2}-y^{2}}+y
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}
+\begin{equation*}
+    \begin{gathered}
+        y'=\frac{\sqrt{x^{2}-y^{2}}+y}{x}\\\\
+        y'=\sqrt{\frac{x^{2}}{x^{2}}-\frac{y^{2}}{x^{2}}}+\frac{y}{x}
+        \Leftrightarrow y'=\sqrt{1-\frac{y^{2}}{x^{2}}}+\frac{y}{x}\rightarrow (1)\\\\
+        f(x,y)=\sqrt{1-\frac{y^{2}}{x^{2}}}+\frac{y}{x}\\\\
+        f(tx,ty)=\sqrt{1-\left(\frac{ty}{tx}\right)^{2}}+\frac{ty}{tx}\\\\
+        \therefore\;\;Es\;\;Hom\acute{o}genea
+    \end{gathered}
+\end{equation*}
+
+Por lo tanto propondremos el siguiente cambio de variable:
+
+\begin{equation*}
+    \begin{gathered}
+        u=\frac{y}{x}\;\;\;\;\;\;\;\;\;\;\;\;y=ux\;\;\;\;\Rightarrow\;\;\;\;y'=u+x\frac{du}{dx}\rightarrow(2)
+    \end{gathered}
+\end{equation*}
+
+Ahora sustituimos \(\displaystyle (2)\) en \(\displaystyle (1)\):
+
+\begin{equation*}
+    \begin{gathered}
+        u+xu'=\sqrt{1-u^{2}}+u\\\\
+        xu'=\sqrt{1-u^{2}}\\\\
+        \Leftrightarrow\;\;\;\;x\frac{du}{dx}=\sqrt{1-u^{2}}
+    \end{gathered}
+\end{equation*}
+
+Ahora solo procederemos a resolver la ED, no olvidando el cambio de variable:
+
+\begin{equation*}
+    \begin{gathered}
+        xdu=\sqrt{1-u^{2}}dx\\\\
+        \Leftrightarrow\;\;\;\;\frac{du}{\sqrt{1-u^{2}}}=\frac{dx}{x}\\\\
+        \int\frac{du}{\sqrt{1-u^{2}}}=\int\frac{dx}{x}
+    \end{gathered}
+\end{equation*}
+
+Resolviendo la integral tendremos:
+
+\begin{equation*}
+    \begin{gathered}
+        \arcsin(u)=\ln(x)+C\;\;\;\;\Leftrightarrow\;\;\;\;u=\sin\left(\ln\left|x\right|+C\right)
+    \end{gathered}
+\end{equation*}
+
+Sustituyendo el valor de \(\displaystyle u\)
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{y}{x}=\sin\left(\ln\left|x\right|+C\right)\;\;\;\;\Leftrightarrow\;\;\;\;y=x\sin\left(\ln\left|x\right|+C\right)
+    \end{gathered}
+\end{equation*}
+
+\clearpage
+
+\begin{equation}
+    \begin{gathered}
+        (x-y)dx+(x+y)dy=0
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}
+
+\begin{equation*}
+    \begin{gathered}
+        (x-y)dx+(x+y)dy=0\;\;\;\;\Leftrightarrow\;\;\;\;(x+y)dy=(y-x)dx\\\\
+        \frac{dy}{dx}=\frac{(y-x)}{(x+y)}\rightarrow(1)\;\;\;\;\Rightarrow\;\;\;\;f(x,y)=\frac{(y-x)}{(x+y)}
+    \end{gathered}
+\end{equation*}
+
+Entonces comprobaremos si \(\displaystyle f(x,y)\) es homógenea:
+
+\begin{equation*}
+    \begin{gathered}
+        f(tx,ty)=\frac{ty-tx}{tx+ty}\\\\
+        =\frac{t}{t}\frac{y-x}{x+y}\\\\
+        \therefore\;Es\;\;hom\acute{o}genea\\\\
+        f(x,y)=\frac{x}{x}\frac{\cfrac{y}{x}-1}{1+\cfrac{y}{x}}\;\;\;\;=\;\;\;\;\frac{\cfrac{y}{x}-1}{1+\cfrac{y}{x}}
+    \end{gathered}
+\end{equation*}
+
+Entonces con el cambio de variable propondremos:
+
+\begin{equation*}
+    \begin{gathered}
+        u=\frac{y}{x}\;\;\;\;\;\;\;\;\;\;\;\;y=ux\;\;\;\;\;\;\;\;\;\;\;\;y'=u+x\frac{du}{dx}\rightarrow(2)
+    \end{gathered}
+\end{equation*}
+
+Ahora sustituyendo \(\displaystyle (2)\) en \(\displaystyle (1)\):
+
+\begin{equation*}
+    \begin{gathered}
+        u+x\frac{du}{dx}=\frac{u-1}{u+1}\;\;\;\;\Leftrightarrow \;\;\;\;x\frac{du}{dx}=\frac{u-1}{u+1}-u\\\\
+        x\frac{du}{dx}=\frac{u-1-u(u+1)}{u+1}\;\;\;\;\Leftrightarrow \;\;\;\;x\frac{du}{dx}=\frac{u-1-u^{2}-u}{u+1}\\\\
+        x\frac{du}{dx}=-\frac{1+u^{2}}{u+1}\;\;\;\;\Leftrightarrow \;\;\;\;\frac{u+1}{u^{2}+1}du=-\frac{dx}{x}\\\\
+        \int\frac{u+1}{u^{2}+1}du=-\int\frac{dx}{x}\\\\
+        \int\frac{u}{u^{2}+1}du+\int\frac{du}{u^{2}+1}=-\int\frac{dx}{x}
+    \end{gathered}
+\end{equation*}
+
+Resolviendo cada integral tendremos los siguientes resultados:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{1}{2}\ln\left|u^{2}+1\right|+\arctan(u)=-\ln\left|x\right|+C\\\\
+        \frac{1}{2}\ln\left|u^{2}+1\right|+\arctan(u)+\ln\left|x\right|=C\\\\
+    \end{gathered}
+\end{equation*}
+
+Aplicando leyes de los logaritmos:
+
+\begin{equation*}
+    \begin{gathered}
+        \ln\left|x\left(u^{2}+1\right)^{\frac{1}{2}}\right|+\arctan(u)=C
+    \end{gathered}
+\end{equation*}
+
+Sustituyendo los valores de \(\displaystyle u\)
+
+\begin{equation*}
+    \begin{gathered}
+        \ln\left|x\left(\left(\frac{y}{x}\right)^{2}+1\right)^{\frac{1}{2}}\right|+\arctan\left(\frac{y}{x}\right)=C
+    \end{gathered}
+\end{equation*}
+
+\vspace{1cm}
+\begin{equation}
+    \begin{gathered}
+        ydx+x\left(\ln(x)-\ln(y)-1\right)dy=0;\;\;\;\;y(1)=e
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}
+
+\begin{equation*}
+    \begin{gathered}
+        ydx+x(\ln(x)-\ln(y)-1)dy=0\;\;\;\;\Leftrightarrow\;\;\;\;ydx+x\left\{\ln(x)-\right[\ln(y)+\ln(e)\left]\right\}dy=0\\\\
+        ydx+x\left[\ln(x)-\ln(ey)\right]dy=0\;\;\;\;\Leftrightarrow\;\;\;\;ydx+x\ln\left(\frac{x}{ey}\right)dy=0\\\\
+        x\ln\left(\frac{x}{ey}\right)dy=-ydx\;\;\;\;\Leftrightarrow\;\;\;\;x\ln\left(\frac{x}{ey}\right)\frac{dy}{dx}=-y\\\\
+        \frac{dy}{dx}=-\frac{y}{x\ln\left(\frac{x}{ey}\right)}\;\;\;\;\Leftrightarrow\;\;\;\;\frac{dy}{dx}=\frac{y}{x\ln\left(\frac{ey}{x}\right)}
+    \end{gathered}
+\end{equation*}
+
+Reescribiremos lo siguiente:
+
+\begin{equation*}
+    \begin{gathered}
+        f(x,y)=\frac{y}{x\ln\left(\frac{ey}{x}\right)}\\\\
+        f(tx,ty)=\frac{t}{t}\frac{y}{x\ln\left(\frac{t}{t}\frac{ey}{x}\right)}\;\;\;\;\therefore\;\;Es\;\;hom\acute{o}genea
+    \end{gathered}
+\end{equation*}
+
+Proponiendo el cambio de variable:
+
+\begin{equation*}
+    \begin{gathered}
+        u=\frac{y}{x};\;\;\;\;y=ux;\;\;\;\;\frac{dy}{dx}=u+x\frac{du}{dx}
+    \end{gathered}
+\end{equation*}
+
+Entonces:
+\begin{equation*}
+    \begin{gathered}
+        u+x\frac{du}{dx}=\frac{u}{\ln(eu)}\;\;\;\;\Leftrightarrow\;\;\;\;x\frac{du}{dx}=\frac{u-u\ln(eu)}{\ln(eu)}\\\\
+        du=\frac{1}{x}\frac{u-u\ln(eu)}{\ln(eu)}dx\;\;\;\;\Leftrightarrow\;\;\;\;\frac{\ln(eu)}{u-u\ln(eu)}du=\frac{dx}{x}
+    \end{gathered}
+\end{equation*}
+
+Resolviendo la integral:
+
+\begin{equation*}
+    \begin{gathered}
+        \int\frac{\ln(eu)}{u-u\ln(eu)}du=\int\frac{dx}{x}
+    \end{gathered}
+\end{equation*}
+
+Para resolver, podemos proponer el cambio de variable, el cual quedaria con lo siguiente
+
+\begin{equation*}
+    \begin{gathered}
+        v=u-u\ln(eu)\;\;\;\;\Rightarrow\;\;\;\;dv=1-\ln(eu)+1\;\;\;\therefore\;dv=-\ln(eu)
+    \end{gathered}
+\end{equation*}
+
+Ahora:
+
+\begin{equation*}
+    \begin{gathered}
+        -\int\frac{dv}{v}=\int\frac{dx}{x}\;\;\;\;\Leftrightarrow\;\;\;\;-\ln|v|=\ln|x|+C\\\\
+        -\ln|u-u\ln(eu)|=\ln|x|+C\;\;\;\;\Leftrightarrow\;\;\;\;-\ln\left|\frac{y}{x}-\frac{y}{x}\ln\left(\frac{ey}{x}\right)\right|=\ln|x|+C
+    \end{gathered}
+\end{equation*}
+
+Solución general:
+
+\begin{equation*}
+    \begin{gathered}
+        \ln\left|\frac{y}{x}-\frac{y}{x}\ln\left(\frac{ey}{x}\right)\right|+\ln|x|+C=0
+    \end{gathered}
+\end{equation*}
+
+Solución particular \(\displaystyle y(1)=e\):
+
+\begin{equation*}
+    \begin{gathered}
+        \ln\left|e-e\ln(e)^{2}\right|+C=0\;\;\;\;\Leftrightarrow\;\;\;\;\ln\left|e-2e\ln(e)\right|+C=0
+    \end{gathered}
+\end{equation*}
+
+Donde \(\displaystyle \ln\left|e\right|=\ln\left|-e\right|=1\)
+
+\begin{equation*}
+    \begin{gathered}
+        \ln|e-2e|+C=0\;\;\;\;\Leftrightarrow\;\;\;\;\ln|-e|+C=0\;\;\;\therefore\;\;C=-1
+    \end{gathered}
+\end{equation*}
+
+Solución
+
+\begin{equation*}
+    \begin{gathered}
+        \ln\left|\frac{y}{x}-\frac{y}{x}\ln\left(\frac{ey}{x}\right)\right|+\ln|x|-1=0
+    \end{gathered}
+\end{equation*}
+\clearpage

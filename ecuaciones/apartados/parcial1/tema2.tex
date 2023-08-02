@@ -1,0 +1,372 @@
+\section{Por partes}
+\textbf{Definición:} Sea un función dada por el producto de dos funciones cuya función se desea buscar su integral indefinida, la formula esta dada por:\\
+
+\begin{equation*}
+    \begin{gathered}
+        \int u dv = uv - \int vdu
+    \end{gathered}
+\end{equation*}
+
+\emph{Algunos tipos a la hora de aplicar la regla de la integración por partes tenemos que tomar encuenta que la aplicación va acorde a la presedencia de sus funciones}
+% \(\displaystyle \) %
+\begin{itemize}
+  \item Recordemos la famosa regla ILATE que nos ayuda a definir la prioridad de  \(\displaystyle u\)
+  \item I es aplicado para las funciones inversas
+  \item L es aplicado para aquellas funciones logarítmicas
+  \item A es aplicado a todas esas funciones algebraicas
+  \item T es aplicado a todas las funciones trigonométricas
+  \item E es aplicado a todas las funciones que sean exponenciales
+\end{itemize}
+
+Dicho esto continuemos\\
+
+\textbf{Ejemplos:}\\
+% Ecuación 1 %
+% \(\displaystyle \) %
+\begin{equation}
+    \begin{gathered}
+        \int \arcsen(x)dx
+    \end{gathered}
+\end{equation}
+\textit{Solución}\\
+
+Por lo cual aplicamos las reglas y sabemos que hay una función inversa con respecto a la función inversa del \(\displaystyle\sen(x)\) por lo que proponemos a \(\displaystyle u=\arcsen(x)\rightarrow du = \frac{1}{\sqrt{1-x^{2}}}dx\) \& \(\displaystyle dv=dx \rightarrow v=x\)
+
+\begin{equation*}
+    \begin{gathered}
+        x\arcsen(x)-\int \frac{x}{\sqrt{1-x^{2}}}dx
+    \end{gathered}
+\end{equation*}
+
+Resolviendo la ultima integral haciendo cambio de variable \(\displaystyle w=1-x^{2} \rightarrow dw=-2x dx\)
+
+\begin{equation*}
+    \begin{gathered}
+        x\arcsen(x)-\int \frac{1}{\sqrt{w}}dw \Leftrightarrow x\arcsen(x)+\frac{1}{2}\sqrt{w} + C
+    \end{gathered}
+\end{equation*}
+
+Sustituyendo \(\displaystyle w\) con su valor de \(\displaystyle x\) tenemos:
+
+\begin{equation*}
+    \begin{gathered}
+        \int \arcsen(x)dx=x\arcsen(x)+\frac{1}{2}\sqrt{1-x^{2}}+C
+    \end{gathered}
+\end{equation*}
+
+\vspace{1cm}
+% Ecuación 2 %
+% \(\displaystyle \) %
+\begin{equation}
+    \begin{gathered}
+        \int t^{6}\ln(t)dt
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}\\
+
+De acuerdo a lo que tenemos aquí y a las reglas sabemos, tendremos lo siguiente \(\displaystyle u=\ln(t) \rightarrow du=\frac{1}{t}dt\) \& \(\displaystyle dv=t^{6}dt \rightarrow v=\frac{t^7}{7}\)
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{t^7}{7}\ln(t)-\frac{1}{7}\int t^{6}dt
+    \end{gathered}
+\end{equation*}
+
+Ahora resolviendo la ultima integral tenemos que la resolución es:
+
+\begin{equation*}
+    \begin{gathered}
+        \int t^{6}\ln(t)dt = \frac{t^{7}}{7}-\frac{t^{7}}{49} + C
+    \end{gathered}
+\end{equation*}
+
+\vspace{1cm}
+% Ecuación 3 %
+% \(\displaystyle \) %
+\begin{equation}
+    \begin{gathered}
+        \int t^{n}\ln(t)dt \colon n \in \mathbb{N}
+    \end{gathered}
+\end{equation}
+\textit{Solución}\\
+Aplicando la regla ILATE tenemos lo siguiente: \(\displaystyle u=\ln(t)\rightarrow du=\frac{1}{t}dt\) \& \(\displaystyle dv=t^{n}dt \rightarrow v=\frac{t^{n+1}}{n+1}\), ahora aplicando la regla tenemos:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{t^{n+1}}{n+1}\ln(t)-\frac{1}{n+1}\int t^{n}dt
+    \end{gathered}
+\end{equation*}
+
+Ahora solo solucionamos la ultima integral:
+
+\begin{equation*}
+    \begin{gathered}
+        \int t^{n}\ln(t)dt = \frac{t^{n+1}}{n+1}\ln(t)-\frac{t^{n+1}}{(n+1)^{2}} + C \colon \forall n \in \mathbb{N}
+    \end{gathered}
+\end{equation*}
+
+\vspace{1cm}
+% Ecuación 4 %
+% \(\displaystyle \) %
+\begin{equation}
+    \begin{gathered}
+        \int e^{x}\sin(x)dx
+    \end{gathered}
+\end{equation}
+
+De esta integral partiremos de dos soluciones distintas ambas llegando al mismo resultado:\\
+
+\textit{Solución 1}\\
+
+Tomaremos esta integral de forma directa de tal forma que tendremos lo siguiente \(\displaystyle u=\sin(x)\rightarrow du= \cos(x)dx\) \& \(\displaystyle dv=e^{x}dx \rightarrow v=e^{x}\), aunado a esto tenemos:
+
+\begin{equation*}
+    \begin{gathered}
+        e^{x}\sin(x) - \int e^{x}cos(x)dx 
+    \end{gathered}
+\end{equation*}
+
+Volveremos a aplicar la regla de la integral por parte esta vez modificando las letras para hacerlo un poco más explicito \(\displaystyle u=a\) \& \(\displaystyle v=b\), por lo que tendremos es \(\displaystyle a=cos(x) \rightarrow da=-sin(x)dx\) \& \(\displaystyle db=e^{x}dx \rightarrow b=e^{x}\), ahora continuando el desarrollo de la integral tendremos:
+
+\begin{equation*}
+    \begin{gathered}
+        e^{x}\sin(x)-\{e^{x}\cos(x)+\int e^{x}\sin(x)dx\}
+    \end{gathered}
+\end{equation*}
+
+Ahora aplicando distribución y signos tenemos:
+
+\begin{equation*}
+    \begin{gathered}
+        e^{x}\sin(x)-e^{x}\cos(x)-\int e^{x}\sin(x)dx
+    \end{gathered}
+\end{equation*}
+
+Como podemos ver esto se trata de la misma integral a la que tenemos originalmente, lo que nos permite concluir que se trata de una integral ciclica, por lo tanto lo que haremos es lo siguiente:
+
+\begin{equation*}
+    \begin{gathered}
+        \int e^{x}\sin(x)dx = e^{x}\sin(x)-e^{x}\cos(x)-\int e^{x}\sin(x)dx
+    \end{gathered}
+\end{equation*}
+
+Algebraicamente haremos que la integral del lado derecho pase del lado izquierdo:
+
+\begin{equation*}
+    \begin{gathered}
+        2\int e^{x}\sin(x)dx = e^{x}\sin(x)-e^{x}\cos(x)
+    \end{gathered}
+\end{equation*}
+
+Ahora por simple algebra:
+
+\begin{equation*}
+    \begin{gathered}
+        \int e^{x}\sin(x)dx = \frac{1}{2}\{e^{x}\sin(x)-e^{x}\cos(x)\}+C
+    \end{gathered}
+\end{equation*}
+
+\textit{Solución 2}\\
+Veamos a \(\displaystyle\sin(x)\) como su representación en el campo de los números complejos con ayuda de la identidad de Euler:
+
+\begin{equation*}
+    \begin{gathered}
+        \sin(x)= \frac{1}{2i}(e^{ix}-e^{-ix})
+    \end{gathered}
+\end{equation*}
+
+Para complementar esto veamos igual al \(\displaystyle\cos(x)\) en su forma de Euler:
+
+\begin{equation*}
+    \begin{gathered}
+        \cos(x)= \frac{1}{2}(e^{ix}+e^{-ix})
+    \end{gathered}
+\end{equation*}
+
+Entonces tendremos:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{1}{2i}\int e^{x}(e^{ix}-e^{-ix})dx \Leftrightarrow \frac{1}{2i}\{\int e^{x(1+i)} - \int e^{x(1-i)}\}
+    \end{gathered}
+\end{equation*}
+
+Por lo que propondremos el cambio de variable respectivo \(\displaystyle u\) y \(\displaystyle v\) donde \(\displaystyle u=x(1+i)\) y \(\displaystyle v=x(1-i)\), entonces sus derivadas con respecto a \(\displaystyle x\) son \(\displaystyle du=(1+i)dx\) y \(\displaystyle dv=(1-i)dx\), entonces:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{1}{2i}\left\{\frac{1}{1+i}e^{x(1+i)}-\frac{1}{1-i}e^{x(1-i)}\right\}+C
+    \end{gathered}
+\end{equation*}
+
+Ahora aplicaremos el complemento de cada fracción compleja por lo que en el resultado tendremos:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{1}{2i}\left\{\frac{1+i}{2}e^{x(1+i)}-\frac{1-i}{2}e^{x(1-i)}\right\}+C
+    \end{gathered}
+\end{equation*}
+
+Ahora separando términos del campo \(\displaystyle\mathbb{R}\) y \(\displaystyle\mathbb{C}\) tendremos:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{1}{4i}\left\{e^{x(1+i)}-e^{x(1-i)} + i(e^{x(1+i)}+e^{x(1-i)})\right\}+C
+    \end{gathered}
+\end{equation*}
+
+Separando términos y reordenando:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{1}{4i}\left\{e^{x(1+i)}-e^{x(1-i)}\right\} + \frac{1}{4}\left\{(e^{x(1+i)}+e^{x(1-i)})\right\}+C
+    \end{gathered}
+\end{equation*}
+
+Factorizando todos los valores de \(\displaystyle e^{x}\) tendremos:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{e^{x}}{4i}\left\{e^{xi}-e^{-xi}\right\} + \frac{e^{x}}{4}\left\{(e^{xi}+e^{-xi})\right\}+C
+    \end{gathered}
+\end{equation*}
+
+Ahora aplicando identidad de Euler:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{1}{2}e^{x}\sin(x) + \frac{1}{2}e^{x}\cos(x)+C
+    \end{gathered}
+\end{equation*}
+
+Reordenando todo:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{1}{2i}\int e^{x}(e^{ix}-e^{-ix})dx \Leftrightarrow \frac{1}{2i}\left\{\int e^{x(1+i)} - \int e^{x(1-i)}\right\} = \frac{1}{2}e^x\left\{\sin(x)+\cos(x)\right\}+C
+    \end{gathered}
+\end{equation*}
+\vspace{1cm}
+% Ecuación 5 %
+% \(\displaystyle \) %
+\begin{equation}
+    \begin{gathered}
+        \int \sin^{n}(x)dx \colon \forall n\in\mathbb{N}\geq 2
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}\\
+
+Reescribiremos la integral como:
+
+\begin{equation*}
+    \begin{gathered}
+        \int \sin^{n-1}(x)\sin(x)dx
+    \end{gathered}
+\end{equation*}
+
+Ahora si podremos aplicar las reglas podemos considerar que \(\displaystyle\sin^{n-1}(x)\) como un valor exponencial, por lo que propondremos lo siguiente, \(\displaystyle u=\sin^{n-1}(x) \rightarrow du=(n-1)\sin^{n-2}(x)\cos(x)dx\) \& \(\displaystyle dv = \sin(x)dx \rightarrow v=-\cos(x)\), ahora:
+
+\begin{equation*}
+    \begin{gathered}
+        -\cos(x)\sin^{n-1}(x) + (n-1)\int \sin^{n-2}(x)\cos^{2}(x)dx
+    \end{gathered}
+\end{equation*}
+
+Recordemos las identidades trigonométricas de valores que son iguales a \(\displaystyle 1\):
+
+\begin{equation*}
+    \begin{gathered}
+        1=\cos^2(x)+\sin^{2}(x)\\
+        1=\sec^{2}(x)-\tan^{2}(x)
+    \end{gathered}
+\end{equation*}
+
+Aplicaremos esta identidad en la integral de tal forma que podremos sustituir la integral a dos partes:
+
+\begin{equation*}
+    \begin{gathered}
+        -\cos(x)\sin^{n-1}(x) + (n-1)\left\{\int \sin^{n-2}(x)dx -\int\sin^{n}(x)dx\right\}
+    \end{gathered}
+\end{equation*}
+
+Aplicando distributividad:
+
+\begin{equation*}
+    \begin{gathered}
+        \int\sin^{n}(x)dx=-\cos(x)\sin^{n-1}(x) + (n-1)\int \sin^{n-2}(x)dx -(n-1)\int\sin^{n}(x)dx
+    \end{gathered}
+\end{equation*}
+
+Ahora aplicando algebra:
+
+\begin{equation*}
+    \begin{gathered}
+        n\int\sin^{n}(x)dx=-\cos(x)\sin^{n-1}(x) + (n-1)\int \sin^{n-2}(x)dx + C
+    \end{gathered}
+\end{equation*}
+
+De nuevo aplicando algebra:
+
+\begin{equation*}
+    \begin{gathered}
+        \int\sin^{n}(x)dx=\frac{1}{n}\left\{-\cos(x)\sin^{n-1}(x) + (n-1)\int \sin^{n-2}(x)dx\right\} + C \colon \forall n\in\mathbb{N}\geq 2
+    \end{gathered}
+\end{equation*}
+
+\vspace{1cm}
+% Ecuación 6 %
+% \(\displaystyle \) %
+\begin{equation}
+    \begin{gathered}
+        \int \cos^{n}(x)dx \colon \forall n\in\mathbb{N}\geq 2
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}\\
+
+Ahora ya que tenemos noción de la integral anterior podemos proceder con lo siguiente:
+
+\begin{equation*}
+    \begin{gathered}
+        \int\cos^{n-1}(x)\cos(x)dx\\
+        u=\cos^{n-1}(x)\rightarrow du=-\cos^{n-2}(x)\sin(x)dx\\
+        dv=\cos(x)dx \rightarrow v=\sin(x)
+    \end{gathered}
+\end{equation*}
+
+Esto implica:
+
+\begin{equation*}
+    \begin{gathered}
+        \cos^{n-1}(x)\sin(x)+(n-1)\int\cos^{n-2}\sin^{2}(x)dx
+    \end{gathered}
+\end{equation*}
+
+Aplicando igual identidades trigonométrica directamente:
+
+\begin{equation*}
+    \begin{gathered}
+        \cos^{n-1}(x)\sin(x)+(n-1)\left\{\int\cos^{n-2}(x)dx - \int\cos^{n}(x)dx\right\}\\
+        \int\cos^{n}(x)dx =\cos^{n-1}(x)\sin(x)+(n-1)\int\cos^{n-2}(x)dx-(n-1)\int\cos^{n}(x)dx\ 
+    \end{gathered}
+\end{equation*}
+
+Ahora con algebra:
+
+\begin{equation*}
+    \begin{gathered}
+        n\int\cos^{n}(x)dx =\cos^{n-1}(x)\sin(x)+(n-1)\int\cos^{n-2}(x)dx+C\\
+        \int\cos^{n}(x)dx =\frac{1}{n}\left\{\cos^{n-1}(x)\sin(x)+(n-1)\int\cos^{n-2}(x)dx\right\}+C \colon \forall n\in\mathbb{N}\geq 2
+    \end{gathered}
+\end{equation*}
+
+\textbf{Ejercicios propuestos}
+
+\begin{enumerate}
+  \item \(\displaystyle\int\ln(t)dt\)
+  \item \(\displaystyle\int \cos^{3}(x)dx\)
+  \item \(\displaystyle\int \sin^{5}(x)dx\)
+\end{enumerate}
+\clearpage

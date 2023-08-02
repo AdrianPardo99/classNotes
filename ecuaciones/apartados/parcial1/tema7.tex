@@ -1,0 +1,160 @@
+\chapter{Método de separación de variables para EDO-\(\displaystyle 1^{er}\) Orden}
+Sea \(\displaystyle\frac{dy}{dx}=f(x,y)\), donde sabemos o definimos que \(\displaystyle f(x,y)=\frac{h(x)}{g(y)}\)\\
+
+Solucionando esto tendremos que de acuerdo a la ED \(\displaystyle\frac{dy}{dx}=\frac{h(x)}{g(y)}\), reacomodando los terminos y tomando en cuenta que los terminos del diferencial \(\displaystyle dx\) y \(\displaystyle dy\) respectivamente tendremos que "multiplicar" por un diferencial en ambas partes de la ED, este diferencial es \(\displaystyle dx\).\\
+
+Obteniendo:
+
+\begin{equation*}
+    \begin{gathered}
+        dy=\frac{h(x)}{g(y)}dx
+    \end{gathered}
+\end{equation*}
+
+Reacomodando las funciones de \(\displaystyle f(x,y)\):
+
+\begin{equation*}
+    \begin{gathered}
+        g(y)dy=h(x)dx
+    \end{gathered}
+\end{equation*}
+
+Finalmente integrando:
+
+\begin{equation*}
+    \begin{gathered}
+        \int g(y)dx=\int h(x)dx
+    \end{gathered}
+\end{equation*}
+
+Obtendremos:
+
+\begin{equation*}
+    \begin{gathered}
+        G(y)=H(x)+C \;\Leftrightarrow\; G(y)-H(x)=C
+    \end{gathered}
+\end{equation*}
+
+\textbf{Ejemplo}\\
+
+Integrar las siguiente ED's:
+
+\begin{equation}
+    \begin{gathered}
+        \frac{dy}{dx}=\frac{2xy}{(x^{2}-1)(y^{3}+3)}
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}
+
+\begin{equation*}
+    \begin{gathered}
+        dy=\frac{2xy}{(x^{2}-1)(y^{3}+3)}dx\\\\
+        \frac{(y^{3}+3)}{y}dy=\frac{2x}{x^{2}-1}dx \;\ldots\ldots\;(0)
+    \end{gathered}
+\end{equation*}
+
+Procederemos a resolver \(\displaystyle (0)\) separando las integrales necesarias si es necesario y con las tecnicas previamente aprendidas:
+
+\begin{equation*}
+    \begin{gathered}
+        \int\frac{y^{3}}{y}dy+3\int\frac{dy}{y}=\int\frac{2x}{x^{2}-1}dx
+    \end{gathered}
+\end{equation*}
+
+Resolviendo:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{y^{3}}{3}+3\ln\left|y\right|=\ln\left|x^{2}-1\right|+C
+    \end{gathered}
+\end{equation*}
+
+\vspace{1cm}
+
+\begin{equation}
+    \begin{gathered}
+        y'=xy+x-2y-2;\;\;\;y(0)=2
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{dy}{dx}=xy+x-2y-2 \;\Rightarrow\;\frac{dy}{dx}=x(y+1)-2(y+1)\\\\
+        \Rightarrow\frac{dy}{dx}=(x-2)(y+1)\;\Rightarrow\;\frac{dy}{y+1}=(x-2)dx\\\\
+        \int\frac{dy}{y+1}=\int(x-2)dx
+    \end{gathered}
+\end{equation*}
+
+Solucionando la integral:
+
+\begin{equation*}
+    \begin{gathered}
+        \ln\left|y+1\right|=\frac{x^{2}}{2}-2x+C
+    \end{gathered}
+\end{equation*}
+
+Ahora para resolver el apartado de las condiciones iniciales para encontrar una solución particular procederemos inicialmente a reducir o expandira la ecuación, con:
+
+\begin{equation*}
+    \begin{gathered}
+        e^{\ln|y+1|}=e^{x^{2}-2x+C} \Leftrightarrow y+1=e^{x^{2}-2x+C}
+    \end{gathered}
+\end{equation*}
+
+De modo que la constante \(\displaystyle C\) que interviene en el valor exponencial del lado de \(\displaystyle x\) la podemos separar e inmediatamente decir que es:
+
+\begin{equation*}
+    \begin{gathered}
+        y+1=Ce^{x^{2}-2x}\\
+        \Rightarrow y=Ce^{x^{2}-2x}-1
+    \end{gathered}
+\end{equation*}
+
+De modo que ya tendremos una función \(\displaystyle y(x)\), ahora aplicando las condiciones tendremos:
+
+\begin{equation*}
+    \begin{gathered}
+        2=Ce^{x^{2}-2x}-1\\\\
+        \Rightarrow 2=Ce^{0}-\\\\
+        \Rightarrow 2=C-1\\\\
+        \Rightarrow C=3\\\\
+        \therefore y(x)=3e^{x^{2}-2x}-1
+    \end{gathered}
+\end{equation*}
+
+\clearpage
+\begin{equation}
+    \begin{gathered}
+        \frac{dy}{dx}(x^{2}+1)\tan(y)=x
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}
+
+\begin{equation*}
+    \begin{gathered}
+        \tan(y)\frac{dy}{dx}=\frac{x}{x^{2}+1}\;\;\;\;\;\;\Rightarrow\;\;\;\;\;\; \tan(y)dy=\frac{x}{x^{2}+1}dx\\\\
+        \int \tan(y)dy=\int\frac{x}{x^{2}+1}dx
+    \end{gathered}
+\end{equation*}
+
+Hint: \(\displaystyle \tan(y)=\frac{\sin(y)}{\cos(y)}\) por cambio de variable en dicha integral
+
+\begin{equation*}
+    \begin{gathered}
+        \int\frac{\sin(y)}{\cos(y)}dy=\int\frac{x}{x^{2}+1}dx\\\\
+        -\ln\left|\cos(y)\right|=\frac{1}{2}\ln\left|x^{2}+1\right|+C
+    \end{gathered}
+\end{equation*}
+\textbf{Ejercicios propuestos}
+\begin{enumerate}
+  \item \(\displaystyle y'=\frac{(x-2)(y-1)(y+3)}{(x-1)(x+3)(y-2)}\)
+  \item \(\displaystyle y'=\frac{\sin(x)+e^{2y}\sin(x)}{3e^{y}+e^{y}\cos(2x)}\)
+  \item \(\displaystyle y'=\frac{y+1}{\sqrt{x}+\sqrt{xy}}\)
+  \item \(\displaystyle \left(y\ln(x)\right)^{-1}y'=\left(\frac{x}{y+1}\right)^{2}\)
+  \item \(\displaystyle y'=\frac{xy+3y+x-3}{xy+2y-x-2}\)
+\end{enumerate}
+

@@ -1,0 +1,121 @@
+\chapter{Ecuaciones Diferenciales}
+
+\textbf{Definición:} Se dice que una Ecuación Diferencial (ED) que contiene las derivadas de una o más variables dependientes, con respecto a una o más variables independientes es conocida como una ED.\\
+
+\textit{Nota:} Para referirse a ellas, se clasifican a las ED's por:
+
+\begin{itemize}
+  \item Tipo
+  \item Orden
+  \item Linealidad
+\end{itemize}
+
+\section{Clasificación por Tipo}
+
+Si una ED contiene solo derivadas ordinarias de una o más variables independientes, se dice que es una ED Ordinaria (EDO)\\
+
+\textbf{Ejemplos:}
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{dy}{dx}+5y=e^{x}\\\\
+        \frac{d^{2}y}{dx^{2}}-\frac{dy}{dx}+6y=0\\\\
+        \frac{dx}{dt}+\frac{dy}{dt}=2x+y
+    \end{gathered}
+\end{equation*}
+
+Una ED con derivadas parciales de una o más variables dependientes con respecto de dos o más variables independientes se llaman ED Parcial (EDP)\\
+
+\textbf{Ejemplos:}
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{\partial^{2}u}{\partial x^{2}}+\frac{\partial^{2}u}{\partial y^{2}}=0;\;\;\;\;\;\; u=u(x,y)\\\\
+        \frac{\partial^{2}u}{\partial x^{2}}=\frac{\partial^{2}u}{\partial t^{2}}-2\frac{\partial u}{\partial t};\;\;\;\;\;\; u=u(x,t)\\\\
+        \frac{\partial u}{\partial y}=\frac{\partial u}{\partial x}; \;\;\;\;\;\; u=u(y)\;\;\&\;\;u=u(x)
+    \end{gathered}
+\end{equation*}
+
+\textit{Nota:} En todo o la mayor parte del curso las derivadas ordinarias escribiremos con la notación de Leibniz:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{dy}{dx},\;\;\frac{d^{2}y}{dx^{2}},\;\;\frac{d^{3}y}{dx^{3}},\;\;\ldots\;\;,\frac{d^{n}y}{dx^{n}} \Rightarrow y',\;\;y'',\;\;y''',\;\;y^{n}
+    \end{gathered}
+\end{equation*}
+
+Entonces las EDO de los ejemplos quedan como:
+
+\begin{equation*}
+    \begin{gathered}
+        y'+5y=e^{x}\\
+        y''-y'+6y=0\\
+        x'+y'=2x+y\\
+    \end{gathered}
+\end{equation*}
+
+\section{Clasificación por Orden}
+
+El orden de una ED ya sea Ordinaria o Parcial, se defide de acuerdo a la derivada de mayor orden\\
+
+\textbf{Ejemplos:}
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{d^{2}y}{dx^{2}}+5\left(\frac{dy}{dx}\right)^{3}-4y=e^{x}
+    \end{gathered}
+\end{equation*}
+
+Encontrado los datos tendremos:
+
+\begin{itemize}
+  \item \(\displaystyle\frac{d^{2}y}{dx^{2}}\) Es una componente diferencial de Orden 2
+  \item \(\displaystyle5\left(\frac{d^y}{dx}\right)^{3}\) Es una componente diferencial de Orden 1
+\end{itemize}
+
+\(\displaystyle\therefore\) Esta ED es de Orden 2\\
+
+\textit{Nota:} En ocasiones las EDO's de \(\displaystyle 1^{er}\) Orden se escriben como:
+
+\begin{equation*}
+    \begin{gathered}
+        y'=f(x,y) \\\\
+        M(x,y)dx+N(x,y)dy=0;\\\\
+        N(x,y)dy=-M(x,y)dx;\\\\
+        N(x,y)\frac{dy}{dx}=-M(x,y)\\\\
+        \frac{dy}{dx}=-\frac{M(x,y)}{N(x,y)}
+    \end{gathered}
+\end{equation*}
+
+\clearpage
+\section{Clasificación por Linealidad}
+
+Una EDO de Orden n-esimo es lineal, si \(\displaystyle F(x,y,y',y'',y''',\ldots,y^{n})=0\) es lineal o \(\displaystyle y,y',y'',y''' ,\ldots,y^{n}\), es decir, una EDO de Orden n es lineal si la podemos escribir como:
+
+\begin{equation}
+    \begin{gathered}
+        a_{n}(x)\frac{d^{n}y}{dx^{n}}+\left( a_{n-1}(x)\frac{d^{n-1}y}{dx^{n-1}}+\ldots+a_{2}(x)\frac{d^{2}y}{dx^{2}}+a_{1}(x)\frac{dy}{dx}+a_{0}y\right)=g(x)
+    \end{gathered}
+\end{equation}
+
+Si vemos la definición de \(\displaystyle (3.1)\) sabemos que es una combinación lineal.\\
+
+En la combinación lineal observamos que las propiedades y caracteristicas de una EDO lineal son como:
+
+\begin{enumerate}
+  \item La variable dependiente \(\displaystyle (y)\) y todas sus derivadas \(\displaystyle y',y'',y''',\ldots,y^{n}\) son de \(\displaystyle 1^{er}\) grado, es decir, la potencia de cada término en que interviene la variable \(\displaystyle y\) es \(\displaystyle 1\)
+  \item Los coeficientes \(\displaystyle\left(a_{0},a_{1},a_{2},\ldots,a_{n}\;\;de\;\;y,y',y'',\ldots,y^{n}\right)\) dependen unicamento de la variable \(\displaystyle x\)
+\end{enumerate}
+
+\textit{Nota:}Una EDO no-lineal es simplemente una que no esta representada en combinación lineal, como:\\
+
+\textbf{Ejemplo}
+
+\begin{equation*}
+    \begin{gathered}
+        (1-y)y'+2y=e^{x}\\\\
+        \frac{d^{2}y}{dx^{2}}+\sin(y)=0\\\\
+        \frac{d^{4}y}{dx^{4}}+y^{2}=0
+    \end{gathered}
+\end{equation*}
+\clearpage

@@ -1,0 +1,142 @@
+\section{Integración trigonométrica}
+
+Si bien ya aplicamos integración con funciones trigonométricas es importante también poder saber un par de tecnicas con respecto a propiedades de las mismas para que originen un ahorro de tiempo a la hora de resolver diversos ejercicios y/o resolver ecuaciones diferenciales.\\
+
+\subsection{Tipo I}
+
+\begin{equation*}
+    \begin{gathered}
+        \int\sin^{n}(x)dx;\int\cos^{n}(x)dx\colon\forall n\in\mathbb{Z^{+}}
+    \end{gathered}
+\end{equation*}
+
+\textit{Podemos aplicar algunas propiedades como la propiedad de \(\displaystyle 1\) o en el caso de ser valores de \(\displaystyle n\) impar podemos hacer lo siguiente:}
+
+\begin{equation*}
+    \begin{gathered}
+        \sin^{2}(x)=\frac{1}{2}\left(1-\cos(2x)\right)\\\\
+        \cos^{2}(x)=\frac{1}{2}\left(1+\cos(2x)\right)\\\\
+        1=\cos^{2}(x)+\sin^{2}(x)\\\\
+        1=\sec^{2}(x)-\tan^{2}(x)
+    \end{gathered}
+\end{equation*}
+
+\textbf{Ejemplos}
+
+Si \(\displaystyle n\) es impar entonces:
+
+\begin{equation}
+    \begin{gathered}
+        \int \sin^{5}(x)dx
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}\\
+
+Primero sabemos y debemos separar el valor de \(\displaystyle\sin^{5}(x)\) por \(\displaystyle\sin^{4}(x)\sin(x)\)
+
+\begin{equation*}
+    \begin{gathered}
+        \int\sin^{4}(x)\sin(x)dx
+    \end{gathered}
+\end{equation*}
+
+Utilizando propiedades:
+
+\begin{equation*}
+    \begin{gathered}
+        \int(1-\cos^{2}(x))^{2}\sin(x)dx \Leftrightarrow \int(1-2\cos^{2}(x)+\cos^{4}(x))\sin(x)dx\\\\
+        \int\sin(x)dx - 2\int\cos^{2}(x)\sin(x)dx + \int\cos^{4}(x)\sin(x)dx
+    \end{gathered}
+\end{equation*}
+
+Resolveremos la integral de los cosenos elevados a un valor \(\displaystyle n\) con cambio de variable, resolviendo directamente tendremos:
+
+\begin{equation*}
+    \begin{gathered}
+        \int \sin^{5}(x)dx=-\cos(x)+\frac{2\cos^3(x)}{3}-\frac{\cos^{5}(x)}{5}+C
+    \end{gathered}
+\end{equation*}
+
+\vspace{1cm}
+Si \(\displaystyle n\) es par, entonces:
+
+\begin{equation}
+    \begin{gathered}
+        \int\sin^{2}(x)dx
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}\\
+
+Utilizando identidades de la introducción a este tipo integrales, tenemos:
+
+\begin{equation*}
+    \begin{gathered}
+        \frac{1}{2}\int(1-\cos(2x))dx \Leftrightarrow \frac{1}{2}\left\{\int dx - \int\cos(2x)dx\right\}
+    \end{gathered}
+\end{equation*}
+
+Resolviendo las integrales
+
+\begin{equation*}
+    \begin{gathered}
+        \int\sin^{2}(x)dx=\frac{x}{2}-\frac{\sin(2x)}{4}+C
+    \end{gathered}
+\end{equation*}
+
+\textbf{Ejercicios propuestos}
+
+\begin{enumerate}
+  \item \(\displaystyle\int\cos^{3}(x)dx\)
+  \item \(\displaystyle\int\sin^{4}(x)dx\)
+\end{enumerate}
+
+
+\subsection{Tipo II}
+
+\begin{equation*}
+    \begin{gathered}
+        \sin^{m}(x)\cos^{n}(x)dx
+    \end{gathered}
+\end{equation*}
+
+Si \(\displaystyle m\) o \(\displaystyle n\) son \(\displaystyle\mathbb{Z^{+}}\) y alguno es impar, y el otro exponente es cualquier número, factorizamos \(\displaystyle\sin(x)\) o \(\displaystyle\cos(x)\) y utilizamos la identidad de 1, para otros casos a continuación se presentan algunas identidades de producto de funciones trigonométricas con factores \(\displaystyle m\) y \(\displaystyle n\) distintas pero \(\displaystyle\mathbb{R}\) o \(\displaystyle\mathbb{Z}\):
+
+\begin{equation*}
+    \begin{gathered}
+        \sin(mx)\cos(nx)=\frac{1}{2}\{\sin[(m+n)x]+\sin[(m-n)x]\}\\\\
+        \sin(mx)\sin(nx)=\frac{1}{2}\{\cos[(m-n)x]-\cos[(m+n)x]\}\\\\
+        \cos(mx)\cos(nx)=\frac{1}{2}\{\cos[(m+n)x]+\cos[(m-n)x]\}
+    \end{gathered}
+\end{equation*}
+
+\textbf{Ejemplo}
+
+\begin{equation}
+    \begin{gathered}
+        \int\sin^{3}(x)\cos^{-4}(x)dx \Leftrightarrow \int\sin^{2}(x)\cos^{-4}(x)\sin(x)dx
+    \end{gathered}
+\end{equation}
+
+\textit{Solución}
+
+\begin{equation*}
+    \begin{gathered}
+        \int(1-\cos^{2}(x))\cos^{-4}(x)\sin(x)dx \Leftrightarrow \int\cos^{-4}(x)\sin(x)dx - \int\cos^{-2}(x)\sin(x)dx
+    \end{gathered}
+\end{equation*}
+
+Por cambio de variable \(\displaystyle u=\cos(x) \rightarrow du=-\sin(x)dx\) y aplicando directamente a resolver la integral tendremos:
+
+\begin{equation*}
+    \begin{gathered}
+        \int\sin^{3}(x)\cos^{-4}(x)dx = \frac{\sec^{3}(x)}{3}-\sec(x) +C
+    \end{gathered}
+\end{equation*}
+
+\textbf{Ejercicio propuesto:}
+\begin{enumerate}
+  \item \(\displaystyle\int\sin^{2}(x)\cos^{4}(x)dx\)
+\end{enumerate}
+\clearpage
